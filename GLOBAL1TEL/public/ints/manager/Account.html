@@ -1,0 +1,942 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head><script src="/ints/assets/js/_shot_regenerator.js"></script><script src="/ints/assets/js/_shot_fetch_polyfill.js"></script>
+<title>GLOBAL1TEL | My Account</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IPRN Billing and Softswitch">
+<meta name="author" content="Inteliotech">
+<!-- styles -->
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/select2.css" rel="stylesheet">
+<link href="../assets/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+<link href="../assets/css/jquery.jqplot.css" rel="stylesheet">
+<link href="../assets/css/prettify.css" rel="stylesheet">
+<link href="../assets/css/elfinder.min.css" rel="stylesheet">
+<link href="../assets/css/elfinder.theme.css" rel="stylesheet">
+<link href="../assets/css/fullcalendar.css" rel="stylesheet">
+<link href="../assets/js/plupupload/jquery.plupload.queue/css/jquery.plupload.queue.css" rel="stylesheet">
+<link href="../assets/css/styles.css" rel="stylesheet">
+<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../assets/css/icons-sprite.css" rel="stylesheet">
+<link id="themes" href="../assets/css/themes.css" rel="stylesheet">
+<link id="themes" href="../assets/css/theme-dark.css" rel="stylesheet">
+<link href="../assets/css/sidebar-enhanced.css" rel="stylesheet">
+<link href="../assets/css/manager-sidebar-theme.css" rel="stylesheet">
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie8.css" />
+<![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie9.css" />
+<![endif]-->
+<!--fav and touch icons -->
+<link rel="shortcut icon" href="../assets/img/global1tel-icon.svg">
+<style id="g1t-manager-dashboard-reference-style">
+/* GLOBAL1TEL dashboard reference-match mobile UI.
+   Dashboard pages only. Desktop and all backend/feature behavior stay unchanged. */
+@media screen and (max-width: 979px) {
+  html, body {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+
+  /* Reference-style two-level mobile header. */
+  .navbar-fixed-top {
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  .navbar-inner.top-nav {
+    min-height: 74px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .navbar-inner.top-nav > .container-fluid {
+    position: relative;
+    min-height: 74px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .branding {
+    position: absolute !important;
+    left: 0 !important;
+    top: 7px !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 3;
+  }
+
+  .branding .logo {
+    float: none !important;
+    width: auto !important;
+    height: 24px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 24px !important;
+  }
+
+  /* On mobile show the logo image instead of dim text branding, matching the GLOBAL1TEL mark. */
+  .branding .logo img {
+    display: block !important;
+    height: 24px !important;
+    width: auto !important;
+  }
+
+  .branding .logo:after {
+    content: "GLOBAL1TEL";
+    display: none;
+    background: linear-gradient(180deg, #fff6d8 0%, #ffe9a8 30%, #f2c94c 60%, #c9971f 85%, #8a641b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f2c94c;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.55), 2px 2px 4px rgba(0,0,0,.5), 0 0 16px rgba(242,201,76,.4);
+    font-size: 18px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: .01em;
+    line-height: 24px;
+    white-space: nowrap;
+    text-shadow: 0 0 14px rgba(242, 201, 76,.55);
+  }
+.navbar .btn-navbar {
+    display: block !important;
+    position: absolute !important;
+    left: 58% !important;
+    top: 40px !important;
+    width: 37px !important;
+    height: 28px !important;
+    margin: 0 !important;
+    padding: 5px 8px !important;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    border-radius: 4px;
+    z-index: 4;
+  }
+
+  .navbar .btn-navbar .icon-bar {
+    width: 19px !important;
+    height: 2px !important;
+    margin-left: 0 !important;
+  }
+
+  .navbar .nav.pull-right {
+    position: absolute !important;
+    left: auto !important;
+    right: 8px !important;
+    top: 39px !important;
+    float: none !important;
+    width: 160px !important;
+    margin: 0 !important;
+    z-index: 4;
+  }
+
+  .navbar .nav.pull-right > li {
+    float: left !important;
+  }
+
+  .navbar .nav.pull-right > li > a {
+    padding: 5px 0 !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    white-space: nowrap;
+  }
+
+  .navbar .nav.pull-right .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  /* Closed menu leaves only the 74px header; open menu expands below it. */
+  .nav-collapse,
+  .nav-collapse.collapse {
+    clear: both;
+    margin-top: 0 !important;
+  }
+
+  .nav-collapse.in {
+    margin-top: 74px !important;
+    overflow: visible !important;
+    background: #1c1c1c;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+
+  .nav-collapse.in > .nav {
+    margin: 0 !important;
+    padding: 5px 0 14px !important;
+    background: linear-gradient(#303030, #171717);
+  }
+
+  .nav-collapse.in .nav > li > a {
+    margin: 0 !important;
+    padding: 6px 15px !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+
+  .nav-collapse.in .nav li ul.acitem li a {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    line-height: 18px !important;
+    font-size: 12px !important;
+  }
+
+  /* The mobile reference uses top navigation; hide the desktop sidebar only here. */
+  #sidebar {
+    display: none !important;
+  }
+
+  #main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  #main-content > .container-fluid {
+    padding: 17px 18px 22px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  #main-content .breadcrumb {
+    box-sizing: border-box;
+    min-height: 28px;
+    margin: 0 0 17px !important;
+    padding: 5px 12px !important;
+    border-radius: 4px;
+    font-size: 12px !important;
+    line-height: 17px !important;
+  }
+
+  #main-content .breadcrumb .divider {
+    padding: 0 6px;
+  }
+
+  /* Exactly one shortcut card per row, with reference-sized proportions. */
+  .dashboard-widget,
+  .dashboard-widget .row-fluid {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .dashboard-widget .row-fluid > .span2 {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .dashboard-widget .dashboard-wid-wrap {
+    width: 100% !important;
+    height: 82px !important;
+    margin: 0 0 20px !important;
+    padding: 3px !important;
+    box-sizing: border-box;
+    border-radius: 6px !important;
+    background: #eeeeee !important;
+  }
+
+  .dashboard-widget .dashboard-wid-content,
+  .dashboard-widget .dashboard-wid-content a {
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .dashboard-widget .dashboard-wid-content a {
+    min-height: 0 !important;
+    padding: 5px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 4px !important;
+    font-size: 13px !important;
+    line-height: 16px !important;
+  }
+
+  .dashboard-widget .dashboard-icons-colors {
+    float: none !important;
+    display: block !important;
+    margin: -5px auto -3px !important;
+    transform: scale(.72);
+    -webkit-transform: scale(.72);
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+  }
+
+  .dashboard-widget .dasboard-icon-title {
+    display: block !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    line-height: 17px !important;
+    font-weight: 400 !important;
+    color: #333 !important;
+  }
+
+  /* Keep dashboard statistics in compact reference-style full-width cards. */
+  #main-content .row-fluid > .span3,
+  #main-content .row-fluid > .span4,
+  #main-content .row-fluid > .span6,
+  #main-content .row-fluid > .span9 {
+    float: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  #main-content .stat-block {
+    width: 100% !important;
+    min-height: 54px !important;
+    margin: 0 0 14px !important;
+    padding: 7px 10px !important;
+    box-sizing: border-box;
+  }
+
+  #main-content .stat-block ul {
+    width: 100% !important;
+    min-height: 38px;
+    margin: 0 !important;
+  }
+
+  #main-content .stat-block .stat-count {
+    width: auto !important;
+    min-width: 92px !important;
+  }
+
+  #main-content .stat-block .stat-count span:first-child {
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+
+  #main-content .stat-block .stat-count span:last-child {
+    font-size: 13px !important;
+    line-height: 17px !important;
+  }
+
+  #main-content .index-graph,
+  #main-content .summary,
+  #main-content .widget-block {
+    margin-bottom: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #main-content > .container-fluid {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+</style>
+<link href="../assets/css/brand-g1t.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner top-nav" style="position:relative;">
+    <div class="container-fluid">
+        <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <div class="branding">
+	<div class="logo"> <img src='../assets/img/brand/global1tel-logo.png' style='height:40px; width:auto;' alt='GLOBAL1TEL' /> </div>
+      </div>
+<ul class="nav pull-right">
+	
+        <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="nav-username"></span> <span class="alert-noty"></span><i class="white-icons admin_user"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="Notifications.html"><i class="icon-envelope"></i> Notifications </a></li>
+            <li><a href="Account.html#profile"><i class="icon-briefcase"></i> My Profile</a></li>
+            <li><a href="MyActivity.html"><i class="icon-file"></i> My Activity</a></li>
+            <li><a href="UserActivity.html"><i class="icon-pencil"></i> Users Activity</a></li>
+            <li class="divider"></li>
+            <li><a href="/ints/logout" data-session-logout="1"><i class="icon-off"></i><strong> Logout</strong></a></li>
+          </ul>
+        </li>
+</ul>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+			<li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+			<!--<li id='main'><a href="#"><span class="color-icons sound_co"></span> IPRN Voice Module</a>
+			  <ul class="acitem">
+				<li><a href="Ranges" id='ranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>All Ranges</a></li>
+				<li><a href="MyNumbers" id='numbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My Numbers</a></li>
+				<li><a href="RateCard" id='ratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>RateCard</a></li>
+			<li><a href="AccessList" id='accesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Access List</a></li>
+				<li><a href="AutoAccessList" id='autoaccesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Auto Access List</a></li>
+			  </ul>
+			</li>-->
+			 <li id='main'><a href="#"><span class="color-icons envelope_co"></span> IPRN SMS Module</a>
+			  <ul class="acitem">
+				<li><a href="SMSRanges.html" id='smsranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Ranges</a></li>
+				<li><a href="MySMSNumbers.html" id='smsnumbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My SMS Numbers</a></li>
+				<li><a href="SMSRateCard.html" id='smsratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS RateCard</a></li>
+				<li><a href="SMSBulkAllocations.html" id='smsbulk'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Bulk Allocations</a></li>
+			  </ul>
+			</li>
+		 
+			<!--<li><a href="AudioFiles" id='audiofile'><span class="color-icons music_co"></span> Audio Files</a></li>-->
+<li><a href="NewsMaster.html" id='newsmaster'><span class="color-icons cup"></span> News for Agents</a></li>
+<li><a href="Agents.html" id='clients'><span class="color-icons user_co"></span> My Agents</a></li>
+			<!--<li><a href="ActiveCalls" id='activecalls'><span class="color-icons mobile_phone_co"></span> Active Calls</a></li>
+			<li id='main'><a href="#"><span class="color-icons chart_line_co"></span> Voice CDR & Statistics</a>
+			  <ul class="acitem">
+				<li><a href="CDRReports" id='cdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed Reports</a></li>
+				<li><a href="CDRStats" id='stats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary Reports</a></li>
+				<li><a href="ClientStats" id='cstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Client Stats</a></li>
+				<li><a href="RangeStats" id='rstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Range Stats</a></li>
+				<li><a href="NumberStats" id='nstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Number Stats</a></li>
+				
+			  </ul>
+			</li>-->
+			<li id='main'><a href="#"><span class="color-icons chart_bar_co"></span> SMS CDR & Statistics</a>
+			  <ul class="acitem">
+				<li><a href="SMSCDRReports.html" id='smscdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed SMS Reports</a></li>
+				<li><a href="SMSCDRStats.html" id='smsstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary SMS Reports</a></li>
+				<li><a href="SMSAgentStats.html" id='smscstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Agent SMS Stats</a></li>
+				<li><a href="SMSRangeStats.html" id='smsrstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Range Stats</a></li>
+				<li><a href="SMSNumberStats.html" id='smsnstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Number Stats</a></li>
+				
+			  </ul>
+			</li>
+			<li><a href="CreditNotes.html" id='creditnotes'><span class="color-icons briefcase_co"></span> Agent Credit Notes</a></li>
+			<li><a href="PaymentRequests.html" id='paymentrequests'><span class="color-icons money_dollar_co"></span> Payment Requests</a></li>
+			<li><a href="BankAccounts.html" id='bankaccounts'><span class="color-icons bank_clr"></span> Bank Accounts</a></li>
+			<li id='main'><a href="#"><span class="color-icons statistics_sl"></span> Statements</a>
+			  <ul class="acitem">
+				<li><a href='Statements.html?currency=USD' id='stmt-usd'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>USD Statements</a></li>
+				<li><a href='Statements.html?currency=EUR' id='stmt-eur'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>EUR Statements</a></li>
+				<li><a href='Statements.html?currency=GBP' id='stmt-gbp'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>GBP Statements</a></li>
+			  </ul>
+			</li>
+			<!--<li><a href="TestPanel" id='testpanel'><span class="color-icons feed_co"></span> Voice Test Panel</a></li>-->
+			<li><a href="SMSTestPanel.html" id='smstestpanel'><span class="color-icons feed_co"></span> SMS Test Panel</a></li>
+			<li><a href="API.html" id='api'><span class="color-icons cup"></span> API</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sidebar">
+  <div class='lgxx'>
+	<!--<div style='border:1px solid #CFCFCF; border-radius:50%; width:120px; height:120px; margin:auto; text-align:center;'><img src='../assets/img/lg.png' style='max-width:110px; max-height:110px; margin-top:10px;' /></div>-->
+	Welcome <span id="sidebar-username"></span><br />
+	<b>Manager Panel</b><br /><span id="sidebar-datetime"></span>	<!--<br />API Token : ZIaAi3pOWEFJSVBHQ1NW-->
+  </div>
+  <ul class="side-nav accordion_mnu collapsible">
+    <li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+    <!--<li id='main'><a href="#"><span class="color-icons sound_co"></span> IPRN Voice Module</a>
+      <ul class="acitem">
+        <li><a href="Ranges" id='ranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>All Ranges</a></li>
+        <li><a href="MyNumbers" id='numbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My Numbers</a></li>
+        <li><a href="RateCard" id='ratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>RateCard</a></li>
+	<li><a href="AccessList" id='accesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Access List</a></li>
+        <li><a href="AutoAccessList" id='autoaccesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Auto Access List</a></li>
+      </ul>
+    </li>-->
+     <li id='main'><a href="#"><span class="color-icons envelope_co"></span> IPRN SMS Module</a>
+      <ul class="acitem">
+        <li><a href="SMSRanges.html" id='smsranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Ranges</a></li>
+        <li><a href="MySMSNumbers.html" id='smsnumbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My SMS Numbers</a></li>
+	<li><a href="SMSRateCard.html" id='smsratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS RateCard</a></li>
+	<li><a href="SMSBulkAllocations.html" id='smsbulk'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Bulk Allocations</a></li>
+      </ul>
+    </li>
+	<!--<li><a href="TestPanel" id='testpanel'><span class="color-icons feed_co"></span> Voice Test Panel</a></li>-->
+	<li><a href="SMSTestPanel.html" id='smstestpanel'><span class="color-icons feed_co"></span> SMS Test Panel</a></li>
+	<li><a href="NewsMaster.html" id='newsmaster'><span class="color-icons cup"></span> News for Agents</a></li>
+	<li><a href="Agents.html" id='clients'><span class="color-icons user_co"></span> My Agents</a></li>
+	<!--<li><a href="ActiveCalls" id='activecalls'><span class="color-icons mobile_phone_co"></span> Active Calls</a></li>-->
+    <!--<li id='main'><a href="#"><span class="color-icons chart_line_co"></span> Voice CDR & Statistics</a>
+      <ul class="acitem">
+        <li><a href="CDRReports" id='cdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed Reports</a></li>
+        <li><a href="CDRStats" id='stats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary Reports</a></li>
+        <li><a href="ClientStats" id='cstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Client Stats</a></li>
+        <li><a href="RangeStats" id='rstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Range Stats</a></li>
+        <li><a href="NumberStats" id='nstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Number Stats</a></li>
+        
+      </ul>
+    </li>-->
+	<li id='main'><a href="#"><span class="color-icons chart_bar_co"></span> SMS CDR & Statistics</a>
+      <ul class="acitem">
+        <li><a href="SMSCDRReports.html" id='smscdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed SMS Reports</a></li>
+        <li><a href="SMSCDRStats.html" id='smsstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary SMS Reports</a></li>
+        <li><a href="SMSAgentStats.html" id='smscstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Agent SMS Stats</a></li>
+        <li><a href="SMSRangeStats.html" id='smsrstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Range Stats</a></li>
+        <li><a href="SMSNumberStats.html" id='smsnstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Number Stats</a></li>
+        
+      </ul>
+    </li>
+	<li><a href="CreditNotes.html" id='creditnotes'><span class="color-icons briefcase_co"></span> Agent Credit Notes</a></li>
+	<li><a href="Account.html" id='myaccount'><span class="color-icons money_dollar_co"></span> My Account</a></li>
+	<li><a href="BankAccounts.html" id='bankaccounts'><span class="color-icons bank_clr"></span> Bank Accounts</a></li>
+	<!--<li><a href="AudioFiles" id='audiofile'><span class="color-icons music_co"></span> Audio Files</a></li>-->
+<li><a href="API.html" id='api'><span class="color-icons cup"></span> API</a></li>
+</ul>
+</div>
+<div id="main-content">
+	<div class="container-fluid">
+		<ul class="breadcrumb">
+			<li><a href="SMSDashboard.html">Home</a><span class="divider">&raquo;</span></li>
+			<li class="active">My Account</li>
+		</ul>
+		<div class='row-fluid'>
+			<div class='span12'>
+				<p>Manage your profile.</p>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<ul class="nav nav-tabs account-tabs" id="accountTabs">
+					<li class="active"><a href="#tab-profile" data-toggle="tab">My Profile &amp; Password</a></li>
+					<li><a href="#tab-system-settings" data-toggle="tab" style="color: #0066f5; font-weight: 700;"><span class="color-icons cog"></span> ⚡ System Controls &amp; Support Channels</a></li>
+				</ul>
+				<div class="tab-content account-tab-content">
+					<!-- Tab 1: Profile & Password -->
+					<div class="tab-pane active" id="tab-profile">
+						<div class="row-fluid">
+							<div class="span12">
+<div class="widget-block">
+					<div class="widget-content">
+						<div class="widget-box table-responsive">
+						<div class="row-fluid">
+							<div class="span6">
+								<div class="widget-head">
+									<h5 style='display:inline-block; float:left;'>Update Your Profile</h5>
+								</div>
+																<form action="../profile-action.php" method='post' role="form" class="smart-wizard form-horizontal" id="form" enctype="multipart/form-data">
+									<input type='hidden' name='action' value='updateprofile' />
+							
+										<div class="form-group">
+											<label class="span3 control-label">
+												Your Name <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='text' name='name' placeholder='Your Name' value='Alex Rivera (Global Ops)' />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												Your Email <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='text' name='email' placeholder='Email Address' value='manager@imspro.com' />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												Contact No. <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='text' name='contact' placeholder='Contact Number' value='+447911123456' />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												Skype ID <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='text' name='skype' placeholder='Skype ID' value='imspro_support' />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												Company Name <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='text' name='company' placeholder='Company Name' value='IMS PRO Telecom' />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												Address <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<textarea class='form-control' name='address' placeholder='Address' rows='4'></textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												Country <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<select class='form-control' type='text' name='country' required>
+													<option value=''>Select Country</option>
+													<option value='United Kingdom' selected>United Kingdom</option>
+													<option value='United States'>United States</option>
+													<option value='Bangladesh'>Bangladesh</option>
+													<option value='Myanmar'>Myanmar</option>
+												</select>
+											</div>
+										</div>
+	
+										<br clear='all' /><br />
+										<div class="form-group">
+											<div class="span5"></div>
+											<div class="span3">
+												<input class="btn btn-primary next-step btn-block" value='Update Profile' type='submit'>
+											</div>
+										</div><br />
+								</form>
+							</div>
+							
+							<div class="span6">
+								<div class="widget-head">
+									<h5 style='display:inline-block; float:left;'>Update Your Password</h5>
+								</div>
+								
+								<form action="../profile-action.php" method='post' role="form" class="smart-wizard form-horizontal" id="form" enctype="multipart/form-data">
+									<input type='hidden' name='action' value='updatepassword' />
+							
+										<div class="form-group">
+											<label class="span3 control-label">
+												Current Password <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='password' name='opassword' placeholder='Current Password' required />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												New Password <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='password' name='npassword' placeholder='New Password' required />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="span3 control-label">
+												Confirm Password <span class="symbol" required></span>
+											</label>
+											<div class="span7">
+												<input class='form-control' type='password' name='cpassword' placeholder='Confirm Password' required />
+											</div>
+										</div>
+										
+										<br clear='all' /><br />
+										<div class="form-group">
+											<div class="span5"></div>
+											<div class="span3">
+												<input class="btn btn-primary next-step btn-block" value='Update Password' type='submit'>
+											</div>
+										</div><br />
+								</form>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tab 2: System Controls & Support Channels (WhatsApp, Telegram, Broadcast Notice) -->
+					<div class="tab-pane" id="tab-system-settings">
+						<div class="row-fluid">
+							<div class="span12">
+								<div class="widget-block">
+									<div class="widget-head">
+										<h5><i class="black-icons cog_2"></i> Global System Settings, Social Channels &amp; Broadcast Announcement</h5>
+									</div>
+									<div class="widget-content" style="padding: 20px;">
+										<div id="settings-alert" style="display:none; padding: 10px 16px; border-radius: 6px; margin-bottom: 16px; font-weight: 700;"></div>
+										
+										<form id="global-settings-form" onsubmit="saveGlobalSettings(event)">
+											<div class="row-fluid">
+												<!-- Column 1: Social & Support Links -->
+												<div class="span6">
+													<h4 style="color: #0066f5; margin-top: 0; font-size: 15px;">💬 Official Support Channels</h4>
+													
+													<div class="form-group" style="margin-bottom: 14px;">
+														<label><b>Telegram Support URL / Channel:</b></label>
+														<input type="text" id="set-telegram" class="form-control span12" value="https://t.me/IMSPROSMS" placeholder="https://t.me/IMSPROSMS" required />
+														<small style="color: #64748b;">This link is displayed on the login page and inside Agent dashboards.</small>
+													</div>
+
+													<div class="form-group" style="margin-bottom: 14px;">
+														<label><b>WhatsApp Support Link / Number:</b></label>
+														<input type="text" id="set-whatsapp" class="form-control span12" value="https://api.whatsapp.com/send?text=Hello%20IMS%20PRO%20Support" placeholder="https://api.whatsapp.com/send?..." required />
+													</div>
+
+													<div class="form-group" style="margin-bottom: 14px;">
+														<label><b>Support Email Address:</b></label>
+														<input type="email" id="set-email" class="form-control span12" value="support@imspro.com" />
+													</div>
+
+													<div class="form-group" style="margin-bottom: 14px;">
+														<label><b>Skype Support ID:</b></label>
+														<input type="text" id="set-skype" class="form-control span12" value="imspro_support" />
+													</div>
+												</div>
+
+												<!-- Column 2: System Broadcast Notice & Operations -->
+												<div class="span6">
+													<h4 style="color: #0066f5; margin-top: 0; font-size: 15px;">📢 Live Broadcast &amp; Softswitch Control</h4>
+
+													<div class="form-group" style="margin-bottom: 14px;">
+														<label><b>Emergency Announcement Banner (Shows on all Agent/Client Dashboards):</b></label>
+														<textarea id="set-announcement" class="form-control span12" rows="3" placeholder="⚡ Myanmar & UK OTP routes are operating at 99.8% speed. Special rate active!">⚡ Myanmar, UK &amp; USA OTP routes are operating at 99.8% delivery speed. Special commission active!</textarea>
+													</div>
+
+													<div class="row-fluid" style="margin-bottom: 14px;">
+														<div class="span6">
+															<label><b>Profit Markup / Margin (%):</b></label>
+															<input type="number" step="0.5" id="set-markup" class="form-control span12" value="10.0" />
+														</div>
+														<div class="span6">
+															<label><b>Min. Payout Threshold ($):</b></label>
+															<input type="number" step="1" id="set-minpayout" class="form-control span12" value="50" />
+														</div>
+													</div>
+
+													<div class="form-group" style="margin-bottom: 14px; background: #fef2f2; padding: 12px; border-radius: 8px; border: 1px solid #fecaca;">
+														<label style="font-weight: 700; color: #b91c1c; cursor: pointer;">
+															<input type="checkbox" id="set-maintenance" style="margin-top: -3px;"> 🚨 Emergency Maintenance Mode (Lock Non-Admin Logins)
+														</label>
+														<small style="color: #7f1d1d;">When turned on, only Manager/Admin can log in; agents will see a maintenance notice.</small>
+													</div>
+												</div>
+											</div>
+
+											<div style="margin-top: 18px; border-top: 1px solid #e2e8f0; padding-top: 16px;">
+												<button type="submit" class="btn btn-success btn-large" style="font-weight: 800; padding: 10px 24px;">
+													💾 Save &amp; Sync Settings to Firebase
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="request" class="modal hide fade" tabindex="-1" data-width="760" area-hidden='true' style="display: none;">
+	<form action='' method='post' enctype='multipart/form-data'>
+	<input type='hidden' name='action' value='request' />
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">x</button>
+		<h4 class="modal-title" align='center'>Request Payment</h4>
+	</div>
+	<div class="modal-body">
+		<div class="row-fluid">
+			
+			<div class="span12">
+				<input type='hidden' name='currencyid' id='currencyid' value='' />
+				<p>
+					<label class="">Currency</label>
+					<input type='text' name='' id='currency' class="form-control" value='' readonly />
+				</p>
+				<p>
+					<label class="">Available Amount</label>
+					<input type='number' name='' id='aamount' class="form-control" value='' readonly />
+				</p>
+				<p>
+					<label class="">Request Amount</label>
+					<input type='number' name='ramount' id='ramount' class="form-control" step='0.01' value='' max='' />
+				</p>
+				<p>
+					<label class="">Method</label><br />
+					<select id='method' class='form-control' name='method' required>
+						<option value=''>Please Select</option>
+						<option value='1'>Bank Wire</option>
+						<option value='2'>Paypal</option>
+						<option value='3'>USDT</option>
+						<option value='4'>Moneygram</option>
+						<option value='6'>Others</option>
+					</select>
+				</p>
+				<p id='dyn'>
+				
+				</p>
+				
+			</div>
+			
+				
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" data-dismiss="modal" class="btn btn-light-grey">
+			Close
+		</button>
+		<input type="submit" class="btn btn-primary" value='Request' />
+					
+	</div>
+	</form>		
+</div>
+<div id="viewm" class="modal hide fade" tabindex="-1" data-width="760" area-hidden='true' style="display: none;">
+			
+</div>
+<script>localStorage.clear();</script>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/select2.js"></script>
+<script src="../assets/js/prettify.js"></script>
+<script src="../assets/js/jquery.nicescroll.min.js"></script>
+<script src="../assets/js/accordion.jquery.js"></script>
+<script src="../assets/js/vaidation.jquery.js"></script>
+<script src="../assets/js/jquery-dynamic-form.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/jquery.dataTables.min.js"></script>
+<script src="../assets/js/ColVis.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.flash.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/jszip.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/pdfmake.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.html5.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.print.min.js"></script>
+
+<script src="../assets/js/custom-script.js"></script>
+<!-- html5.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="../assets/js/respond.min.js"></script>
+<script src="../assets/js/ios-orientationchange-fix.js"></script>
+<script>$(function () {
+  $("div.tbl-tools-searchbox select").addClass('tbl_length');
+  $(document).on("click", "a#request", function (event) {
+    event.preventDefault();
+    var id = $(this).attr("data");
+    if (id == 1) {
+      var curr = 'USD';
+    } else if (id == 2) {
+      var curr = 'EUR';
+    } else if (id == 3) {
+      var curr = 'GBP';
+    } else {
+      var curr = 'UnKnown';
+    }
+    var amt = $(this).attr("amt");
+    var minamt = $(this).attr("minamt");
+    $("input#currencyid").val(id);
+    $("input#currency").val(curr);
+    $("input#aamount").val(amt);
+    $("input#ramount").val(amt);
+    $("input#ramount").attr("max", amt);
+    $("input#ramount").attr("min", minamt);
+    $("div#request").modal();
+    return false;
+  });
+  $(document).on("change", "select#method", function (event) {
+    thval = $(this).val();
+    if (thval == 1) {
+      var st = "<label>Please choose Bank</label><select name='bank' class='form-control'>";
+      st += "";
+      st += "</select><br /><label>Remarks</label><textarea name='remarks' class='form-control'></textarea>";
+    }
+    if (thval == 2) {
+      var st = "<label>Paypal Details</label><textarea name='remarks' class='form-control'>Paypal Email : \nCountry : \n</textarea>";
+    }
+    if (thval == 3) {
+      var st = "<label>USDT Details</label><textarea name='remarks' class='form-control'>USDT Address : \nOther Remarks : \n</textarea>";
+    }
+    if (thval == 4) {
+      var st = "<label>Moneygram Details</label><textarea name='remarks' class='form-control'>MG Name : \nReceiver Country : \n</textarea>";
+    }
+    if (thval == 5) {
+      var st = "<label>BTC Details</label><textarea name='remarks' class='form-control'>BTC Address : \nOther Remarks : \n</textarea>";
+    }
+    if (thval == 6) {
+      var st = "<label>Other Details</label><textarea name='remarks' class='form-control'></textarea>";
+    }
+    $("p#dyn").html(st);
+  });
+  $(document).on("click", "a#view", function (event) {
+    event.preventDefault();
+    var info = $(this).attr("info");
+    $.post("res/viewpaymentdetails.php", {
+      info: info
+    }, function (data) {
+      $("div#viewm").html(data);
+      $("div#viewm").modal();
+      return false;
+    });
+  });
+});</script>
+
+<script>
+  async function loadGlobalSettings() {
+    try {
+      const res = await fetch('/api/admin?action=settings');
+      const data = await res.json();
+      if (data.success && data.settings) {
+        const s = data.settings;
+        if (s.telegram_url) document.getElementById('set-telegram').value = s.telegram_url;
+        if (s.whatsapp_url) document.getElementById('set-whatsapp').value = s.whatsapp_url;
+        if (s.support_email) document.getElementById('set-email').value = s.support_email;
+        if (s.skype_id) document.getElementById('set-skype').value = s.skype_id;
+        if (s.emergency_announcement) document.getElementById('set-announcement').value = s.emergency_announcement;
+        if (s.profit_markup_percent) document.getElementById('set-markup').value = s.profit_markup_percent;
+        if (s.payout_min) document.getElementById('set-minpayout').value = s.payout_min;
+        if (s.maintenance_mode !== undefined) document.getElementById('set-maintenance').checked = Boolean(s.maintenance_mode);
+      }
+    } catch (e) {
+      console.error('Error loading settings:', e);
+    }
+  }
+
+  async function saveGlobalSettings(e) {
+    e.preventDefault();
+    const alertBox = document.getElementById('settings-alert');
+    alertBox.style.display = 'none';
+
+    const payload = {
+      telegram_url: document.getElementById('set-telegram').value.trim(),
+      whatsapp_url: document.getElementById('set-whatsapp').value.trim(),
+      support_email: document.getElementById('set-email').value.trim(),
+      skype_id: document.getElementById('set-skype').value.trim(),
+      emergency_announcement: document.getElementById('set-announcement').value.trim(),
+      profit_markup_percent: parseFloat(document.getElementById('set-markup').value) || 10,
+      payout_min: parseFloat(document.getElementById('set-minpayout').value) || 50,
+      maintenance_mode: document.getElementById('set-maintenance').checked
+    };
+
+    try {
+      const res = await fetch('/api/admin?action=settings-save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data.success) {
+        alertBox.style.display = 'block';
+        alertBox.style.background = '#dcfce7';
+        alertBox.style.color = '#15803d';
+        alertBox.textContent = '✅ System settings, Telegram/WhatsApp support channels and Announcement synced successfully to Firebase!';
+        setTimeout(() => { alertBox.style.display = 'none'; }, 4500);
+      }
+    } catch (err) {
+      alertBox.style.display = 'block';
+      alertBox.style.background = '#fee2e2';
+      alertBox.style.color = '#b91c1c';
+      alertBox.textContent = '❌ Failed to save settings: ' + err.message;
+    }
+  }
+
+  $(document).ready(function() {
+    loadGlobalSettings();
+  });
+</script>
+
+<script src="../assets/js/session-ui-fix.js"></script>
+</body>
+</html>

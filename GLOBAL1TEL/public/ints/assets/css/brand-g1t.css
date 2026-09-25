@@ -1,0 +1,166 @@
+/* =========================================================
+   GLOBAL1TEL — Brand Theme
+   Matches the GLOBAL1TEL logo (glossy black + gold/bronze)
+   Safe overlay: does not remove/replace any existing layout,
+   only re-skins colors, glows and the sidebar branding area.
+   ========================================================= */
+
+:root{
+	--g1t-gold:        #f2c94c;
+	--g1t-gold-2:      #c9971f;
+	--g1t-gold-glow:    rgba(242, 201, 76, 0.55);
+	--g1t-gold-glow-soft: rgba(242, 201, 76, 0.25);
+	--g1t-black:        #04060f;
+	--g1t-black-2:      #0a0d16;
+	--g1t-black-3:      #10131f;
+	--g1t-white:        #f3f6fb;
+}
+
+/* ---------- Top navbar ---------- */
+.navbar-inner{
+	background: linear-gradient(180deg, #14161f 0%, var(--g1t-black-2) 55%, var(--g1t-black) 100%) !important;
+	border-bottom: 1px solid rgba(242,201,76,0.35);
+	box-shadow: 0 1px 12px rgba(242,201,76,0.15);
+}
+
+/* ---------- Sidebar ---------- */
+#sidebar{
+	background: linear-gradient(180deg, var(--g1t-black-2) 0%, var(--g1t-black) 100%) !important;
+	border-right: 1px solid rgba(242,201,76,0.25);
+}
+
+.side-nav li a,
+.accordion-header a{
+	background: linear-gradient(180deg, var(--g1t-black-3) 0%, var(--g1t-black) 100%) !important;
+	color: #cfd8e8 !important;
+	border-bottom: 1px solid rgba(242,201,76,0.08) !important;
+	transition: all .2s ease;
+}
+
+.side-nav li a:hover,
+.accordion-header a:hover{
+	background: linear-gradient(90deg, rgba(242,201,76,0.18) 0%, rgba(242,201,76,0.02) 100%) !important;
+	color: #ffffff !important;
+	box-shadow: inset 3px 0 0 var(--g1t-gold);
+}
+
+.side-nav li.active > a,
+.side-nav li a.active{
+	background: linear-gradient(90deg, rgba(242,201,76,0.28) 0%, rgba(242,201,76,0.04) 100%) !important;
+	color: #ffffff !important;
+	box-shadow: inset 3px 0 0 var(--g1t-gold), 0 0 12px rgba(242,201,76,0.25);
+}
+
+.side-nav li ul li a{
+	background: var(--g1t-black-2) !important;
+}
+
+.side-nav .sidenav-icon .sidenav-link-color{
+	background: rgba(242,201,76,0.35) !important;
+}
+.side-nav li a:hover .sidenav-icon .sidenav-link-color,
+.side-nav li.active .sidenav-icon .sidenav-link-color{
+	background: var(--g1t-gold) !important;
+	box-shadow: 0 0 8px var(--g1t-gold-glow);
+}
+
+/* ---------- Brand / logo area ---------- */
+.branding{
+	background: none !important;
+	border-bottom: 1px solid rgba(242,201,76,0.25);
+}
+.branding .logo img{
+	background: none;
+	border-radius: 8px;
+	padding: 3px;
+	border: none;
+	box-shadow: none;
+	filter: drop-shadow(0 0 10px var(--g1t-gold-glow-soft));
+}
+
+/* Admin panel brand badge (square logo mark) */
+.brand img{
+	background: none;
+	border-radius: 10px;
+	padding: 3px;
+	object-fit: contain;
+	border: none;
+	box-shadow: none;
+	filter: drop-shadow(0 0 10px var(--g1t-gold-glow-soft));
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary,
+.btn-info,
+button[type="submit"].btn{
+	background: linear-gradient(180deg, var(--g1t-gold) 0%, var(--g1t-gold-2) 100%) !important;
+	border: none !important;
+	box-shadow: 0 2px 10px rgba(242,201,76,0.35);
+	text-shadow: none !important;
+	color: #1a1305 !important;
+}
+.btn-primary:hover,
+.btn-info:hover{
+	filter: brightness(1.1);
+	box-shadow: 0 2px 16px rgba(242,201,76,0.55);
+}
+
+/* ---------- Links / headings accents ---------- */
+a{ color: var(--g1t-gold); }
+a:hover{ color: var(--g1t-gold-2); }
+
+.page-header,
+h1, h2, h3{
+	color: #e8edf7;
+}
+
+/* ---------- Panels / widgets ---------- */
+.widget-box,
+.panel,
+.box{
+	border-color: rgba(242,201,76,0.12) !important;
+}
+.widget-title,
+.panel-heading{
+	background: linear-gradient(90deg, rgba(242,201,76,0.10) 0%, transparent 100%) !important;
+	border-bottom: 1px solid rgba(242,201,76,0.2) !important;
+}
+
+/* ---------- Scrollbars ---------- */
+::-webkit-scrollbar{ width: 6px; height: 6px; }
+::-webkit-scrollbar-track{ background: transparent; }
+::-webkit-scrollbar-thumb{ background: rgba(0,0,0,0.25); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover{ background: rgba(0,0,0,0.4); }
+
+/* ---------- Badges / status ---------- */
+.label-success, .badge-success{ background: #00c774 !important; }
+.label-important, .badge-important{ background: #ff3860 !important; }
+.label-info, .badge-info{ background: var(--g1t-gold) !important; color: #1a1305 !important; }
+
+/* ---------- Login screen accent (kept consistent with existing dark login) ---------- */
+.g1t-brand-mark{
+	color: var(--g1t-white);
+	text-shadow: 0 0 14px var(--g1t-gold-glow);
+}
+
+/* =========================================================
+   GLOBAL1TEL — Golden brand mark (logo + dashboard name)
+   The logo file itself is transparent-background with a
+   glossy black + gold sweep; this block makes the "GLOBAL1TEL"
+   title next to it match that same gold identity everywhere.
+   ========================================================= */
+.brand strong{
+	background: linear-gradient(180deg, #fff6d8 0%, #ffe9a8 30%, #f2c94c 60%, #c9971f 85%, #8a641b 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: var(--g1t-gold);
+	font-weight: 900;
+	font-style: italic;
+	letter-spacing: .01em;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.55), 2px 2px 4px rgba(0,0,0,.5), 0 0 16px rgba(242,201,76,.4);
+}
+
+.brand span{
+	color: rgba(242, 201, 76, 0.65);
+}

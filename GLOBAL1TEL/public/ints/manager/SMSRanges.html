@@ -1,0 +1,1017 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head><script src="/ints/assets/js/_shot_regenerator.js"></script><script src="/ints/assets/js/_shot_fetch_polyfill.js"></script>
+<title>GLOBAL1TEL | SMS Ranges</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IPRN Billing and Softswitch">
+<meta name="author" content="Inteliotech">
+<!-- styles -->
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/select2.css" rel="stylesheet">
+<link href="../assets/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+<link href="../assets/css/jquery.jqplot.css" rel="stylesheet">
+<link href="../assets/css/prettify.css" rel="stylesheet">
+<link href="../assets/css/elfinder.min.css" rel="stylesheet">
+<link href="../assets/css/elfinder.theme.css" rel="stylesheet">
+<link href="../assets/css/fullcalendar.css" rel="stylesheet">
+<link href="../assets/js/plupupload/jquery.plupload.queue/css/jquery.plupload.queue.css" rel="stylesheet">
+<link href="../assets/css/styles.css" rel="stylesheet">
+<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../assets/css/icons-sprite.css" rel="stylesheet">
+<link id="themes" href="../assets/css/themes.css" rel="stylesheet">
+<link id="themes" href="../assets/css/theme-dark.css" rel="stylesheet">
+<link href="../assets/css/sidebar-enhanced.css" rel="stylesheet">
+<link href="../assets/css/manager-sidebar-theme.css" rel="stylesheet">
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie8.css" />
+<![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie9.css" />
+<![endif]-->
+<!--fav and touch icons -->
+<link rel="shortcut icon" href="../assets/img/global1tel-icon.svg">
+<style id="g1t-manager-dashboard-reference-style">
+/* GLOBAL1TEL dashboard reference-match mobile UI.
+   Dashboard pages only. Desktop and all backend/feature behavior stay unchanged. */
+@media screen and (max-width: 979px) {
+  html, body {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+
+  /* Reference-style two-level mobile header. */
+  .navbar-fixed-top {
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  .navbar-inner.top-nav {
+    min-height: 74px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .navbar-inner.top-nav > .container-fluid {
+    position: relative;
+    min-height: 74px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .branding {
+    position: absolute !important;
+    left: 0 !important;
+    top: 7px !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 3;
+  }
+
+  .branding .logo {
+    float: none !important;
+    width: auto !important;
+    height: 24px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 24px !important;
+  }
+
+  /* On mobile show the logo image instead of dim text branding, matching the GLOBAL1TEL mark. */
+  .branding .logo img {
+    display: block !important;
+    height: 24px !important;
+    width: auto !important;
+  }
+
+  .branding .logo:after {
+    content: "GLOBAL1TEL";
+    display: none;
+    background: linear-gradient(180deg, #fff6d8 0%, #ffe9a8 30%, #f2c94c 60%, #c9971f 85%, #8a641b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f2c94c;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.55), 2px 2px 4px rgba(0,0,0,.5), 0 0 16px rgba(242,201,76,.4);
+    font-size: 18px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: .01em;
+    line-height: 24px;
+    white-space: nowrap;
+    text-shadow: 0 0 14px rgba(242, 201, 76,.55);
+  }
+.navbar .btn-navbar {
+    display: block !important;
+    position: absolute !important;
+    left: 58% !important;
+    top: 40px !important;
+    width: 37px !important;
+    height: 28px !important;
+    margin: 0 !important;
+    padding: 5px 8px !important;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    border-radius: 4px;
+    z-index: 4;
+  }
+
+  .navbar .btn-navbar .icon-bar {
+    width: 19px !important;
+    height: 2px !important;
+    margin-left: 0 !important;
+  }
+
+  .navbar .nav.pull-right {
+    position: absolute !important;
+    left: auto !important;
+    right: 8px !important;
+    top: 39px !important;
+    float: none !important;
+    width: 160px !important;
+    margin: 0 !important;
+    z-index: 4;
+  }
+
+  .navbar .nav.pull-right > li {
+    float: left !important;
+  }
+
+  .navbar .nav.pull-right > li > a {
+    padding: 5px 0 !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    white-space: nowrap;
+  }
+
+  .navbar .nav.pull-right .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  /* Closed menu leaves only the 74px header; open menu expands below it. */
+  .nav-collapse,
+  .nav-collapse.collapse {
+    clear: both;
+    margin-top: 0 !important;
+  }
+
+  .nav-collapse.in {
+    margin-top: 74px !important;
+    overflow: visible !important;
+    background: #1c1c1c;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+
+  .nav-collapse.in > .nav {
+    margin: 0 !important;
+    padding: 5px 0 14px !important;
+    background: linear-gradient(#303030, #171717);
+  }
+
+  .nav-collapse.in .nav > li > a {
+    margin: 0 !important;
+    padding: 6px 15px !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+
+  .nav-collapse.in .nav li ul.acitem li a {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    line-height: 18px !important;
+    font-size: 12px !important;
+  }
+
+  /* The mobile reference uses top navigation; hide the desktop sidebar only here. */
+  #sidebar {
+    display: none !important;
+  }
+
+  #main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  #main-content > .container-fluid {
+    padding: 17px 18px 22px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  #main-content .breadcrumb {
+    box-sizing: border-box;
+    min-height: 28px;
+    margin: 0 0 17px !important;
+    padding: 5px 12px !important;
+    border-radius: 4px;
+    font-size: 12px !important;
+    line-height: 17px !important;
+  }
+
+  #main-content .breadcrumb .divider {
+    padding: 0 6px;
+  }
+
+  /* Exactly one shortcut card per row, with reference-sized proportions. */
+  .dashboard-widget,
+  .dashboard-widget .row-fluid {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .dashboard-widget .row-fluid > .span2 {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .dashboard-widget .dashboard-wid-wrap {
+    width: 100% !important;
+    height: 82px !important;
+    margin: 0 0 20px !important;
+    padding: 3px !important;
+    box-sizing: border-box;
+    border-radius: 6px !important;
+    background: #eeeeee !important;
+  }
+
+  .dashboard-widget .dashboard-wid-content,
+  .dashboard-widget .dashboard-wid-content a {
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .dashboard-widget .dashboard-wid-content a {
+    min-height: 0 !important;
+    padding: 5px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 4px !important;
+    font-size: 13px !important;
+    line-height: 16px !important;
+  }
+
+  .dashboard-widget .dashboard-icons-colors {
+    float: none !important;
+    display: block !important;
+    margin: -5px auto -3px !important;
+    transform: scale(.72);
+    -webkit-transform: scale(.72);
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+  }
+
+  .dashboard-widget .dasboard-icon-title {
+    display: block !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    line-height: 17px !important;
+    font-weight: 400 !important;
+    color: #333 !important;
+  }
+
+  /* Keep dashboard statistics in compact reference-style full-width cards. */
+  #main-content .row-fluid > .span3,
+  #main-content .row-fluid > .span4,
+  #main-content .row-fluid > .span6,
+  #main-content .row-fluid > .span9 {
+    float: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  #main-content .stat-block {
+    width: 100% !important;
+    min-height: 54px !important;
+    margin: 0 0 14px !important;
+    padding: 7px 10px !important;
+    box-sizing: border-box;
+  }
+
+  #main-content .stat-block ul {
+    width: 100% !important;
+    min-height: 38px;
+    margin: 0 !important;
+  }
+
+  #main-content .stat-block .stat-count {
+    width: auto !important;
+    min-width: 92px !important;
+  }
+
+  #main-content .stat-block .stat-count span:first-child {
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+
+  #main-content .stat-block .stat-count span:last-child {
+    font-size: 13px !important;
+    line-height: 17px !important;
+  }
+
+  #main-content .index-graph,
+  #main-content .summary,
+  #main-content .widget-block {
+    margin-bottom: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #main-content > .container-fluid {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+</style>
+<link href="../assets/css/brand-g1t.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner top-nav" style="position:relative;">
+    <div class="container-fluid">
+        <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <div class="branding">
+	<div class="logo"> <img src='../assets/img/brand/global1tel-logo.png' style='height:40px; width:auto;' alt='GLOBAL1TEL' /> </div>
+      </div>
+<ul class="nav pull-right">
+	
+        <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="nav-username"></span> <span class="alert-noty"></span><i class="white-icons admin_user"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="Notifications.html"><i class="icon-envelope"></i> Notifications </a></li>
+            <li><a href="Account.html#profile"><i class="icon-briefcase"></i> My Profile</a></li>
+            <li><a href="MyActivity.html"><i class="icon-file"></i> My Activity</a></li>
+            <li><a href="UserActivity.html"><i class="icon-pencil"></i> Users Activity</a></li>
+            <li class="divider"></li>
+            <li><a href="/ints/logout" data-session-logout="1"><i class="icon-off"></i><strong> Logout</strong></a></li>
+          </ul>
+        </li>
+</ul>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+			<li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+			<!--<li id='main'><a href="#"><span class="color-icons sound_co"></span> IPRN Voice Module</a>
+			  <ul class="acitem">
+				<li><a href="Ranges" id='ranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>All Ranges</a></li>
+				<li><a href="MyNumbers" id='numbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My Numbers</a></li>
+				<li><a href="RateCard" id='ratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>RateCard</a></li>
+			<li><a href="AccessList" id='accesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Access List</a></li>
+				<li><a href="AutoAccessList" id='autoaccesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Auto Access List</a></li>
+			  </ul>
+			</li>-->
+			 <li id='main'><a href="#"><span class="color-icons envelope_co"></span> IPRN SMS Module</a>
+			  <ul class="acitem">
+				<li><a href="SMSRanges.html" id='smsranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Ranges</a></li>
+				<li><a href="MySMSNumbers.html" id='smsnumbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My SMS Numbers</a></li>
+				<li><a href="SMSRateCard.html" id='smsratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS RateCard</a></li>
+				<li><a href="SMSBulkAllocations.html" id='smsbulk'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Bulk Allocations</a></li>
+			  </ul>
+			</li>
+		 
+			<!--<li><a href="AudioFiles" id='audiofile'><span class="color-icons music_co"></span> Audio Files</a></li>-->
+<li><a href="NewsMaster.html" id='newsmaster'><span class="color-icons cup"></span> News for Agents</a></li>
+<li><a href="Agents.html" id='clients'><span class="color-icons user_co"></span> My Agents</a></li>
+			<!--<li><a href="ActiveCalls" id='activecalls'><span class="color-icons mobile_phone_co"></span> Active Calls</a></li>
+			<li id='main'><a href="#"><span class="color-icons chart_line_co"></span> Voice CDR & Statistics</a>
+			  <ul class="acitem">
+				<li><a href="CDRReports" id='cdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed Reports</a></li>
+				<li><a href="CDRStats" id='stats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary Reports</a></li>
+				<li><a href="ClientStats" id='cstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Client Stats</a></li>
+				<li><a href="RangeStats" id='rstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Range Stats</a></li>
+				<li><a href="NumberStats" id='nstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Number Stats</a></li>
+				
+			  </ul>
+			</li>-->
+			<li id='main'><a href="#"><span class="color-icons chart_bar_co"></span> SMS CDR & Statistics</a>
+			  <ul class="acitem">
+				<li><a href="SMSCDRReports.html" id='smscdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed SMS Reports</a></li>
+				<li><a href="SMSCDRStats.html" id='smsstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary SMS Reports</a></li>
+				<li><a href="SMSAgentStats.html" id='smscstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Agent SMS Stats</a></li>
+				<li><a href="SMSRangeStats.html" id='smsrstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Range Stats</a></li>
+				<li><a href="SMSNumberStats.html" id='smsnstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Number Stats</a></li>
+				
+			  </ul>
+			</li>
+			<li><a href="CreditNotes.html" id='creditnotes'><span class="color-icons briefcase_co"></span> Agent Credit Notes</a></li>
+			<li><a href="PaymentRequests.html" id='paymentrequests'><span class="color-icons money_dollar_co"></span> Payment Requests</a></li>
+			<li><a href="BankAccounts.html" id='bankaccounts'><span class="color-icons bank_clr"></span> Bank Accounts</a></li>
+			<li id='main'><a href="#"><span class="color-icons statistics_sl"></span> Statements</a>
+			  <ul class="acitem">
+				<li><a href='Statements.html?currency=USD' id='stmt-usd'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>USD Statements</a></li>
+				<li><a href='Statements.html?currency=EUR' id='stmt-eur'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>EUR Statements</a></li>
+				<li><a href='Statements.html?currency=GBP' id='stmt-gbp'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>GBP Statements</a></li>
+			  </ul>
+			</li>
+			<!--<li><a href="TestPanel" id='testpanel'><span class="color-icons feed_co"></span> Voice Test Panel</a></li>-->
+			<li><a href="SMSTestPanel.html" id='smstestpanel'><span class="color-icons feed_co"></span> SMS Test Panel</a></li>
+			<li><a href="API.html" id='api'><span class="color-icons cup"></span> API</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sidebar">
+  <div class='lgxx'>
+	<!--<div style='border:1px solid #CFCFCF; border-radius:50%; width:120px; height:120px; margin:auto; text-align:center;'><img src='../assets/img/lg.png' style='max-width:110px; max-height:110px; margin-top:10px;' /></div>-->
+	Welcome <span id="sidebar-username"></span><br />
+	<b>Manager Panel</b><br /><span id="sidebar-datetime"></span>	<!--<br />API Token : ZIaAi3pOWEFJSVBHQ1NW-->
+  </div>
+  <ul class="side-nav accordion_mnu collapsible">
+    <li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+    <!--<li id='main'><a href="#"><span class="color-icons sound_co"></span> IPRN Voice Module</a>
+      <ul class="acitem">
+        <li><a href="Ranges" id='ranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>All Ranges</a></li>
+        <li><a href="MyNumbers" id='numbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My Numbers</a></li>
+        <li><a href="RateCard" id='ratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>RateCard</a></li>
+	<li><a href="AccessList" id='accesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Access List</a></li>
+        <li><a href="AutoAccessList" id='autoaccesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Auto Access List</a></li>
+      </ul>
+    </li>-->
+     <li id='main'><a href="#"><span class="color-icons envelope_co"></span> IPRN SMS Module</a>
+      <ul class="acitem">
+        <li><a href="SMSRanges.html" id='smsranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Ranges</a></li>
+        <li><a href="MySMSNumbers.html" id='smsnumbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My SMS Numbers</a></li>
+	<li><a href="SMSRateCard.html" id='smsratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS RateCard</a></li>
+	<li><a href="SMSBulkAllocations.html" id='smsbulk'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Bulk Allocations</a></li>
+      </ul>
+    </li>
+	<!--<li><a href="TestPanel" id='testpanel'><span class="color-icons feed_co"></span> Voice Test Panel</a></li>-->
+	<li><a href="SMSTestPanel.html" id='smstestpanel'><span class="color-icons feed_co"></span> SMS Test Panel</a></li>
+	<li><a href="NewsMaster.html" id='newsmaster'><span class="color-icons cup"></span> News for Agents</a></li>
+	<li><a href="Agents.html" id='clients'><span class="color-icons user_co"></span> My Agents</a></li>
+	<!--<li><a href="ActiveCalls" id='activecalls'><span class="color-icons mobile_phone_co"></span> Active Calls</a></li>-->
+    <!--<li id='main'><a href="#"><span class="color-icons chart_line_co"></span> Voice CDR & Statistics</a>
+      <ul class="acitem">
+        <li><a href="CDRReports" id='cdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed Reports</a></li>
+        <li><a href="CDRStats" id='stats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary Reports</a></li>
+        <li><a href="ClientStats" id='cstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Client Stats</a></li>
+        <li><a href="RangeStats" id='rstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Range Stats</a></li>
+        <li><a href="NumberStats" id='nstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Number Stats</a></li>
+        
+      </ul>
+    </li>-->
+	<li id='main'><a href="#"><span class="color-icons chart_bar_co"></span> SMS CDR & Statistics</a>
+      <ul class="acitem">
+        <li><a href="SMSCDRReports.html" id='smscdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed SMS Reports</a></li>
+        <li><a href="SMSCDRStats.html" id='smsstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary SMS Reports</a></li>
+        <li><a href="SMSAgentStats.html" id='smscstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Agent SMS Stats</a></li>
+        <li><a href="SMSRangeStats.html" id='smsrstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Range Stats</a></li>
+        <li><a href="SMSNumberStats.html" id='smsnstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Number Stats</a></li>
+        
+      </ul>
+    </li>
+	<li><a href="CreditNotes.html" id='creditnotes'><span class="color-icons briefcase_co"></span> Agent Credit Notes</a></li>
+	<li><a href="Account.html" id='myaccount'><span class="color-icons money_dollar_co"></span> My Account</a></li>
+	<li><a href="BankAccounts.html" id='bankaccounts'><span class="color-icons bank_clr"></span> Bank Accounts</a></li>
+	<!--<li><a href="AudioFiles" id='audiofile'><span class="color-icons music_co"></span> Audio Files</a></li>-->
+<li><a href="API.html" id='api'><span class="color-icons cup"></span> API</a></li>
+  </ul>
+  <div id="side-accordion">
+	<div class="accordion-group">
+      <div class="accordion-header"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#side-accordion" href="#collapseTwo"></div>
+      <div id="collapseTwo" class="collapse">
+        <div class="accordion-content">
+          <div class="site-stat">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-content">
+	<div class="container-fluid">
+		<ul class="breadcrumb">
+			<li><a href="SMSDashboard">Home</a><span class="divider">&raquo;</span></li>
+			<li><a href="#">SMS Module</a><span class="divider">&raquo;</span></li>
+			<li class="active">SMS Ranges</li>
+		</ul>
+				<div class='row-fluid'>
+			<div class='span12'>
+				<div class="alert alert-info" style="margin-bottom:15px; background:#e8f4fc; border:1px solid #b8dcf5; padding:10px 14px;">
+					<div class="row-fluid">
+						<div class="span6">
+							<strong style="color:#005580; font-size:13px;"><i class="icon-wrench"></i> রেঞ্জ ও নাম্বার মাস্টার কন্ট্রোল (Range & Number Management):</strong><br/>
+							<span style="font-size:12px; color:#555;">সব রেঞ্জ এক ক্লিকে বন্ধ/চালু করুন, নিজের কাস্টম রেঞ্জ বানান এবং নতুন নাম্বার আপলোড করুন।</span>
+						</div>
+						<div class="span6 text-right" style="text-align:right; padding-top:4px;">
+							<button class="btn btn-small btn-danger" type="button" id="btn-disable-all-ranges" style="font-weight:bold; margin-right:4px;">
+								<i class="icon-ban-circle icon-white"></i> সব রেঞ্জ বন্ধ করুন
+							</button>
+							<button class="btn btn-small btn-success" type="button" id="btn-enable-all-ranges" style="font-weight:bold; margin-right:4px;">
+								<i class="icon-ok-circle icon-white"></i> সব চালু করুন
+							</button>
+							<button class="btn btn-small btn-primary" type="button" id="btn-open-create-range-modal" style="font-weight:bold; margin-right:4px;">
+								<i class="icon-plus-sign icon-white"></i> নতুন রেঞ্জ বানান
+							</button>
+							<button class="btn btn-small btn-info" type="button" id="btn-open-upload-modal" style="font-weight:bold;">
+								<i class="icon-upload icon-white"></i> নাম্বার আপলোড
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-block">
+					<div class="widget-head">
+						<h5 style='display:inline-block; margin-right:30px;'>All SMS Ranges/Terminations</h5> 
+						
+						<div class="widget-control pull-right">
+							<span class='label label-info'>Active Manager Suite</span>
+						</div>
+					</div>
+					<div class="widget-content">
+						<div class="widget-box table-responsive">
+							<table class="data-tbl-boxy table table-bordered" id='dt'>
+							<thead>
+								<tr>
+									<th rowspan='2'>Range</th>
+									<th rowspan='2'>Prefix</th>
+									<th rowspan='2'>Numbers</th>
+									<th rowspan='2'>Test Number</th>
+									<th rowspan='2'>Currency</th>
+									<th colspan='4'>Payouts</th>
+									<th rowspan='2'>Memo</th>
+									<th rowspan='2' style="width:160px;">Action</th>
+								</tr>
+								<tr>
+									<th>1/1</th>
+									<th>7/1</th>
+									<th>7/7</th>
+									<th>30/45</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td colspan='11'>Loading SMS ranges...</td></tr>
+							</tbody>
+	
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-fluid" style="margin-top:20px;">
+			<div class="span12">
+				<div class="widget-block">
+					<div class="widget-head">
+						<h5 style="display:inline-block;">Pending Agent Number Requests</h5>
+						<div class="widget-control pull-right"><button type="button" class="btn btn-mini" id="refreshNumberRequests">Refresh</button></div>
+					</div>
+					<div class="widget-content">
+						<div class="widget-box table-responsive">
+							<table class="table table-bordered" id="agentRequestTable">
+								<thead><tr><th>Date</th><th>Agent</th><th>Range</th><th>Pay Term</th><th>Quantity</th><th>Status</th><th>Action</th></tr></thead>
+								<tbody><tr><td colspan="7"></td></tr></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- MODAL: CREATE CUSTOM RANGE (নিজের নতুন রেঞ্জ বানান) -->
+<div id="modalCreateRange" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+	<div class="modal-header" style="background:#f0f7fd;">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h4 style="color:#005580; margin:0;"><i class="icon-plus-sign"></i> নতুন কাস্টম SMS রেঞ্জ তৈরি করুন</h4>
+	</div>
+	<div class="modal-body">
+		<form id="formCreateCustomRange" style="margin:0;">
+			<div class="row-fluid">
+				<div class="span6">
+					<label style="font-weight:bold; font-size:12px;">রেঞ্জ এর নাম (Range Name):</label>
+					<input type="text" id="cr-name" placeholder="যেমন: Myanmar TikTok VIP (959)" style="width:95%;" required />
+				</div>
+				<div class="span6">
+					<label style="font-weight:bold; font-size:12px;">প্রিফিক্স (Country Prefix):</label>
+					<input type="text" id="cr-prefix" placeholder="যেমন: 959 বা 88017" style="width:95%;" required />
+				</div>
+			</div>
+			<div class="row-fluid" style="margin-top:8px;">
+				<div class="span6">
+					<label style="font-weight:bold; font-size:12px;">পে-আউট রেট 1/1 ($):</label>
+					<input type="number" step="0.0001" id="cr-payout" placeholder="0.001" value="0.001" style="width:95%; font-weight:bold; color:#27ae60;" required />
+				</div>
+				<div class="span6">
+					<label style="font-weight:bold; font-size:12px;">টেস্ট মোবাইল নাম্বার:</label>
+					<input type="text" id="cr-test-number" placeholder="যেমন: +95977123456" style="width:95%;" required />
+				</div>
+			</div>
+			<div class="row-fluid" style="margin-top:8px;">
+				<div class="span6">
+					<label style="font-weight:bold; font-size:12px;">কারেন্সি:</label>
+					<select id="cr-currency" style="width:98%;">
+						<option value="USD">USD ($)</option>
+						<option value="EUR">EUR (€)</option>
+						<option value="GBP">GBP (£)</option>
+					</select>
+				</div>
+				<div class="span6">
+					<label style="font-weight:bold; font-size:12px;">মেমো / রুট নোট:</label>
+					<input type="text" id="cr-memo" placeholder="Direct Social OTP Route" style="width:95%;" />
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">বাতিল</button>
+		<button class="btn btn-success" type="button" id="btn-submit-create-range" style="font-weight:bold;">
+			<i class="icon-ok icon-white"></i> রেঞ্জ সেভ ও একটিভ করুন
+		</button>
+	</div>
+</div>
+
+<!-- MODAL: BULK NUMBER UPLOAD & AUTO-GENERATE (নাম্বার আপলোড ও প্যানেল সিস্টেম থেকে আনা) -->
+<div id="modalUploadNumbers" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" style="display:none; width:650px; margin-left:-325px;">
+	<div class="modal-header" style="background:#f0f7fd;">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h4 style="color:#005580; margin:0;"><i class="icon-upload"></i> নাম্বার আপলোড ও প্যানেল থেকে আমদানি</h4>
+	</div>
+	<div class="modal-body">
+		<div class="row-fluid">
+			<div class="span6">
+				<label style="font-weight:bold; font-size:12px;">টার্গেট রেঞ্জ সিলেক্ট করুন:</label>
+				<select id="up-range-select" style="width:100%;">
+					<!-- populated via JS -->
+				</select>
+			</div>
+			<div class="span6 text-right" style="padding-top:20px; text-align:right;">
+				<button class="btn btn-small btn-info" type="button" id="btn-quick-generate-numbers">
+					<i class="icon-magic icon-white"></i> প্যানেল থেকে ৫০টি অটো নাম্বার বানান
+				</button>
+			</div>
+		</div>
+		<div style="margin-top:10px;">
+			<label style="font-weight:bold; font-size:12px;">নাম্বার লিস্ট পেস্ট করুন (প্রতি লাইনে একটি বা কমা দিয়ে):</label>
+			<textarea id="up-numbers-text" rows="6" style="width:96%; font-family:monospace; font-size:12px;" placeholder="+95977123456&#10;+95977123457&#10;+95977123458"></textarea>
+		</div>
+		<div id="up-upload-alert" style="display:none; margin-top:8px; padding:6px 10px; font-size:12px; border-radius:4px;"></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">বন্ধ করুন</button>
+		<button class="btn btn-primary" type="button" id="btn-submit-upload-numbers" style="font-weight:bold;">
+			<i class="icon-upload icon-white"></i> নাম্বার সেভ করুন
+		</button>
+	</div>
+</div>
+
+<div id="viewnumbersm" class="modal modal-elg hide fade" tabindex="-1" data-width="760" area-hidden='true' style="display: none;">
+</div>
+
+<div id="editrangem" class="modal hide fade" tabindex="-1" data-width="760" area-hidden='true' style="display: none;">
+</div>
+
+<script>localStorage.clear();</script>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/select2.js"></script>
+<script src="../assets/js/prettify.js"></script>
+<script src="../assets/js/jquery.nicescroll.min.js"></script>
+<script src="../assets/js/accordion.jquery.js"></script>
+<script src="../assets/js/vaidation.jquery.js"></script>
+<script src="../assets/js/jquery-dynamic-form.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/jquery.dataTables.min.js"></script>
+<script src="../assets/js/ColVis.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.flash.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/jszip.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/pdfmake.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.html5.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.print.min.js"></script>
+
+<script src="../assets/js/custom-script.js"></script>
+<!-- html5.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="../assets/js/respond.min.js"></script>
+<script src="../assets/js/ios-orientationchange-fix.js"></script>
+<script>$(function () {
+  $('#dt').dataTable({
+    "sPaginationType": "full_numbers",
+    "bStateSave": true,
+    "bServerSide": true,
+    "sAjaxSource": "res/data_smsranges.php",
+    "aLengthMenu": [[25, 50, 100, 500, 1000, 2000, -1], [25, 50, 100, 500, 1000, 2000, "All"] // change per page values here
+    ],
+    "iDisplayLength": 25,
+    "aaSorting": [[0, 'asc']],
+    "aoColumns": [null, null, null, null, null, null, null, null, null, null, {
+      "bSortable": false
+    }],
+    "oLanguage": {
+      "sLengthMenu": "<span class='lenghtMenu'> _MENU_</span><span class='lengthLabel'>Show Records:</span>"
+    },
+    dom: 'fl<"clear">CBTtip',
+    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+  });
+  $("div.tbl-tools-searchbox select").addClass('tbl_length');
+  function escReq(v) {
+    return $('<div>').text(v == null ? '' : String(v)).html();
+  }
+  function loadAgentNumberRequests() {
+    var body = $('#agentRequestTable tbody');
+    body.html('<tr><td colspan="7"></td></tr>');
+    $.ajax({
+      url: '/api/numbers.php?action=requests&status=pending',
+      type: 'GET',
+      dataType: 'json',
+      success: function success(resp) {
+        var rows = resp && resp.data ? resp.data : [];
+        if (!rows.length) {
+          body.html('<tr><td colspan="7">No pending Agent requests.</td></tr>');
+          return;
+        }
+        body.html(rows.map(function (r) {
+          return '<tr><td>' + escReq(r.created_at || '-') + '</td><td><b>' + escReq(r.agent_name || '-') + '</b></td><td>' + escReq(r.range_name || '-') + '<br><small>' + escReq(r.prefix || '') + '</small></td><td>' + escReq(r.pay_term || '-') + '</td><td>' + escReq(r.quantity || 0) + '</td><td><span class="label label-warning">' + escReq(r.status || 'pending') + '</span></td><td><button class="btn btn-mini btn-success req-approve" data-id="' + r.id + '">Approve</button> <button class="btn btn-mini btn-danger req-reject" data-id="' + r.id + '">Reject</button></td></tr>';
+        }).join(''));
+      },
+      error: function error(xhr) {
+        body.html('<tr><td colspan="7"><span class="text-error">' + escReq(xhr.responseJSON && xhr.responseJSON.error || 'Could not load requests') + '</span></td></tr>');
+      }
+    });
+  }
+  $(document).on('click', '#refreshNumberRequests', loadAgentNumberRequests);
+  $(document).on('click', '.req-approve', function () {
+    var id = parseInt($(this).attr('data-id') || '0', 10),
+      btn = $(this);
+    if (!id) return;
+    btn.prop('disabled', true);
+    $.ajax({
+      url: '/api/numbers.php?action=approve',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        request_id: id
+      }),
+      dataType: 'json',
+      success: function success(r) {
+        alert(r.message || 'Request approved');
+        loadAgentNumberRequests();
+        $('#dt').dataTable().fnDraw(false);
+      },
+      error: function error(x) {
+        alert(x.responseJSON && x.responseJSON.error || 'Approval failed');
+      },
+      complete: function complete() {
+        btn.prop('disabled', false);
+      }
+    });
+  });
+  $(document).on('click', '.req-reject', function () {
+    var id = parseInt($(this).attr('data-id') || '0', 10);
+    if (!id) return;
+    var reason = prompt('Rejection reason (optional):', '') || '';
+    $.ajax({
+      url: '/api/numbers.php?action=reject',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        request_id: id,
+        reason: reason
+      }),
+      dataType: 'json',
+      success: function success(r) {
+        alert(r.message || 'Request rejected');
+        loadAgentNumberRequests();
+      },
+      error: function error(x) {
+        alert(x.responseJSON && x.responseJSON.error || 'Reject failed');
+      }
+    });
+  });
+  loadAgentNumberRequests();
+
+  // Range Toggle Buttons in Table
+  $(document).on('click', '.range-quick-toggle', function() {
+    var id = parseInt($(this).data('id'), 10);
+    if (!id) return;
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'range-toggle', id: id }),
+      success: function(res) {
+        alert(res.message || 'রেঞ্জ স্ট্যাটাস পরিবর্তন করা হয়েছে।');
+        $('#dt').dataTable().fnDraw(false);
+      }
+    });
+  });
+
+  // Range Quick Upload in Table
+  $(document).on('click', '.range-quick-upload', function() {
+    var id = parseInt($(this).data('id'), 10);
+    $('#up-range-select').val(String(id));
+    $('#modalUploadNumbers').modal('show');
+  });
+
+  // Master Range Controls
+  $('#btn-disable-all-ranges').on('click', function() {
+    if (!confirm('আপনি কি নিশ্চিত সকল বিদ্যমান রেঞ্জ বন্ধ/Disable করতে চান? টেস্ট/ক্লায়েন্ট প্যানেলে কোন বন্ধ রেঞ্জ দেখাবে না।')) return;
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'range-toggle-all', status: 'inactive' }),
+      success: function(res) {
+        alert(res.message || 'সকল রেঞ্জ বন্ধ করা হয়েছে।');
+        $('#dt').dataTable().fnDraw(false);
+      }
+    });
+  });
+
+  $('#btn-enable-all-ranges').on('click', function() {
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'range-toggle-all', status: 'active' }),
+      success: function(res) {
+        alert(res.message || 'সকল রেঞ্জ চালু করা হয়েছে।');
+        $('#dt').dataTable().fnDraw(false);
+      }
+    });
+  });
+
+  function populateRangeSelects() {
+    $.ajax({
+      url: '/api/ranges',
+      dataType: 'json',
+      success: function(res) {
+        if (!res || !res.ranges) return;
+        var upSel = $('#up-range-select');
+        upSel.empty();
+        $.each(res.ranges, function(i, r) {
+          upSel.append($('<option>', {
+            value: r.id,
+            text: r.range_name + ' [' + r.prefix + ']' + (r.status === 'inactive' ? ' (Disabled)' : '')
+          }));
+        });
+      }
+    });
+  }
+  populateRangeSelects();
+
+  $('#btn-open-create-range-modal').on('click', function() {
+    $('#modalCreateRange').modal('show');
+  });
+
+  $('#btn-open-upload-modal').on('click', function() {
+    populateRangeSelects();
+    $('#modalUploadNumbers').modal('show');
+  });
+
+  // Submit Create Custom Range
+  $('#btn-submit-create-range').on('click', function() {
+    var name = $('#cr-name').val().trim();
+    var prefix = $('#cr-prefix').val().trim();
+    var payout = parseFloat($('#cr-payout').val());
+    var testNum = $('#cr-test-number').val().trim();
+    var curr = $('#cr-currency').val();
+    var memo = $('#cr-memo').val().trim();
+
+    if (!name || !prefix || isNaN(payout) || !testNum) {
+      alert('অনুগ্রহ করে রেঞ্জের নাম, প্রিফিক্স, পেআউট রেট এবং টেস্ট নাম্বার প্রদান করুন।');
+      return;
+    }
+
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'range-create',
+        range_name: name,
+        prefix: prefix,
+        payout_1_1: payout,
+        test_number: testNum,
+        currency: curr,
+        memo: memo
+      }),
+      success: function(res) {
+        $('#modalCreateRange').modal('hide');
+        alert('✓ আপনার নতুন কাস্টম রেঞ্জ "' + name + '" সফলভাবে তৈরি করা হয়েছে এবং চালু আছে!');
+        populateRangeSelects();
+        $('#dt').dataTable().fnDraw(false);
+      }
+    });
+  });
+
+  // Submit Number Upload
+  $('#btn-submit-upload-numbers').on('click', function() {
+    var rId = parseInt($('#up-range-select').val(), 10);
+    var text = $('#up-numbers-text').val().trim();
+    var alertBox = $('#up-upload-alert');
+
+    if (!rId || !text) {
+      alert('অনুগ্রহ করে রেঞ্জ সিলেক্ট করুন এবং নাম্বার লিস্ট পেস্ট করুন।');
+      return;
+    }
+
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'numbers-upload',
+        range_id: rId,
+        numbers_text: text
+      }),
+      success: function(res) {
+        alertBox.removeClass('alert-danger').addClass('alert-success').css('display', 'block').text(res.message || 'নাম্বার সফলভাবে আপলোড হয়েছে!');
+        $('#up-numbers-text').val('');
+        $('#dt').dataTable().fnDraw(false);
+        setTimeout(function() { alertBox.fadeOut(); }, 4000);
+      },
+      error: function(xhr) {
+        alertBox.removeClass('alert-success').addClass('alert-danger').css('display', 'block').text(xhr.responseJSON && xhr.responseJSON.error || 'আপলোড ব্যর্থ হয়েছে।');
+      }
+    });
+  });
+
+  // Auto-generate Numbers
+  $('#btn-quick-generate-numbers').on('click', function() {
+    var rId = parseInt($('#up-range-select').val(), 10);
+    if (!rId) return;
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'numbers-generate',
+        range_id: rId,
+        count: 50
+      }),
+      success: function(res) {
+        $('#up-upload-alert').removeClass('alert-danger').addClass('alert-success').css('display', 'block').text(res.message || '৫০টি নাম্বার জেনারেট হয়েছে!');
+        $('#dt').dataTable().fnDraw(false);
+        setTimeout(function() { $('#up-upload-alert').fadeOut(); }, 4000);
+      }
+    });
+  });
+
+  $("a#smsranges").parent().parent().attr("style", "display:block;");
+  $("a#smsranges").attr("class", "active");
+});</script>
+
+<script src="../assets/js/session-ui-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t">
+  <title id="t">GLOBAL1TEL</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10131f"/><stop offset="100%" stop-color="#04060f"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#g)" stroke="#f2c94c" stroke-width="4"/>
+  <circle cx="64" cy="64" r="42" fill="none" stroke="#c9971f" stroke-width="3"/>
+  <circle cx="64" cy="64" r="33" fill="none" stroke="#f2c94c" stroke-width="2"/>
+  <text x="64" y="80" font-family="DejaVu Sans,Segoe UI,Arial,sans-serif" font-size="44"
+        font-weight="bold" fill="#f2c94c" text-anchor="middle">G1</text>
+</svg>

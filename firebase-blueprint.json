@@ -1,0 +1,140 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User accounts with multi-role access (admin, manager, agent, client, test)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Numeric User ID" },
+        "username": { "type": "string", "maxLength": 64, "description": "Unique username" },
+        "role": { "type": "string", "enum": ["admin", "manager", "agent", "client", "test"], "description": "User role" },
+        "full_name": { "type": "string", "maxLength": 128, "description": "Full display name" },
+        "email": { "type": "string", "maxLength": 128, "description": "Contact email" },
+        "phone": { "type": "string", "maxLength": 32, "description": "Contact phone" },
+        "status": { "type": "string", "enum": ["active", "inactive", "suspended"], "description": "Account status" },
+        "parent_id": { "type": "number", "description": "Parent manager or agent ID" },
+        "balances": { "type": "object", "description": "Balances in USD, EUR, GBP" },
+        "api_token": { "type": "string", "description": "Secret API token" },
+        "created_at": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["username", "role", "status"]
+    },
+    "PhoneNumber": {
+      "title": "PhoneNumber",
+      "description": "Virtual and DID numbers assigned to clients for OTP/SMS",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "ID" },
+        "range_id": { "type": "number", "description": "Associated Range ID" },
+        "range_name": { "type": "string", "maxLength": 128, "description": "Associated Range Name" },
+        "number": { "type": "string", "maxLength": 32, "description": "E.164 phone number" },
+        "assigned_to": { "type": "number", "description": "Client user ID" },
+        "assigned_username": { "type": "string", "description": "Client username" },
+        "is_test": { "type": "number", "description": "Whether number is for test panel" },
+        "status": { "type": "string", "enum": ["available", "assigned"], "description": "Status" },
+        "payout_term": { "type": "string", "description": "Payout schedule term (1/1, 7/1, etc.)" },
+        "payout_rate": { "type": "number", "description": "Per SMS rate" },
+        "allocated_at": { "type": "string", "description": "Allocation date" }
+      },
+      "required": ["number", "range_id", "status"]
+    },
+    "Range": {
+      "title": "Range",
+      "description": "SMS and OTP number range batches",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Range ID" },
+        "manager_id": { "type": "number", "description": "Owner Manager ID" },
+        "range_name": { "type": "string", "maxLength": 128, "description": "Range title" },
+        "prefix": { "type": "string", "maxLength": 16, "description": "Country dial code prefix" },
+        "currency": { "type": "string", "maxLength": 8, "description": "Currency" },
+        "payout_1_1": { "type": "number", "description": "1/1 Payout rate" },
+        "payout_7_1": { "type": "number", "description": "7/1 Payout rate" },
+        "payout_7_7": { "type": "number", "description": "7/7 Payout rate" },
+        "payout_30_45": { "type": "number", "description": "30/45 Payout rate" },
+        "test_number": { "type": "string", "description": "Test preview number" },
+        "total_numbers": { "type": "number", "description": "Total number count" },
+        "available_numbers": { "type": "number", "description": "Available number count" },
+        "status": { "type": "string", "enum": ["active", "inactive", "exhausted"], "description": "Range status" }
+      },
+      "required": ["range_name", "prefix", "status"]
+    },
+    "CDR": {
+      "title": "CDR",
+      "description": "Call/SMS Detail Records containing incoming SMS and OTP codes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Record ID" },
+        "user_id": { "type": "number", "description": "Client user ID" },
+        "range_id": { "type": "number", "description": "Range ID" },
+        "sender": { "type": "string", "maxLength": 64, "description": "Sender ID" },
+        "recipient": { "type": "string", "maxLength": 32, "description": "Destination phone number" },
+        "message": { "type": "string", "maxLength": 1024, "description": "SMS Content" },
+        "otp_code": { "type": "string", "maxLength": 16, "description": "Extracted OTP code" },
+        "otp_detected": { "type": "boolean", "description": "Whether an OTP code was parsed" },
+        "country": { "type": "string", "maxLength": 64, "description": "Destination country" },
+        "payout": { "type": "number", "description": "Calculated payout amount" },
+        "status": { "type": "string", "description": "Delivery status" },
+        "created_at": { "type": "string", "description": "Delivery timestamp" }
+      },
+      "required": ["sender", "recipient", "status"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Payout requests and balance transactions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Payment ID" },
+        "user_id": { "type": "number", "description": "User ID" },
+        "username": { "type": "string", "description": "Username" },
+        "role": { "type": "string", "description": "User role" },
+        "amount": { "type": "number", "description": "Amount requested" },
+        "currency": { "type": "string", "description": "Currency" },
+        "payment_method": { "type": "string", "description": "Payment method (USDT, Wire, etc.)" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"], "description": "Payment status" },
+        "created_at": { "type": "string", "description": "Date created" }
+      },
+      "required": ["user_id", "amount", "status"]
+    },
+    "News": {
+      "title": "News",
+      "description": "Announcements and notices for users and agents",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Notice ID" },
+        "title": { "type": "string", "maxLength": 256, "description": "Notice title" },
+        "content": { "type": "string", "maxLength": 4096, "description": "Notice content" },
+        "target_role": { "type": "string", "description": "Audience role" },
+        "status": { "type": "string", "description": "Status" },
+        "created_at": { "type": "string", "description": "Date published" }
+      },
+      "required": ["title", "content"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User accounts and permissions"
+    },
+    "/numbers/{numberId}": {
+      "schema": "PhoneNumber",
+      "description": "Inventory of phone numbers"
+    },
+    "/ranges/{rangeId}": {
+      "schema": "Range",
+      "description": "Phone number batches"
+    },
+    "/cdr/{cdrId}": {
+      "schema": "CDR",
+      "description": "SMS and OTP logs"
+    },
+    "/payments/{paymentId}": {
+      "schema": "Payment",
+      "description": "Payment and payout requests"
+    },
+    "/news/{newsId}": {
+      "schema": "News",
+      "description": "Announcements"
+    }
+  }
+}

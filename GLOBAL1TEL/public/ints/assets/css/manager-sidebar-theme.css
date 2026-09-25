@@ -1,0 +1,208 @@
+/* ============================================================
+   GLOBAL1TEL — Manager Panel Sidebar (reference-match dark theme)
+   Loaded after sidebar-enhanced.css on Manager pages, so these
+   rules win. Kept in sync with g1t-dark-sidebar-theme.css
+   (the Agent/Client copy) — same rules, both files.
+   ============================================================ */
+
+#sidebar {
+    width: 260px !important;
+    background: #262626 !important;
+    background-image: none !important;
+    border-right: 1px solid #1b1b1b !important;
+    box-shadow: none !important;
+}
+
+#sidebar .lgxx {
+    background: #202020 !important;
+    border-bottom: 1px solid #1b1b1b !important;
+}
+
+.navbar-inner {
+    padding-left: 270px !important;
+}
+
+#main-content {
+    margin-left: 260px !important;
+}
+
+.side-nav {
+    padding: 14px 0 !important;
+}
+
+/* ---- Top level items: Dashboard, IPRN SMS Module, SMS Test Panel,
+        My Agents, SMS CDR & Statistics, Agent Credit Notes, API ---- */
+.side-nav > li > a {
+    color: #eaeaea !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    padding: 14px 22px !important;
+    border-left: none !important;
+    background: transparent !important;
+}
+
+.side-nav > li > a:hover,
+.side-nav > li > a.active {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+    border-left: none !important;
+}
+
+.side-nav li a .color-icons {
+    opacity: 1 !important;
+    margin-right: 12px !important;
+}
+
+.side-nav li#main > a::after {
+    border-top-color: #8a8a8a !important;
+}
+
+/* ---- Submenu items: SMS Ranges, My SMS Numbers, SMS RateCard,
+        SMS Bulk Allocations, Detailed/Summary SMS Reports,
+        Agent SMS Stats, SMS Range Stats, SMS Number Stats ---- */
+.side-nav li ul {
+    background: transparent !important;
+    padding: 2px 0 12px !important;
+}
+
+.side-nav li ul li a {
+    color: #f2c94c !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    padding: 9px 22px 9px 48px !important;
+    border-left: none !important;
+    background: transparent !important;
+}
+
+.side-nav li ul li a:hover {
+    color: #ffe08a !important;
+    background: transparent !important;
+    border-left: none !important;
+}
+
+.side-nav li ul li .sidenav-icon {
+    left: 22px !important;
+}
+
+.side-nav li ul li .sidenav-icon .sidenav-link-color {
+    width: 7px !important;
+    height: 7px !important;
+    background: transparent !important;
+    border: 1.5px solid #f2c94c !important;
+    border-radius: 50% !important;
+}
+
+.side-nav li ul li a:hover .sidenav-icon .sidenav-link-color {
+    border-color: #ffe08a !important;
+    background: transparent !important;
+}
+
+/* Scrollbar to match dark background */
+#sidebar::-webkit-scrollbar-track {
+    background: #262626 !important;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: #444 !important;
+}
+
+@media (max-width: 992px) {
+    #sidebar {
+        width: 230px !important;
+    }
+    .navbar-inner {
+        padding-left: 240px !important;
+    }
+    #main-content {
+        margin-left: 230px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #sidebar:hover {
+        width: 260px !important;
+    }
+}
+
+/* ============================================================
+   Mobile hamburger menu (.nav-collapse .nav) — same reference
+   look (dark background, bold white section headers, gold
+   submenu links with hollow circle bullets) as the desktop
+   sidebar above. Applied on EVERY page that loads this file,
+   not just the Dashboard.
+   ============================================================ */
+@media screen and (max-width: 979px) {
+    .nav-collapse,
+    .nav-collapse.in,
+    .nav-collapse .nav,
+    .nav-collapse.in .nav {
+        background: #262626 !important;
+    }
+
+    .nav-collapse .nav > li > a,
+    .nav-collapse.in .nav > li > a {
+        color: #eaeaea !important;
+        font-weight: 600 !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        background: transparent !important;
+        border-left: none !important;
+    }
+
+    .nav-collapse .nav > li > a:hover,
+    .nav-collapse.in .nav > li > a:hover {
+        background: rgba(255, 255, 255, 0.06) !important;
+        color: #ffffff !important;
+    }
+
+    .nav-collapse .nav li a .color-icons {
+        opacity: 1 !important;
+        margin-right: 10px !important;
+    }
+
+    .nav-collapse .nav li#main > a::after {
+        border-top-color: #8a8a8a !important;
+    }
+
+    .nav-collapse .nav li ul.acitem,
+    .nav-collapse.in .nav li ul.acitem {
+        background: #262626 !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li a,
+    .nav-collapse.in .nav li ul.acitem li a {
+        color: #f2c94c !important;
+        font-weight: 400 !important;
+        text-transform: none !important;
+        background: transparent !important;
+        border-left: none !important;
+        padding-left: 42px !important;
+        position: relative;
+    }
+
+    .nav-collapse .nav li ul.acitem li a:hover,
+    .nav-collapse.in .nav li ul.acitem li a:hover {
+        color: #ffe08a !important;
+        background: transparent !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li .sidenav-icon {
+        left: 18px !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li .sidenav-icon .sidenav-link-color {
+        width: 7px !important;
+        height: 7px !important;
+        background: transparent !important;
+        border: 1.5px solid #f2c94c !important;
+        border-radius: 50% !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li a:hover .sidenav-icon .sidenav-link-color {
+        border-color: #ffe08a !important;
+        background: transparent !important;
+    }
+}

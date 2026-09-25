@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><script src="/ints/assets/js/_shot_regenerator.js"></script><script src="/ints/assets/js/_shot_fetch_polyfill.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=Account.html#creditnotes"><title>GLOBAL1TEL</title><link href="../assets/css/brand-g1t.css" rel="stylesheet">
+</head><body><p>This has moved to <a href="CreditNotes.html">My Account</a>.</p><script>location.replace('Account.html#creditnotes');</script>
+<script>
+
+var API='/api/misc.php';
+$.get(API+'?action=payment_requests',function(res){
+  var t=$('#dt').DataTable({sPaginationType:"full_numbers",iDisplayLength:25,dom:'Bfrtip',buttons:['copy','csv','excel','pdf','print']});
+  (res.rows||[]).forEach(function(r){
+    var b=r.status==='completed'?'label-success':r.status==='approved'?'label-info':r.status==='rejected'?'label-important':'label-warning';
+    t.row.add([r.created_at,r.currency,parseFloat(r.amount).toFixed(2),r.method||'-',r.details||'-','<span class="label '+b+'">'+r.status+'</span>']).draw(false);
+  });
+},'json');
+$('#pr-submit').click(function(){
+  $.ajax({url:API+'?action=payment_request_create',method:'POST',contentType:'application/json',
+    data:JSON.stringify({currency:$('#pr-currency').val(),amount:$('#pr-amount').val(),method:$('#pr-method').val(),details:$('#pr-details').val()}),
+    success:function(res){if(res.success){alert('Request submitted!');location.reload();}else alert(res.error||'Failed');},dataType:'json'});
+});
+</script>
+</body></html>

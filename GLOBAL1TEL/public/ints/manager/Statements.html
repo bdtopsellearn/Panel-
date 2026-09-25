@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><script src="/ints/assets/js/_shot_regenerator.js"></script><script src="/ints/assets/js/_shot_fetch_polyfill.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=Account.html#creditnotes"><title>GLOBAL1TEL</title><link href="../assets/css/brand-g1t.css" rel="stylesheet">
+</head><body><p>This has moved to <a href="CreditNotes.html">My Account</a>.</p><script>location.replace('Account.html#creditnotes');</script>
+<script>
+
+var cur=new URLSearchParams(window.location.search).get('currency')||'USD';
+$('#stmt-title').text(cur+' Statements');
+var td=new Date(),m1=new Date();m1.setMonth(m1.getMonth()-1);
+$('#stmt-from').val(m1.toISOString().split('T')[0]);
+$('#stmt-to').val(td.toISOString().split('T')[0]);
+function loadStmt(){
+  $.get('/api/misc.php?action=statements&currency='+cur+'&from='+$('#stmt-from').val()+'&to='+$('#stmt-to').val(),function(res){
+    var tb=$('#dt tbody');tb.html('');var cr=0,dr=0,bal=0;
+    (res.rows||[]).forEach(function(r){
+      cr+=parseFloat(r.credit||0);dr+=parseFloat(r.debit||0);bal=parseFloat(r.balance||0);
+      tb.append('<tr><td>'+r.date+'</td><td>'+r.description+'</td><td>'+(+r.credit).toFixed(4)+'</td><td>'+(+r.debit).toFixed(4)+'</td><td>'+(+r.balance).toFixed(4)+'</td></tr>');
+    });
+    $('#t-cr').text(cr.toFixed(4));$('#t-dr').text(dr.toFixed(4));$('#t-bal').text(bal.toFixed(4));
+    if(!res.rows||!res.rows.length) tb.html('<tr><td colspan="5">No transactions found for this period.</td></tr>');
+  },'json');
+}
+loadStmt();$('#stmt-load').click(loadStmt);
+</script>
+</body></html>
