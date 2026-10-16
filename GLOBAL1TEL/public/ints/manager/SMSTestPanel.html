@@ -1,0 +1,1510 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head><script src="/ints/assets/js/_shot_regenerator.js"></script><script src="/ints/assets/js/_shot_fetch_polyfill.js"></script>
+<title>GLOBAL1TEL | SMS Test Panel</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IPRN Billing and Softswitch">
+<meta name="author" content="Inteliotech">
+<!-- styles -->
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/select2.css" rel="stylesheet">
+<link href="../assets/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+<link href="../assets/css/jquery.jqplot.css" rel="stylesheet">
+<link href="../assets/css/prettify.css" rel="stylesheet">
+<link href="../assets/css/elfinder.min.css" rel="stylesheet">
+<link href="../assets/css/elfinder.theme.css" rel="stylesheet">
+<link href="../assets/css/fullcalendar.css" rel="stylesheet">
+<link href="../assets/js/plupupload/jquery.plupload.queue/css/jquery.plupload.queue.css" rel="stylesheet">
+<link href="../assets/css/styles.css" rel="stylesheet">
+<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../assets/css/icons-sprite.css" rel="stylesheet">
+<link id="themes" href="../assets/css/themes.css" rel="stylesheet">
+<link id="themes" href="../assets/css/theme-dark.css" rel="stylesheet">
+<link href="../assets/css/sidebar-enhanced.css" rel="stylesheet">
+<link href="../assets/css/manager-sidebar-theme.css" rel="stylesheet">
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie8.css" />
+<![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="../assets/css/ie/ie9.css" />
+<![endif]-->
+<!--fav and touch icons -->
+<link rel="shortcut icon" href="../assets/img/global1tel-icon.svg">
+<style id="g1t-manager-dashboard-reference-style">
+/* GLOBAL1TEL dashboard reference-match mobile UI.
+   Dashboard pages only. Desktop and all backend/feature behavior stay unchanged. */
+@media screen and (max-width: 979px) {
+  html, body {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+
+  /* Reference-style two-level mobile header. */
+  .navbar-fixed-top {
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  .navbar-inner.top-nav {
+    min-height: 74px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .navbar-inner.top-nav > .container-fluid {
+    position: relative;
+    min-height: 74px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .branding {
+    position: absolute !important;
+    left: 0 !important;
+    top: 7px !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 3;
+  }
+
+  .branding .logo {
+    float: none !important;
+    width: auto !important;
+    height: 24px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 24px !important;
+  }
+
+  /* On mobile show the logo image instead of dim text branding, matching the GLOBAL1TEL mark. */
+  .branding .logo img {
+    display: block !important;
+    height: 24px !important;
+    width: auto !important;
+  }
+
+  .branding .logo:after {
+    content: "GLOBAL1TEL";
+    display: none;
+    background: linear-gradient(180deg, #fff6d8 0%, #ffe9a8 30%, #f2c94c 60%, #c9971f 85%, #8a641b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f2c94c;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.55), 2px 2px 4px rgba(0,0,0,.5), 0 0 16px rgba(242,201,76,.4);
+    font-size: 18px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: .01em;
+    line-height: 24px;
+    white-space: nowrap;
+    text-shadow: 0 0 14px rgba(242, 201, 76,.55);
+  }
+.navbar .btn-navbar {
+    display: block !important;
+    position: absolute !important;
+    left: 58% !important;
+    top: 40px !important;
+    width: 37px !important;
+    height: 28px !important;
+    margin: 0 !important;
+    padding: 5px 8px !important;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    border-radius: 4px;
+    z-index: 4;
+  }
+
+  .navbar .btn-navbar .icon-bar {
+    width: 19px !important;
+    height: 2px !important;
+    margin-left: 0 !important;
+  }
+
+  .navbar .nav.pull-right {
+    position: absolute !important;
+    left: auto !important;
+    right: 8px !important;
+    top: 39px !important;
+    float: none !important;
+    width: 160px !important;
+    margin: 0 !important;
+    z-index: 4;
+  }
+
+  .navbar .nav.pull-right > li {
+    float: left !important;
+  }
+
+  .navbar .nav.pull-right > li > a {
+    padding: 5px 0 !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    white-space: nowrap;
+  }
+
+  .navbar .nav.pull-right .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  /* Closed menu leaves only the 74px header; open menu expands below it. */
+  .nav-collapse,
+  .nav-collapse.collapse {
+    clear: both;
+    margin-top: 0 !important;
+  }
+
+  .nav-collapse.in {
+    margin-top: 74px !important;
+    overflow: visible !important;
+    background: #1c1c1c;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+
+  .nav-collapse.in > .nav {
+    margin: 0 !important;
+    padding: 5px 0 14px !important;
+    background: linear-gradient(#303030, #171717);
+  }
+
+  .nav-collapse.in .nav > li > a {
+    margin: 0 !important;
+    padding: 6px 15px !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+
+  .nav-collapse.in .nav li ul.acitem li a {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    line-height: 18px !important;
+    font-size: 12px !important;
+  }
+
+  /* The mobile reference uses top navigation; hide the desktop sidebar only here. */
+  #sidebar {
+    display: none !important;
+  }
+
+  #main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  #main-content > .container-fluid {
+    padding: 17px 18px 22px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  #main-content .breadcrumb {
+    box-sizing: border-box;
+    min-height: 28px;
+    margin: 0 0 17px !important;
+    padding: 5px 12px !important;
+    border-radius: 4px;
+    font-size: 12px !important;
+    line-height: 17px !important;
+  }
+
+  #main-content .breadcrumb .divider {
+    padding: 0 6px;
+  }
+
+  /* Exactly one shortcut card per row, with reference-sized proportions. */
+  .dashboard-widget,
+  .dashboard-widget .row-fluid {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .dashboard-widget .row-fluid > .span2 {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .dashboard-widget .dashboard-wid-wrap {
+    width: 100% !important;
+    height: 82px !important;
+    margin: 0 0 20px !important;
+    padding: 3px !important;
+    box-sizing: border-box;
+    border-radius: 6px !important;
+    background: #eeeeee !important;
+  }
+
+  .dashboard-widget .dashboard-wid-content,
+  .dashboard-widget .dashboard-wid-content a {
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .dashboard-widget .dashboard-wid-content a {
+    min-height: 0 !important;
+    padding: 5px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 4px !important;
+    font-size: 13px !important;
+    line-height: 16px !important;
+  }
+
+  .dashboard-widget .dashboard-icons-colors {
+    float: none !important;
+    display: block !important;
+    margin: -5px auto -3px !important;
+    transform: scale(.72);
+    -webkit-transform: scale(.72);
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+  }
+
+  .dashboard-widget .dasboard-icon-title {
+    display: block !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    line-height: 17px !important;
+    font-weight: 400 !important;
+    color: #333 !important;
+  }
+
+  /* Keep dashboard statistics in compact reference-style full-width cards. */
+  #main-content .row-fluid > .span3,
+  #main-content .row-fluid > .span4,
+  #main-content .row-fluid > .span6,
+  #main-content .row-fluid > .span9 {
+    float: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  #main-content .stat-block {
+    width: 100% !important;
+    min-height: 54px !important;
+    margin: 0 0 14px !important;
+    padding: 7px 10px !important;
+    box-sizing: border-box;
+  }
+
+  #main-content .stat-block ul {
+    width: 100% !important;
+    min-height: 38px;
+    margin: 0 !important;
+  }
+
+  #main-content .stat-block .stat-count {
+    width: auto !important;
+    min-width: 92px !important;
+  }
+
+  #main-content .stat-block .stat-count span:first-child {
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+
+  #main-content .stat-block .stat-count span:last-child {
+    font-size: 13px !important;
+    line-height: 17px !important;
+  }
+
+  #main-content .index-graph,
+  #main-content .summary,
+  #main-content .widget-block {
+    margin-bottom: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #main-content > .container-fluid {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+</style>
+<style>
+.select2-container { margin-top:-5px; }
+</style>
+<link href="../assets/css/brand-g1t.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner top-nav" style="position:relative;">
+    <div class="container-fluid">
+        <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <div class="branding">
+	<div class="logo"> <img src='../assets/img/brand/global1tel-logo.png' style='height:40px; width:auto;' alt='GLOBAL1TEL' /> </div>
+      </div>
+<ul class="nav pull-right">
+	
+        <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="nav-username"></span> <span class="alert-noty"></span><i class="white-icons admin_user"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="Notifications.html"><i class="icon-envelope"></i> Notifications </a></li>
+            <li><a href="Account.html#profile"><i class="icon-briefcase"></i> My Profile</a></li>
+            <li><a href="MyActivity.html"><i class="icon-file"></i> My Activity</a></li>
+            <li><a href="UserActivity.html"><i class="icon-pencil"></i> Users Activity</a></li>
+            <li class="divider"></li>
+            <li><a href="/ints/logout" data-session-logout="1"><i class="icon-off"></i><strong> Logout</strong></a></li>
+          </ul>
+        </li>
+</ul>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+			<li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+			<!--<li id='main'><a href="#"><span class="color-icons sound_co"></span> IPRN Voice Module</a>
+			  <ul class="acitem">
+				<li><a href="Ranges" id='ranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>All Ranges</a></li>
+				<li><a href="MyNumbers" id='numbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My Numbers</a></li>
+				<li><a href="RateCard" id='ratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>RateCard</a></li>
+			<li><a href="AccessList" id='accesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Access List</a></li>
+				<li><a href="AutoAccessList" id='autoaccesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Auto Access List</a></li>
+			  </ul>
+			</li>-->
+			 <li id='main'><a href="#"><span class="color-icons envelope_co"></span> IPRN SMS Module</a>
+			  <ul class="acitem">
+				<li><a href="SMSRanges.html" id='smsranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Ranges</a></li>
+				<li><a href="MySMSNumbers.html" id='smsnumbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My SMS Numbers</a></li>
+				<li><a href="SMSRateCard.html" id='smsratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS RateCard</a></li>
+				<li><a href="SMSBulkAllocations.html" id='smsbulk'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Bulk Allocations</a></li>
+			  </ul>
+			</li>
+		 
+			<!--<li><a href="AudioFiles" id='audiofile'><span class="color-icons music_co"></span> Audio Files</a></li>-->
+<li><a href="NewsMaster.html" id='newsmaster'><span class="color-icons cup"></span> News for Agents</a></li>
+<li><a href="Agents.html" id='clients'><span class="color-icons user_co"></span> My Agents</a></li>
+			<!--<li><a href="ActiveCalls" id='activecalls'><span class="color-icons mobile_phone_co"></span> Active Calls</a></li>
+			<li id='main'><a href="#"><span class="color-icons chart_line_co"></span> Voice CDR & Statistics</a>
+			  <ul class="acitem">
+				<li><a href="CDRReports" id='cdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed Reports</a></li>
+				<li><a href="CDRStats" id='stats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary Reports</a></li>
+				<li><a href="ClientStats" id='cstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Client Stats</a></li>
+				<li><a href="RangeStats" id='rstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Range Stats</a></li>
+				<li><a href="NumberStats" id='nstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Number Stats</a></li>
+				
+			  </ul>
+			</li>-->
+			<li id='main'><a href="#"><span class="color-icons chart_bar_co"></span> SMS CDR & Statistics</a>
+			  <ul class="acitem">
+				<li><a href="SMSCDRReports.html" id='smscdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed SMS Reports</a></li>
+				<li><a href="SMSCDRStats.html" id='smsstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary SMS Reports</a></li>
+				<li><a href="SMSAgentStats.html" id='smscstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Agent SMS Stats</a></li>
+				<li><a href="SMSRangeStats.html" id='smsrstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Range Stats</a></li>
+				<li><a href="SMSNumberStats.html" id='smsnstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Number Stats</a></li>
+				
+			  </ul>
+			</li>
+			<li><a href="CreditNotes.html" id='creditnotes'><span class="color-icons briefcase_co"></span> Agent Credit Notes</a></li>
+			<li><a href="PaymentRequests.html" id='paymentrequests'><span class="color-icons money_dollar_co"></span> Payment Requests</a></li>
+			<li><a href="BankAccounts.html" id='bankaccounts'><span class="color-icons bank_clr"></span> Bank Accounts</a></li>
+			<li id='main'><a href="#"><span class="color-icons statistics_sl"></span> Statements</a>
+			  <ul class="acitem">
+				<li><a href='Statements.html?currency=USD' id='stmt-usd'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>USD Statements</a></li>
+				<li><a href='Statements.html?currency=EUR' id='stmt-eur'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>EUR Statements</a></li>
+				<li><a href='Statements.html?currency=GBP' id='stmt-gbp'><span class='sidenav-icon'><span class='sidenav-link-color'></span></span>GBP Statements</a></li>
+			  </ul>
+			</li>
+			<!--<li><a href="TestPanel" id='testpanel'><span class="color-icons feed_co"></span> Voice Test Panel</a></li>-->
+			<li><a href="SMSTestPanel.html" id='smstestpanel'><span class="color-icons feed_co"></span> SMS Test Panel</a></li>
+			<li><a href="API.html" id='api'><span class="color-icons cup"></span> API</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sidebar">
+  <div class='lgxx'>
+	<!--<div style='border:1px solid #CFCFCF; border-radius:50%; width:120px; height:120px; margin:auto; text-align:center;'><img src='../assets/img/lg.png' style='max-width:110px; max-height:110px; margin-top:10px;' /></div>-->
+	Welcome <span id="sidebar-username"></span><br />
+	<b>Manager Panel</b><br /><span id="sidebar-datetime"></span>	<!--<br />API Token : ZIaAi3pOWEFJSVBHQ1NW-->
+  </div>
+  <ul class="side-nav accordion_mnu collapsible">
+    <li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+    <!--<li id='main'><a href="#"><span class="color-icons sound_co"></span> IPRN Voice Module</a>
+      <ul class="acitem">
+        <li><a href="Ranges" id='ranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>All Ranges</a></li>
+        <li><a href="MyNumbers" id='numbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My Numbers</a></li>
+        <li><a href="RateCard" id='ratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>RateCard</a></li>
+	<li><a href="AccessList" id='accesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Access List</a></li>
+        <li><a href="AutoAccessList" id='autoaccesslist'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Auto Access List</a></li>
+      </ul>
+    </li>-->
+     <li id='main'><a href="#"><span class="color-icons envelope_co"></span> IPRN SMS Module</a>
+      <ul class="acitem">
+        <li><a href="SMSRanges.html" id='smsranges'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Ranges</a></li>
+        <li><a href="MySMSNumbers.html" id='smsnumbers'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>My SMS Numbers</a></li>
+	<li><a href="SMSRateCard.html" id='smsratecard'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS RateCard</a></li>
+	<li><a href="SMSBulkAllocations.html" id='smsbulk'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Bulk Allocations</a></li>
+      </ul>
+    </li>
+	<!--<li><a href="TestPanel" id='testpanel'><span class="color-icons feed_co"></span> Voice Test Panel</a></li>-->
+	<li><a href="SMSTestPanel.html" id='smstestpanel'><span class="color-icons feed_co"></span> SMS Test Panel</a></li>
+	<li><a href="NewsMaster.html" id='newsmaster'><span class="color-icons cup"></span> News for Agents</a></li>
+	<li><a href="Agents.html" id='clients'><span class="color-icons user_co"></span> My Agents</a></li>
+	<!--<li><a href="ActiveCalls" id='activecalls'><span class="color-icons mobile_phone_co"></span> Active Calls</a></li>-->
+    <!--<li id='main'><a href="#"><span class="color-icons chart_line_co"></span> Voice CDR & Statistics</a>
+      <ul class="acitem">
+        <li><a href="CDRReports" id='cdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed Reports</a></li>
+        <li><a href="CDRStats" id='stats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary Reports</a></li>
+        <li><a href="ClientStats" id='cstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Client Stats</a></li>
+        <li><a href="RangeStats" id='rstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Range Stats</a></li>
+        <li><a href="NumberStats" id='nstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Number Stats</a></li>
+        
+      </ul>
+    </li>-->
+	<li id='main'><a href="#"><span class="color-icons chart_bar_co"></span> SMS CDR & Statistics</a>
+      <ul class="acitem">
+        <li><a href="SMSCDRReports.html" id='smscdr'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Detailed SMS Reports</a></li>
+        <li><a href="SMSCDRStats.html" id='smsstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Summary SMS Reports</a></li>
+        <li><a href="SMSAgentStats.html" id='smscstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>Agent SMS Stats</a></li>
+        <li><a href="SMSRangeStats.html" id='smsrstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Range Stats</a></li>
+        <li><a href="SMSNumberStats.html" id='smsnstats'><span class="sidenav-icon"><span class="sidenav-link-color"></span></span>SMS Number Stats</a></li>
+        
+      </ul>
+    </li>
+	<li><a href="CreditNotes.html" id='creditnotes'><span class="color-icons briefcase_co"></span> Agent Credit Notes</a></li>
+	<li><a href="Account.html" id='myaccount'><span class="color-icons money_dollar_co"></span> My Account</a></li>
+	<li><a href="BankAccounts.html" id='bankaccounts'><span class="color-icons bank_clr"></span> Bank Accounts</a></li>
+	<!--<li><a href="AudioFiles" id='audiofile'><span class="color-icons music_co"></span> Audio Files</a></li>-->
+<li><a href="API.html" id='api'><span class="color-icons cup"></span> API</a></li>
+  </ul>
+  <div id="side-accordion">
+	<div class="accordion-group">
+      <div class="accordion-header"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#side-accordion" href="#collapseTwo"></div>
+      <div id="collapseTwo" class="collapse">
+        <div class="accordion-content">
+          <div class="site-stat">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-content">
+	<div class="container-fluid">
+		<ul class="breadcrumb">
+			<li><a href="SMSDashboard.html">Home</a><span class="divider">&raquo;</span></li>
+			<li class="active">SMS Test Panel</li>
+		</ul>
+				
+		<div class='row-fluid'>
+			<div class='span12'>
+				<p>Here you can see all test numbers from ranges you created. You can test SMS on them, manage Demo OTPs, and control the automatic OTP live stream.</p>
+			</div>
+		</div>
+
+		<!-- MANAGER DEMO OTP CONTROLLER & SCHEDULED RULES ENGINE -->
+		<div class="row-fluid" style="margin-bottom:18px;">
+			<div class="span12">
+				<div class="widget-block" style="border:1px solid #bce8f1; box-shadow:0 3px 10px rgba(0,0,0,0.08);">
+					<div class="widget-head" style="background:linear-gradient(180deg, #ebf7fd 0%, #d8effc 100%); border-bottom:1px solid #bce8f1; padding:10px 15px;">
+						<h5 style="color:#005580; margin:0; display:inline-block; font-weight:bold;">
+							<i class="icon-cog"></i> ম্যানেজার এডভান্সড ওটিপি শিডিউল ও রেঞ্জ কন্ট্রোল সেন্টার (Advanced Automation Engine)
+						</h5>
+						<span class="pull-right">
+							<span id="gen-status-badge" class="badge badge-success" style="font-size:12px; padding:5px 12px;">SYSTEM ACTIVE</span>
+						</span>
+					</div>
+					<div class="widget-content" style="padding:15px; background:#fafcff;">
+						
+						<!-- TOP QUICK RANGE CONTROLLER BAR -->
+						<div class="alert alert-info" style="margin-bottom:15px; background:#e8f4fc; border:1px solid #b8dcf5; padding:10px 14px;">
+							<div class="row-fluid">
+								<div class="span7">
+									<strong style="color:#005580; font-size:13px;"><i class="icon-wrench"></i> রেঞ্জ মাস্টার কন্ট্রোল (Range Quick Controls):</strong>
+									<span style="font-size:12px; color:#555; margin-left:8px;">এক ক্লিকে সব রেঞ্জ বন্ধ/চালু করুন বা নতুন রেঞ্জ তৈরি করুন:</span>
+								</div>
+								<div class="span5 text-right" style="text-align:right;">
+									<button class="btn btn-mini btn-danger" type="button" id="btn-disable-all-ranges" style="font-weight:bold; margin-right:4px;">
+										<i class="icon-ban-circle icon-white"></i> সব রেঞ্জ বন্ধ করুন
+									</button>
+									<button class="btn btn-mini btn-success" type="button" id="btn-enable-all-ranges" style="font-weight:bold; margin-right:4px;">
+										<i class="icon-ok-circle icon-white"></i> সব চালু করুন
+									</button>
+									<button class="btn btn-mini btn-primary" type="button" id="btn-open-create-range-modal" style="font-weight:bold; margin-right:4px;">
+										<i class="icon-plus-sign icon-white"></i> নতুন রেঞ্জ বানান
+									</button>
+									<button class="btn btn-mini btn-info" type="button" id="btn-open-upload-modal" style="font-weight:bold;">
+										<i class="icon-upload icon-white"></i> নাম্বার আপলোড
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<!-- TABS OR SECTIONS FOR RULES & SIMULATOR -->
+						<div class="row-fluid">
+							<!-- Left Column: Scheduled Multi-Rule Auto-OTP Engine -->
+							<div class="span7" style="border-right:1px solid #e1ecf7; padding-right:15px;">
+								<h6 style="color:#0077bc; margin-top:0; border-bottom:1px solid #ddecfa; padding-bottom:6px; font-weight:bold;">
+									<i class="icon-time"></i> ১. নির্দিষ্ট সার্ভিস, কান্ট্রি, রেট ও ইন্টারভ্যাল শিডিউল ইঞ্জিন (Scheduled Rules)
+								</h6>
+								<p style="font-size:12px; color:#555; margin-bottom:10px;">
+									যেমনঃ <strong>Myanmar TikTok 0.001$</strong> প্রতি ৫ সেকেন্ড বা ২ মিনিটে স্বয়ংক্রিয়ভাবে ক্লায়েন্ট/টেস্ট প্যানেলে ওটিপি সেন্ড হবে।
+								</p>
+
+								<!-- Quick Presets -->
+								<div style="margin-bottom:12px; background:#fff; border:1px dashed #b8daf5; padding:8px 12px; border-radius:4px;">
+									<span style="font-size:11px; font-weight:bold; color:#005580;">⚡ কুইক প্রিসেট সেটআপঃ</span>
+									<button class="btn btn-mini btn-inverse btn-preset-rule" data-name="Myanmar TikTok OTP ($0.001)" data-country="Myanmar" data-service="TikTok" data-rate="0.001" data-val="5" data-unit="seconds" style="margin-left:4px;">
+										🇲🇲 Myanmar TikTok $0.001 (5s)
+									</button>
+									<button class="btn btn-mini btn-inverse btn-preset-rule" data-name="UK WhatsApp OTP ($0.055)" data-country="United Kingdom" data-service="WhatsApp" data-rate="0.055" data-val="8" data-unit="seconds" style="margin-left:4px;">
+										🇬🇧 UK WhatsApp $0.055 (8s)
+									</button>
+									<button class="btn btn-mini btn-inverse btn-preset-rule" data-name="USA Google 2FA ($0.045)" data-country="United States" data-service="Google" data-rate="0.045" data-val="12" data-unit="seconds" style="margin-left:4px;">
+										🇺🇸 USA Google $0.045 (12s)
+									</button>
+									<button class="btn btn-mini btn-inverse btn-preset-rule" data-name="Bangladesh Telegram OTP ($0.002)" data-country="Bangladesh" data-service="Telegram" data-rate="0.002" data-val="15" data-unit="seconds" style="margin-left:4px;">
+										🇧🇩 BD Telegram $0.002 (15s)
+									</button>
+								</div>
+
+								<!-- Active Rules Table -->
+								<table class="table table-bordered table-striped" id="rulesTable" style="background:#fff; font-size:12px; margin-bottom:12px;">
+									<thead>
+										<tr style="background:#f0f7fd;">
+											<th style="width:45px;">Status</th>
+											<th>রুল / সার্ভিস</th>
+											<th>কান্ট্রি</th>
+											<th>রেট ($)</th>
+											<th>ইন্টারভ্যাল</th>
+											<th>মোট সেন্ড</th>
+											<th style="width:90px;">একশন</th>
+										</tr>
+									</thead>
+									<tbody id="rulesTableBody">
+										<tr><td colspan="7" class="text-center">লোডিং রুলস...</td></tr>
+									</tbody>
+								</table>
+
+								<!-- Add New Rule Collapse Form -->
+								<div class="well" style="background:#fff; border:1px solid #d5e5f5; padding:12px; margin-bottom:0;">
+									<h6 style="margin-top:0; color:#005580; font-size:12px; margin-bottom:8px;">
+										<i class="icon-plus"></i> নতুন অটো-ওটিপি শিডিউল রুল যোগ করুন (Add Custom Rule):
+									</h6>
+									<form id="form-new-rule" onsubmit="return false;" style="margin:0;">
+										<div class="row-fluid">
+											<div class="span4">
+												<label style="font-size:11px; font-weight:bold; color:#444; margin-bottom:2px;">রুলের নাম:</label>
+												<input type="text" id="rule-name" placeholder="যেমন: Myanmar TikTok OTP" value="Myanmar TikTok OTP ($0.001)" style="width:90%; font-size:12px;" />
+											</div>
+											<div class="span4">
+												<label style="font-size:11px; font-weight:bold; color:#444; margin-bottom:2px;">কান্ট্রি / রেঞ্জ:</label>
+												<input type="text" id="rule-country" placeholder="যেমন: Myanmar, UK, USA" value="Myanmar" style="width:90%; font-size:12px;" />
+											</div>
+											<div class="span4">
+												<label style="font-size:11px; font-weight:bold; color:#444; margin-bottom:2px;">সার্ভিস:</label>
+												<select id="rule-service" style="width:100%; font-size:12px;">
+													<option value="TikTok" selected>TikTok</option>
+													<option value="WhatsApp">WhatsApp</option>
+													<option value="Google">Google</option>
+													<option value="Telegram">Telegram</option>
+													<option value="Facebook">Facebook</option>
+													<option value="IMO">IMO</option>
+													<option value="Viber">Viber</option>
+													<option value="Binance">Binance</option>
+													<option value="Instagram">Instagram</option>
+													<option value="Netflix">Netflix</option>
+													<option value="PayPal">PayPal</option>
+													<option value="Amazon">Amazon</option>
+													<option value="Microsoft">Microsoft</option>
+													<option value="Uber">Uber</option>
+												</select>
+											</div>
+										</div>
+										<div class="row-fluid" style="margin-top:6px;">
+											<div class="span4">
+												<label style="font-size:11px; font-weight:bold; color:#444; margin-bottom:2px;">পে-আউট রেট ($):</label>
+												<input type="number" step="0.0001" id="rule-rate" placeholder="0.001" value="0.001" style="width:90%; font-size:12px; font-weight:bold; color:#27ae60;" />
+											</div>
+											<div class="span4">
+												<label style="font-size:11px; font-weight:bold; color:#444; margin-bottom:2px;">কত সেকেন্ড বা মিনিটে:</label>
+												<div class="input-append" style="display:flex;">
+													<input type="number" id="rule-interval-val" min="1" max="3600" value="5" style="width:50px; font-size:12px;" />
+													<select id="rule-interval-unit" style="width:85px; font-size:11px;">
+														<option value="seconds" selected>সেকেন্ড (sec)</option>
+														<option value="minutes">মিনিট (min)</option>
+													</select>
+												</div>
+											</div>
+											<div class="span4" style="padding-top:18px;">
+												<button class="btn btn-primary btn-block" type="button" id="btn-save-rule" style="font-weight:bold;">
+													<i class="icon-ok icon-white"></i> রুল চালু করুন (Save & Run)
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<!-- Right Column: Instant Demo OTP & Live Speed Controller -->
+							<div class="span5" style="padding-left:12px;">
+								<h6 style="color:#e67e22; margin-top:0; border-bottom:1px solid #fae8d4; padding-bottom:6px; font-weight:bold;">
+									<i class="icon-flash"></i> ২. দ্রুত ম্যানুয়াল টেস্ট ওটিপি ও লাইভ রেট
+								</h6>
+
+								<!-- Generator Speed Control -->
+								<div class="well" style="background:#fff; border:1px solid #f8e5d0; padding:10px; margin-bottom:12px;">
+									<label style="font-size:11px; font-weight:bold; color:#333; margin-bottom:3px;">
+										গ্লোবাল স্পিড রেগুলেটর (Global OTP Stream):
+									</label>
+									<div class="input-append" style="margin-bottom:6px;">
+										<select id="gen-rate-select" style="width:170px; font-size:12px; font-weight:600;">
+											<option value="0.5">0.5 OTP/sec (প্রতি ২ সেকেন্ডে ১টি)</option>
+											<option value="1.0" selected>1.0 OTP/sec (প্রতি সেকেন্ডে ১টি)</option>
+											<option value="2.0">2.0 OTP/sec (প্রতি সেকেন্ডে ২টি)</option>
+											<option value="3.0">3.0 OTP/sec (প্রতি সেকেন্ডে ৩টি)</option>
+											<option value="5.0">5.0 OTP/sec (প্রতি সেকেন্ডে ৫টি)</option>
+											<option value="10.0">10.0 OTP/sec (প্রতি সেকেন্ডে ১০টি)</option>
+										</select>
+										<button class="btn btn-primary btn-small" type="button" id="btn-apply-rate"><i class="icon-check icon-white"></i> সেট</button>
+									</div>
+									<div>
+										<button class="btn btn-mini btn-success" type="button" id="btn-start-stream" style="font-weight:bold;">
+											<i class="icon-play icon-white"></i> মাস্টার স্টার্ট
+										</button>
+										<button class="btn btn-mini btn-danger" type="button" id="btn-stop-stream" style="font-weight:bold; margin-left:4px;">
+											<i class="icon-pause icon-white"></i> মাস্টার পজ
+										</button>
+										<span id="gen-speed-display" style="font-size:11px; margin-left:8px; font-weight:bold; color:#0077bc;"></span>
+									</div>
+								</div>
+
+								<!-- Instant Demo OTP Form -->
+								<form id="form-manual-demo-otp" onsubmit="return false;" style="margin:0; background:#fff; border:1px solid #fae4cd; padding:10px; border-radius:4px;">
+									<div class="row-fluid">
+										<div class="span6">
+											<label style="font-size:11px; font-weight:bold; color:#555; margin-bottom:2px;">রেঞ্জ সিলেক্ট করুন:</label>
+											<select id="manual-range-select" style="width:100%; font-size:11px;">
+												<!-- populated via JS -->
+											</select>
+										</div>
+										<div class="span6">
+											<label style="font-size:11px; font-weight:bold; color:#555; margin-bottom:2px;">সার্ভিস / সেন্ডার:</label>
+											<select id="manual-sender-select" style="width:100%; font-size:11px;">
+												<option value="TikTok">TikTok</option>
+												<option value="WhatsApp">WhatsApp</option>
+												<option value="Google">Google</option>
+												<option value="Telegram">Telegram</option>
+												<option value="Facebook">Facebook</option>
+												<option value="Binance">Binance</option>
+												<option value="IMO">IMO</option>
+												<option value="PayPal">PayPal</option>
+												<option value="Netflix">Netflix</option>
+												<option value="Amazon">Amazon</option>
+												<option value="Microsoft">Microsoft</option>
+												<option value="Uber">Uber</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="row-fluid" style="margin-top:6px;">
+										<div class="span6">
+											<label style="font-size:11px; font-weight:bold; color:#555; margin-bottom:2px;">ওটিপি কোড:</label>
+											<div class="input-append" style="width:100%;">
+												<input type="text" id="manual-otp-code" value="584920" style="width:85px; font-weight:bold; font-size:12px; color:#c0392b;" />
+												<button class="btn btn-mini" type="button" id="btn-random-otp"><i class="icon-refresh"></i></button>
+											</div>
+										</div>
+										<div class="span6">
+											<label style="font-size:11px; font-weight:bold; color:#555; margin-bottom:2px;">টেস্ট মোবাইল নাম্বার:</label>
+											<input type="text" id="manual-test-number" value="+95977123456" style="width:90%; font-size:11px;" />
+										</div>
+									</div>
+
+									<div style="margin-top:8px;">
+										<button class="btn btn-warning btn-block" type="button" id="btn-send-manual-otp" style="font-weight:bold; padding:6px; font-size:12px;">
+											<i class="icon-share icon-white"></i> এখনই ডিমও ওটিপি পাঠান (Instant Send)
+										</button>
+									</div>
+									<div id="manual-otp-alert" style="display:none; margin-top:6px; padding:5px 8px; font-size:11px; border-radius:3px;"></div>
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- MODAL: CREATE CUSTOM RANGE (নিজের নতুন রেঞ্জ বানান) -->
+		<div id="modalCreateRange" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" style="display:none;">
+			<div class="modal-header" style="background:#f0f7fd;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 style="color:#005580; margin:0;"><i class="icon-plus-sign"></i> নতুন কাস্টম SMS রেঞ্জ তৈরি করুন</h4>
+			</div>
+			<div class="modal-body">
+				<form id="formCreateCustomRange" style="margin:0;">
+					<div class="row-fluid">
+						<div class="span6">
+							<label style="font-weight:bold; font-size:12px;">রেঞ্জ এর নাম (Range Name):</label>
+							<input type="text" id="cr-name" placeholder="যেমন: Myanmar TikTok VIP (959)" style="width:95%;" required />
+						</div>
+						<div class="span6">
+							<label style="font-weight:bold; font-size:12px;">প্রিফিক্স (Country Prefix):</label>
+							<input type="text" id="cr-prefix" placeholder="যেমন: 959 বা 88017" style="width:95%;" required />
+						</div>
+					</div>
+					<div class="row-fluid" style="margin-top:8px;">
+						<div class="span6">
+							<label style="font-weight:bold; font-size:12px;">পে-আউট রেট 1/1 ($):</label>
+							<input type="number" step="0.0001" id="cr-payout" placeholder="0.001" value="0.001" style="width:95%; font-weight:bold; color:#27ae60;" required />
+						</div>
+						<div class="span6">
+							<label style="font-weight:bold; font-size:12px;">টেস্ট মোবাইল নাম্বার:</label>
+							<input type="text" id="cr-test-number" placeholder="যেমন: +95977123456" style="width:95%;" required />
+						</div>
+					</div>
+					<div class="row-fluid" style="margin-top:8px;">
+						<div class="span6">
+							<label style="font-weight:bold; font-size:12px;">কারেন্সি:</label>
+							<select id="cr-currency" style="width:98%;">
+								<option value="USD">USD ($)</option>
+								<option value="EUR">EUR (€)</option>
+								<option value="GBP">GBP (£)</option>
+							</select>
+						</div>
+						<div class="span6">
+							<label style="font-weight:bold; font-size:12px;">মেমো / রুট নোট:</label>
+							<input type="text" id="cr-memo" placeholder="Direct Social OTP Route" style="width:95%;" />
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">বাতিল</button>
+				<button class="btn btn-success" type="button" id="btn-submit-create-range" style="font-weight:bold;">
+					<i class="icon-ok icon-white"></i> রেঞ্জ সেভ ও একটিভ করুন
+				</button>
+			</div>
+		</div>
+
+		<!-- MODAL: BULK NUMBER UPLOAD & AUTO-GENERATE (নাম্বার আপলোড ও প্যানেল সিস্টেম থেকে আনা) -->
+		<div id="modalUploadNumbers" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" style="display:none; width:650px; margin-left:-325px;">
+			<div class="modal-header" style="background:#f0f7fd;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 style="color:#005580; margin:0;"><i class="icon-upload"></i> নাম্বার আপলোড ও প্যানেল থেকে আমদানি</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row-fluid">
+					<div class="span6">
+						<label style="font-weight:bold; font-size:12px;">টার্গেট রেঞ্জ সিলেক্ট করুন:</label>
+						<select id="up-range-select" style="width:100%;">
+							<!-- populated via JS -->
+						</select>
+					</div>
+					<div class="span6 text-right" style="padding-top:20px; text-align:right;">
+						<button class="btn btn-small btn-info" type="button" id="btn-quick-generate-numbers">
+							<i class="icon-magic icon-white"></i> প্যানেল থেকে ৫০টি অটো নাম্বার বানান
+						</button>
+					</div>
+				</div>
+				<div style="margin-top:10px;">
+					<label style="font-weight:bold; font-size:12px;">নাম্বার লিস্ট পেস্ট করুন (প্রতি লাইনে একটি বা কমা দিয়ে):</label>
+					<textarea id="up-numbers-text" rows="6" style="width:96%; font-family:monospace; font-size:12px;" placeholder="+95977123456&#10;+95977123457&#10;+95977123458"></textarea>
+				</div>
+				<div id="up-upload-alert" style="display:none; margin-top:8px; padding:6px 10px; font-size:12px; border-radius:4px;"></div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">বন্ধ করুন</button>
+				<button class="btn btn-primary" type="button" id="btn-submit-upload-numbers" style="font-weight:bold;">
+					<i class="icon-upload icon-white"></i> নাম্বার সেভ করুন
+				</button>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<div class="widget-block">
+					<div class="widget-head">
+						<h5 style='display:inline-block; margin-right:30px;'>SMS Test Numbers</h5> 
+						<form action='' method='post' style='display:inline;' id='fform'>
+							
+							<select name='frange' id='fdrange' style='width:150px;'><option value=''>Select Range</option>
+								<option value=''></option>
+							</select>
+							
+							<input class='btn btn-danger' type='submit' value='Filter' style='margin-left:5px; margin-top:-5px;' />
+						</form>
+						<div class="widget-control pull-right">
+							
+						</div>
+					</div>
+					<div class="widget-content">
+						<div class="widget-box table-responsive">
+							<table class="data-tbl-boxy table table-bordered" id='dt'>
+							<thead>
+								<tr>
+									<th>Range</th>
+									<th>Prefix</th>
+									<th>Test Number</th>
+									<th>Payout</th>
+									<th>Limits</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td colspan='5'></td></tr>
+							</tbody>
+	
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="widget-block">
+					<div class="widget-head">
+						<h5>Recent SMS Test</h5>
+						<div class="widget-control pull-right" style='padding:10px;'>
+						</div>
+					</div>
+					<div class="widget-content">
+						<div class="widget-box table-responsive">
+														<table class="data-tbl-boxy table table-bordered" id='dt1'>
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Range</th>
+									<th>Number</th>
+									<th>CLI</th>
+									<th>SMS</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td colspan='5'></td></tr>
+							</tbody>
+							<tfoot>
+								<tr><th>Total SMS<br /><span id='totsms'></span></th><th colspan='3'></th><th></th></tr>
+							</tfoot>
+							</table>
+													</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>localStorage.clear();</script>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/select2.js"></script>
+<script src="../assets/js/prettify.js"></script>
+<script src="../assets/js/jquery.nicescroll.min.js"></script>
+<script src="../assets/js/accordion.jquery.js"></script>
+<script src="../assets/js/vaidation.jquery.js"></script>
+<script src="../assets/js/jquery-dynamic-form.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/jquery.dataTables.min.js"></script>
+<script src="../assets/js/ColVis.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.flash.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/jszip.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/pdfmake.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.html5.min.js"></script>
+<script type="text/javascript" language="javascript" src="../assets/js/buttons.print.min.js"></script>
+
+<script src="../assets/js/custom-script.js"></script>
+<!-- html5.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="../assets/js/respond.min.js"></script>
+<script src="../assets/js/ios-orientationchange-fix.js"></script>
+<script>$(function () {
+  $('#dt').dataTable({
+    "sPaginationType": "full_numbers",
+    "bStateSave": true,
+    "bServerSide": true,
+    "sAjaxSource": "res/data_smstestnumbers.php?frange=&fclient=",
+    "aLengthMenu": [[25, 50, 100, 500, 1000, 2000, -1], [25, 50, 100, 500, 1000, 2000, "All"] // change per page values here
+    ],
+    "iDisplayLength": 25,
+    "aaSorting": [[0, 'asc']],
+    "oLanguage": {
+      "sLengthMenu": "<span class='lenghtMenu'> _MENU_</span><span class='lengthLabel'>Show Records:</span>"
+    },
+    dom: 'fl<"clear">CBTtip',
+    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+  });
+  $("div.tbl-tools-searchbox select").addClass('tbl_length');
+  var dt1 = $('#dt1').dataTable({
+    "fnDrawCallback": function fnDrawCallback(oSettings) {
+      var aa = $('#dt1').dataTable().fnSettings()._;
+      datalength = $('#dt1').dataTable().fnGetData().length;
+      data = $('#dt1').dataTable().fnGetData();
+      var dt1 = "" + data[datalength - 1];
+      var dtarr = dt1.split(",");
+      $("span#totsms").html(dtarr[0]);
+      $("table#dt1 tbody tr").last().hide();
+    },
+    "sPaginationType": "full_numbers",
+    "bStateSave": true,
+    "bServerSide": true,
+    "sAjaxSource": "res/data_testsmscdr.php",
+    "aLengthMenu": [[25, 50, 100, 500, 1000, 2000, -1], [25, 50, 100, 500, 1000, 2000, "All"] // change per page values here
+    ],
+    "iDisplayLength": 25,
+    "aaSorting": [[0, 'desc']],
+    "oLanguage": {
+      "sLengthMenu": "<span class='lenghtMenu'> _MENU_</span><span class='lengthLabel'>Show Records:</span>"
+    },
+    dom: 'fl<"clear">CBTtip',
+    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+  });
+  $("div.tbl-tools-searchbox select").addClass('tbl_length');
+  $("select#frange").select2({
+    ajax: {
+      url: 'res/aj_smstestranges.php',
+      dataType: 'json',
+      data: function data(params) {
+        return {
+          q: params.term,
+          // search term
+          max: 25,
+          page: params.page || 1
+        };
+      },
+      processResults: function processResults(data) {
+        return {
+          results: $.map(data.results, function (item) {
+            return {
+              text: item.title,
+              //slug: item.slug,
+              id: item.id
+            };
+          }),
+          pagination: {
+            more: data.pagination.more
+          }
+        };
+      },
+      cache: true
+    },
+    minimumInputLength: 0,
+    placeholder: "Filter Range"
+  });
+  $("select#fdrange").select2({
+    ajax: {
+      url: 'res/aj_smstestranges.php',
+      dataType: 'json',
+      data: function data(params) {
+        return {
+          q: params.term,
+          // search term
+          max: 25,
+          page: params.page || 1
+        };
+      },
+      processResults: function processResults(data) {
+        return {
+          results: $.map(data.results, function (item) {
+            return {
+              text: item.title,
+              //slug: item.slug,
+              id: item.id
+            };
+          }),
+          pagination: {
+            more: data.pagination.more
+          }
+        };
+      },
+      cache: true
+    },
+    minimumInputLength: 0,
+    placeholder: "Select Range"
+  });
+  $("a#smstestpanel").parent().parent().attr("style", "display:block;");
+  $("a#smstestpanel").attr("class", "active");
+
+  // ── Manager Demo OTP & Automation Rules Script ─────────────────────────
+  var rangesList = [];
+
+  function loadManagerRanges() {
+    $.ajax({
+      url: '/api/ranges',
+      dataType: 'json',
+      cache: false,
+      success: function(res) {
+        if (!res || !res.ranges) return;
+        rangesList = res.ranges;
+        var sel = $('#manual-range-select');
+        var upSel = $('#up-range-select');
+        sel.empty();
+        upSel.empty();
+        $.each(rangesList, function(i, r) {
+          var label = r.range_name + ' [' + r.prefix + ']' + (r.status === 'inactive' ? ' (Disabled)' : '');
+          sel.append($('<option>', {
+            value: r.id,
+            text: label,
+            'data-number': r.test_number || ('+' + r.prefix + '1001')
+          }));
+          upSel.append($('<option>', {
+            value: r.id,
+            text: label
+          }));
+        });
+        if (rangesList.length > 0) {
+          $('#manual-test-number').val(rangesList[0].test_number || ('+' + rangesList[0].prefix + '1001'));
+        }
+      }
+    });
+  }
+
+  // Load Rules Table
+  function loadOtpRules() {
+    $.ajax({
+      url: '/api/admin.php?action=otp-rules',
+      type: 'GET',
+      dataType: 'json',
+      cache: false,
+      success: function(res) {
+        if (!res || !res.rules) return;
+        var tbody = $('#rulesTableBody');
+        if (res.rules.length === 0) {
+          tbody.html('<tr><td colspan="7" class="text-center">কোনো শিডিউল রুল নেই। উপরের ফর্ম থেকে নতুন রুল যোগ করুন।</td></tr>');
+          return;
+        }
+        var html = '';
+        $.each(res.rules, function(i, r) {
+          var statusBadge = r.active 
+            ? '<span class="badge badge-success" style="font-size:11px; cursor:pointer;" onclick="toggleOtpRule(' + r.id + ')">ACTIVE</span>'
+            : '<span class="badge badge-important" style="font-size:11px; cursor:pointer;" onclick="toggleOtpRule(' + r.id + ')">PAUSED</span>';
+          
+          var intervalText = r.interval_value + ' ' + (r.interval_unit === 'minutes' ? 'মিনিট' : 'সেকেন্ড');
+          var rateText = '$' + Number(r.rate || 0.001).toFixed(4);
+
+          html += '<tr>' +
+            '<td style="text-align:center;">' + statusBadge + '</td>' +
+            '<td><strong>' + r.name + '</strong><br><small style="color:#777;">' + (r.sender || r.service) + '</small></td>' +
+            '<td><span class="label label-info">' + r.country + '</span></td>' +
+            '<td style="font-weight:bold; color:#27ae60;">' + rateText + '</td>' +
+            '<td><i class="icon-time"></i> প্রতি ' + intervalText + '</td>' +
+            '<td style="font-weight:bold; color:#005580;">' + (r.total_sent || 0) + '</td>' +
+            '<td>' +
+              '<button class="btn btn-mini btn-warning" type="button" onclick="triggerOtpRule(' + r.id + ')" title="তাৎক্ষণিক ১টি টেস্ট ওটিপি পাঠান"><i class="icon-play icon-white"></i></button> ' +
+              '<button class="btn btn-mini ' + (r.active ? 'btn-danger' : 'btn-success') + '" type="button" onclick="toggleOtpRule(' + r.id + ')" title="অন/অফ সুইচ">' + (r.active ? '<i class="icon-pause icon-white"></i>' : '<i class="icon-play icon-white"></i>') + '</button> ' +
+              '<button class="btn btn-mini" type="button" onclick="deleteOtpRule(' + r.id + ')" title="রুল মুছুন"><i class="icon-trash"></i></button>' +
+            '</td>' +
+          '</tr>';
+        });
+        tbody.html(html);
+      }
+    });
+  }
+
+  window.toggleOtpRule = function(id) {
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'otp-rule-toggle', id: id }),
+      success: function(res) {
+        loadOtpRules();
+      }
+    });
+  };
+
+  window.deleteOtpRule = function(id) {
+    if (!confirm('আপনি কি নিশ্চিত এই অটো-ওটিপি রুলটি মুছে ফেলতে চান?')) return;
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'otp-rule-delete', id: id }),
+      success: function(res) {
+        loadOtpRules();
+      }
+    });
+  };
+
+  window.triggerOtpRule = function(id) {
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'otp-rule-trigger', id: id }),
+      success: function(res) {
+        alert(res.message || 'টেস্ট ওটিপি পাঠানো হয়েছে!');
+        loadOtpRules();
+        if ($('#dt1').length && $.fn.dataTable && $.fn.dataTable.isDataTable('#dt1')) {
+          $('#dt1').dataTable().fnDraw(false);
+        }
+      }
+    });
+  };
+
+  // Preset Buttons
+  $(document).on('click', '.btn-preset-rule', function() {
+    var name = $(this).data('name');
+    var country = $(this).data('country');
+    var service = $(this).data('service');
+    var rate = $(this).data('rate');
+    var val = $(this).data('val');
+    var unit = $(this).data('unit');
+
+    $('#rule-name').val(name);
+    $('#rule-country').val(country);
+    $('#rule-service').val(service);
+    $('#rule-rate').val(rate);
+    $('#rule-interval-val').val(val);
+    $('#rule-interval-unit').val(unit);
+
+    $('#btn-save-rule').click();
+  });
+
+  // Save Rule
+  $('#btn-save-rule').on('click', function() {
+    var name = $('#rule-name').val().trim();
+    var country = $('#rule-country').val().trim();
+    var service = $('#rule-service').val();
+    var rate = parseFloat($('#rule-rate').val());
+    var val = parseInt($('#rule-interval-val').val(), 10);
+    var unit = $('#rule-interval-unit').val();
+
+    if (!name || !country || isNaN(rate) || isNaN(val)) {
+      alert('অনুগ্রহ করে রুলের সকল তথ্য সঠিকভাবে পূরণ করুন।');
+      return;
+    }
+
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'otp-rule-save',
+        name: name,
+        country: country,
+        service: service,
+        rate: rate,
+        interval_value: val,
+        interval_unit: unit,
+        active: true
+      }),
+      success: function(res) {
+        loadOtpRules();
+        alert('✓ রুল সফলভাবে সংরক্ষিত ও চালু করা হয়েছে! এখন প্রতি ' + val + ' ' + (unit === 'minutes' ? 'মিনিটে' : 'সেকেন্ডে') + ' ' + country + ' ' + service + ' ওটিপি জেনারেট হবে।');
+      }
+    });
+  });
+
+  // Master Range Controls
+  $('#btn-disable-all-ranges').on('click', function() {
+    if (!confirm('আপনি কি নিশ্চিত সকল বিদ্যমান রেঞ্জ বন্ধ/Disable করতে চান? টেস্ট/ক্লায়েন্ট প্যানেলে কোন বন্ধ রেঞ্জ দেখাবে না।')) return;
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'range-toggle-all', status: 'inactive' }),
+      success: function(res) {
+        alert(res.message || 'সকল রেঞ্জ বন্ধ করা হয়েছে।');
+        loadManagerRanges();
+        $('#dt').dataTable().fnDraw(false);
+      }
+    });
+  });
+
+  $('#btn-enable-all-ranges').on('click', function() {
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'range-toggle-all', status: 'active' }),
+      success: function(res) {
+        alert(res.message || 'সকল রেঞ্জ চালু করা হয়েছে।');
+        loadManagerRanges();
+        $('#dt').dataTable().fnDraw(false);
+      }
+    });
+  });
+
+  // Modal Triggers
+  $('#btn-open-create-range-modal').on('click', function() {
+    $('#modalCreateRange').modal('show');
+  });
+
+  $('#btn-open-upload-modal').on('click', function() {
+    $('#modalUploadNumbers').modal('show');
+  });
+
+  // Submit Create Custom Range
+  $('#btn-submit-create-range').on('click', function() {
+    var name = $('#cr-name').val().trim();
+    var prefix = $('#cr-prefix').val().trim();
+    var payout = parseFloat($('#cr-payout').val());
+    var testNum = $('#cr-test-number').val().trim();
+    var curr = $('#cr-currency').val();
+    var memo = $('#cr-memo').val().trim();
+
+    if (!name || !prefix || isNaN(payout) || !testNum) {
+      alert('অনুগ্রহ করে রেঞ্জের নাম, প্রিফিক্স, পেআউট রেট এবং টেস্ট নাম্বার প্রদান করুন।');
+      return;
+    }
+
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'range-create',
+        range_name: name,
+        prefix: prefix,
+        payout_1_1: payout,
+        test_number: testNum,
+        currency: curr,
+        memo: memo
+      }),
+      success: function(res) {
+        $('#modalCreateRange').modal('hide');
+        alert('✓ আপনার নতুন কাস্টম রেঞ্জ "' + name + '" সফলভাবে তৈরি করা হয়েছে এবং চালু আছে!');
+        loadManagerRanges();
+        $('#dt').dataTable().fnDraw(false);
+      }
+    });
+  });
+
+  // Submit Number Upload
+  $('#btn-submit-upload-numbers').on('click', function() {
+    var rId = parseInt($('#up-range-select').val(), 10);
+    var text = $('#up-numbers-text').val().trim();
+    var alertBox = $('#up-upload-alert');
+
+    if (!rId || !text) {
+      alert('অনুগ্রহ করে রেঞ্জ সিলেক্ট করুন এবং নাম্বার লিস্ট পেস্ট করুন।');
+      return;
+    }
+
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'numbers-upload',
+        range_id: rId,
+        numbers_text: text
+      }),
+      success: function(res) {
+        alertBox.removeClass('alert-danger').addClass('alert-success').css('display', 'block').text(res.message || 'নাম্বার সফলভাবে আপলোড হয়েছে!');
+        $('#up-numbers-text').val('');
+        loadManagerRanges();
+        $('#dt').dataTable().fnDraw(false);
+        setTimeout(function() { alertBox.fadeOut(); }, 4000);
+      },
+      error: function(xhr) {
+        alertBox.removeClass('alert-success').addClass('alert-danger').css('display', 'block').text(xhr.responseJSON && xhr.responseJSON.error || 'আপলোড ব্যর্থ হয়েছে।');
+      }
+    });
+  });
+
+  // Auto-generate Numbers
+  $('#btn-quick-generate-numbers').on('click', function() {
+    var rId = parseInt($('#up-range-select').val(), 10);
+    if (!rId) return;
+    $.ajax({
+      url: '/api/admin.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'numbers-generate',
+        range_id: rId,
+        count: 50
+      }),
+      success: function(res) {
+        $('#up-upload-alert').removeClass('alert-danger').addClass('alert-success').css('display', 'block').text(res.message || '৫০টি নাম্বার জেনারেট হয়েছে!');
+        loadManagerRanges();
+        $('#dt').dataTable().fnDraw(false);
+        setTimeout(function() { $('#up-upload-alert').fadeOut(); }, 4000);
+      }
+    });
+  });
+
+  $('#manual-range-select').on('change', function() {
+    var opt = $(this).find('option:selected');
+    var num = opt.data('number');
+    if (num) $('#manual-test-number').val(num);
+  });
+
+  $('#btn-random-otp').on('click', function() {
+    var code = Math.floor(100000 + Math.random() * 900000);
+    $('#manual-otp-code').val(code);
+  });
+
+  // Apply Speed Rate
+  $('#btn-apply-rate').on('click', function() {
+    var rate = parseFloat($('#gen-rate-select').val());
+    $.ajax({
+      url: '/api/demo-otp',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'control', rate: rate }),
+      success: function(res) {
+        updateManagerGenStatus();
+        alert('ওটিপি রেট সফলভাবে ' + rate + ' OTP/sec সেট করা হয়েছে!');
+      }
+    });
+  });
+
+  // Start Stream
+  $('#btn-start-stream').on('click', function() {
+    var rate = parseFloat($('#gen-rate-select').val());
+    $.ajax({
+      url: '/api/demo-otp',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'control', subAction: 'start', rate: rate }),
+      success: function(res) {
+        updateManagerGenStatus();
+      }
+    });
+  });
+
+  // Stop Stream
+  $('#btn-stop-stream').on('click', function() {
+    $.ajax({
+      url: '/api/demo-otp',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ action: 'control', subAction: 'stop' }),
+      success: function(res) {
+        updateManagerGenStatus();
+      }
+    });
+  });
+
+  // Send Manual Demo OTP
+  $('#btn-send-manual-otp').on('click', function() {
+    var rId = parseInt($('#manual-range-select').val(), 10);
+    var sender = $('#manual-sender-select').val();
+    var code = $('#manual-otp-code').val().trim();
+    var num = $('#manual-test-number').val().trim();
+    var alertBox = $('#manual-otp-alert');
+
+    if (!code || !num) {
+      alert('অনুগ্রহ করে ওটিপি কোড এবং টেস্ট নাম্বার প্রদান করুন।');
+      return;
+    }
+
+    var $btn = $(this);
+    $btn.prop('disabled', true).text('পাঠানো হচ্ছে...');
+
+    $.ajax({
+      url: '/api/demo-otp',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        action: 'send',
+        range_id: rId,
+        number: num,
+        sender: sender,
+        otp_code: code
+      }),
+      success: function(res) {
+        $btn.prop('disabled', false).html('<i class="icon-share icon-white"></i> এখনই ডিমও ওটিপি পাঠান (Instant Send)');
+        alertBox.removeClass('alert-danger').addClass('alert-success').css('display', 'block').html(
+          '<strong>✓ ডিমও ওটিপি সফলভাবে পাঠানো হয়েছে!</strong> কোড: <strong style="font-size:14px; color:#c0392b;">' + code + '</strong> (' + sender + ' &rarr; ' + num + ')। টেস্ট প্যানেলে তাৎক্ষণিক দেখা যাচ্ছে।'
+        );
+        setTimeout(function() { alertBox.fadeOut(); }, 6000);
+        $('#btn-random-otp').click();
+        if ($('#dt1').length && $.fn.dataTable && $.fn.dataTable.isDataTable('#dt1')) {
+          $('#dt1').dataTable().fnDraw(false);
+        }
+      },
+      error: function() {
+        $btn.prop('disabled', false).html('<i class="icon-share icon-white"></i> এখনই ডিমও ওটিপি পাঠান (Instant Send)');
+        alertBox.removeClass('alert-success').addClass('alert-danger').css('display', 'block').text('ত্রুটি ঘটেছে! আবার চেষ্টা করুন।');
+      }
+    });
+  });
+
+  function updateManagerGenStatus() {
+    $.ajax({
+      url: '/api/demo-otp?action=status',
+      dataType: 'json',
+      cache: false,
+      success: function(res) {
+        if (!res || !res.success) return;
+        if (res.running) {
+          $('#gen-status-badge').removeClass('badge-important').addClass('badge-success').text('SYSTEM ACTIVE (' + res.rate_per_sec + ' OTP/sec)');
+          $('#gen-speed-display').html('<span style="color:#27ae60;">চালু আছে (' + res.rate_per_sec + ' OTP/sec)</span>');
+        } else {
+          $('#gen-status-badge').removeClass('badge-success').addClass('badge-important').text('PAUSED / STOPPED');
+          $('#gen-speed-display').html('<span style="color:#e74c3c;">বন্ধ আছে (Paused)</span>');
+        }
+        $('#gen-rate-select').val(String(res.rate_per_sec));
+      }
+    });
+  }
+
+  loadManagerRanges();
+  loadOtpRules();
+  updateManagerGenStatus();
+  setInterval(updateManagerGenStatus, 3000);
+  setInterval(loadOtpRules, 3000);
+
+  // Periodically refresh recent live table
+  setInterval(function() {
+    try {
+      if ($('#dt1').length && $.fn.dataTable && $.fn.dataTable.isDataTable('#dt1')) {
+        $('#dt1').dataTable().fnDraw(false);
+      }
+    } catch(e){}
+  }, 3000);
+});</script>
+
+<script src="../assets/js/session-ui-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head><script src="/ints/assets/js/_shot_regenerator.js"></script><script src="/ints/assets/js/_shot_fetch_polyfill.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>GLOBAL1TEL | Admin Panel</title>
+  <link rel="icon" href="../assets/img/global1tel-icon.svg">
+  <link rel="stylesheet" href="../assets/css/admin-panel.css?v=20260809-payoutswitch1">
+<link href="../assets/css/brand-g1t.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img src="../assets/img/brand/global1tel-logo.png" alt="GLOBAL1TEL" class="brand-logo-img">
+      <div><span>Admin Control</span></div>
+    </div>
+    <nav class="nav" id="mainNav">
+      <button class="nav-item active" data-view="dashboard"><span>▦</span> Dashboard</button>
+      <a class="nav-item" href="../manager/PanelManagement.html" style="text-decoration:none; color:#00d2ff; font-weight:700; display:flex; align-items:center; gap:8px;"><span>⚡</span> Hadi &amp; Provider APIs</a>
+      <button class="nav-item" data-view="managers"><span>♜</span> Managers</button>
+      <button class="nav-item" data-view="agents"><span>♟</span> Agents</button>
+      <button class="nav-item" data-view="clients"><span>♙</span> Clients</button>
+      <button class="nav-item" data-view="test"><span>🧪</span> Test Accounts</button>
+      <button class="nav-item" data-view="ranges"><span>▤</span> SMS Ranges</button>
+      <button class="nav-item" data-view="numbers"><span>☎</span> All Numbers</button>
+      <button class="nav-item" data-view="reports"><span>◉</span> SMS / OTP Stats</button>
+      <button class="nav-item" data-view="payments"><span>＄</span> Payment Requests</button>
+      <button class="nav-item" data-view="testsms"><span>✉</span> Test SMS</button>
+      <div class="nav-group-label">SMPP SERVER</div>
+      <button class="nav-item" data-view="smpp-dashboard"><span>▦</span> SMPP Dashboard</button>
+      <button class="nav-item" data-view="smpp-accounts"><span>◈</span> SMPP Accounts</button>
+      <button class="nav-item" data-view="smpp-sessions"><span>◌</span> SMPP Sessions</button>
+      <button class="nav-item" data-view="connected-clients"><span>↔</span> Connected Clients</button>
+      <button class="nav-item" data-view="dlr-monitor"><span>✓</span> DLR Monitor</button>
+      <button class="nav-item" data-view="throughput-monitor"><span>⌁</span> Throughput Monitor</button>
+      <button class="nav-item" data-view="smpp-security"><span>⚿</span> Security Center</button>
+      <button class="nav-item" data-view="connection-logs"><span>≋</span> Connection Logs</button>
+      <button class="nav-item" data-view="http"><span>⇢</span> HTTP Provider</button>
+      <button class="nav-item" data-view="api"><span>⌘</span> API</button>
+      <button class="nav-item" data-view="webhook"><span>↗</span> Webhook</button>
+      <button class="nav-item" data-view="endpoint"><span>▶</span> API Playground</button>
+      <button class="nav-item" data-view="agentnews"><span>▣</span> News for Agents</button>
+      <button class="nav-item" data-view="settings"><span>⚙</span> System Settings</button>
+      <button class="nav-item" data-view="activity"><span>≋</span> Activity Log</button>
+    </nav>
+    <div class="side-note">Manager / Agent / Client panels remain separate. Admin has global visibility and account control.</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="top-left">
+        <button id="menuBtn" class="icon-btn" aria-label="Menu">☰</button>
+        <div><h1 id="pageTitle">Dashboard</h1><p id="pageSubtitle">Global system overview</p></div>
+      </div>
+      <div class="admin-user"><div class="avatar">A</div><div><strong id="adminName">Admin</strong><span>System Administrator</span></div><button id="logoutBtn" class="logout-btn">Logout</button></div>
+    </header>
+
+    <section class="content">
+      <div id="toast" class="toast" role="status"></div>
+
+      <section class="view active" id="view-dashboard">
+        <div class="view-toolbar dashboard-toolbar">
+          <div><h2>System Overview</h2><p>Live totals across the complete Admin hierarchy.</p></div>
+          <div class="toolbar-actions"><span class="soft-status" id="dashboardRefreshState">Loading…</span><button id="refreshDashboardBtn" class="soft-btn">↻ Refresh</button></div>
+        </div>
+        <div class="stat-grid" id="statGrid">
+          <article class="stat-card" data-jump="numbers" title="Open All Numbers"><span class="stat-icon">☎</span><div><small>All Numbers</small><strong id="sNumbers">0</strong><em>Global inventory</em></div></article>
+          <article class="stat-card" data-jump="agents" title="Open Agents"><span class="stat-icon">♟</span><div><small>All Agents</small><strong id="sAgents">0</strong><em id="sAgentsMeta">0 active</em></div></article>
+          <article class="stat-card" data-jump="managers" title="Open Managers"><span class="stat-icon">♜</span><div><small>All Managers</small><strong id="sManagers">0</strong><em id="sManagersMeta">0 active</em></div></article>
+          <article class="stat-card" data-jump="reports" title="Open SMS / OTP Stats"><span class="stat-icon">◉</span><div><small>OTP Events</small><strong id="sOtp">0</strong><em id="sOtpToday">Today 0</em></div></article>
+          <article class="stat-card" data-jump="reports" title="Open SMS / OTP Stats"><span class="stat-icon">✉</span><div><small>SMS Today</small><strong id="sSmsToday">0</strong><em id="sSmsTotal">Total 0</em></div></article>
+          <article class="stat-card" data-jump="clients" title="Open Clients"><span class="stat-icon">♙</span><div><small>All Clients</small><strong id="sClients">0</strong><em id="sClientsMeta">0 active</em></div></article>
+          <article class="stat-card" data-jump="ranges" title="Open SMS Ranges"><span class="stat-icon">▤</span><div><small>Ranges</small><strong id="sRanges">0</strong><em>All SMS ranges</em></div></article>
+          <article class="stat-card" data-jump="payments" title="Open Payment Requests"><span class="stat-icon">＄</span><div><small>Pending Withdrawals</small><strong id="sPayments">0</strong><em>Need review</em></div></article>
+        </div>
+
+        <div class="two-col">
+          <article class="panel">
+            <div class="panel-head"><div><h2>Manager Performance</h2><p>Last 30 days SMS volume and inventory</p></div><button class="soft-btn" data-jump="managers">Manage</button></div>
+            <div class="table-wrap"><table><thead><tr><th>Manager</th><th>Agents</th><th>Ranges</th><th>Numbers</th><th>SMS 30d</th><th>Status</th></tr></thead><tbody id="topManagersBody"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody></table></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h2>Recent SMS Events</h2><p>Message contents and verification codes are not exposed</p></div><button class="soft-btn" data-jump="reports">Open Reports</button></div>
+            <div class="event-list" id="recentSms"><div class="empty">Loading…</div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-managers">
+        <div class="view-toolbar"><div><h2>Managers <span class="count-chip" id="managerTotal">0 total</span></h2><p>Create and control Manager accounts.</p></div><button class="primary-btn" data-create-role="manager">+ New Manager</button></div>
+        <div class="panel"><div class="filter-row"><input id="managerSearch" placeholder="Search manager"><select id="managerStatus"><option value="">All status</option><option>active</option><option>inactive</option><option>suspended</option></select><button class="soft-btn" data-load-users="manager">Search</button></div><div class="table-wrap"><table><thead><tr><th>Username</th><th>Name</th><th>Contact</th><th>Agents</th><th>Balance</th><th>Status</th><th>Last Login</th><th>Actions</th></tr></thead><tbody id="managersBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-agents">
+        <div class="view-toolbar"><div><h2>Agents <span class="count-chip" id="agentTotal">0 total</span></h2><p>All Agents from every Manager.</p></div><button class="primary-btn" data-create-role="agent">+ New Agent</button></div>
+        <div class="panel"><div class="filter-row"><input id="agentSearch" placeholder="Search agent"><select id="agentStatus"><option value="">All status</option><option>active</option><option>inactive</option><option>suspended</option></select><button class="soft-btn" data-load-users="agent">Search</button></div><div class="table-wrap"><table><thead><tr><th>Username</th><th>Name</th><th>Manager</th><th>Clients</th><th>Numbers</th><th>Status</th><th>Last Login</th><th>Actions</th></tr></thead><tbody id="agentsBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-clients">
+        <div class="view-toolbar"><div><h2>Clients <span class="count-chip" id="clientTotal">0 total</span></h2><p>All Clients and their parent Agent.</p></div><button class="primary-btn" data-create-role="client">+ New Client</button></div>
+        <div class="panel"><div class="filter-row"><input id="clientSearch" placeholder="Search client"><select id="clientStatus"><option value="">All status</option><option>active</option><option>inactive</option><option>suspended</option></select><button class="soft-btn" data-load-users="client">Search</button></div><div class="table-wrap"><table><thead><tr><th>Username</th><th>Name</th><th>Agent</th><th>Numbers</th><th>Balance</th><th>Status</th><th>Last Login</th><th>Actions</th></tr></thead><tbody id="clientsBody"></tbody></table></div></div>
+      </section>
+      <section class="view" id="view-test">
+        <div class="view-toolbar"><div><h2>Test Accounts <span class="count-chip" id="testTotal">0 total</span></h2><p>Separate Test-role accounts. Admin can create, suspend, activate and delete them.</p></div><button class="primary-btn" data-create-role="test">+ New Test Account</button></div>
+        <div class="panel"><div class="filter-row"><input id="testSearch" placeholder="Search test account"><select id="testStatus"><option value="">All status</option><option>active</option><option>inactive</option><option>suspended</option></select><button class="soft-btn" data-load-users="test">Search</button></div><div class="table-wrap"><table><thead><tr><th>Username</th><th>Name</th><th>Parent</th><th>Contact</th><th>Role</th><th>Status</th><th>Last Login</th><th>Actions</th></tr></thead><tbody id="testBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-ranges">
+        <div class="view-toolbar"><div><h2>SMS Ranges & Number Import</h2><p>Admin creates each range once. Every active Manager can see the same global range pool and can assign only available numbers to Agents under that Manager.</p></div><div class="action-row"><button id="dbUpgradeBtn" class="soft-btn" type="button">⚙ Run Database Upgrade</button><button id="newRangeBtn" class="primary-btn">+ New Range</button></div></div>
+        <div class="security-note" style="margin:0 0 15px">If a Range Save shows a "database is missing that column" note, click "Run Database Upgrade" once — it's safe to click any number of times and needs no server/terminal access.</div>
+        <div class="range-admin-layout">
+          <form id="rangeForm" class="panel setting-card">
+            <div class="panel-head compact-head"><div><h2 id="rangeFormTitle">Create Global SMS Range</h2><p>No Manager selection is required. Saved ranges are available to all Managers.</p></div><button type="button" id="clearRangeBtn" class="soft-btn">Clear</button></div>
+            <input type="hidden" name="id" id="rangeId" value="0">
+            <div class="form-grid form-grid-panel range-form-grid">
+              <label>Range Name *<input name="range_name" id="rangeName" maxlength="255" required placeholder="e.g. Uzbekistan Lion"></label>
+              <label>Prefix *<input name="prefix" id="rangePrefix" maxlength="20" required placeholder="e.g. 99895683"></label>
+              <label>Currency *<select name="currency" id="rangeCurrency" required><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option></select></label>
+              <label>Status<select name="status" id="rangeStatus"><option value="active">Active</option><option value="inactive">Inactive</option><option value="exhausted">Exhausted</option></select></label>
+              <label>Agent Request<select name="request_enabled" id="rangeRequestEnabled"><option value="1">Enabled</option><option value="0">Disabled</option></select><small>Disable this to keep the range visible but block Agent number requests.</small></label>
+              <label>Max Requests / Agent<input name="max_requests_per_agent" id="rangeMaxRequests" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Unlimited"><small>How many separate "Request Numbers" submissions one Agent may make for this range. Leave blank or 0 for unlimited.</small></label>
+              <label>Daily Number Limit / Agent<input name="max_numbers_per_agent_daily" id="rangeMaxDaily" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Unlimited"><small>Max total numbers one Agent may self-request from this range per calendar day. Resets every day at midnight. Leave blank or 0 for unlimited.</small></label>
+              <label>Test Number<input name="test_number" id="rangeTestNumber" maxlength="50" placeholder="Optional; must be inside this range"></label>
+              <label>1/1 Payout *<span class="payout-field"><input name="payout_1_1" id="rangeP11" type="number" min="0" step="0.000001" required><span class="check payout-toggle"><input type="checkbox" id="rangeP11Enabled" checked> On</span></span></label>
+              <label>7/1 Payout<span class="payout-field"><input name="payout_7_1" id="rangeP71" type="number" min="0" step="0.000001"><span class="check payout-toggle"><input type="checkbox" id="rangeP71Enabled" checked> On</span></span></label>
+              <label>7/7 Payout<span class="payout-field"><input name="payout_7_7" id="rangeP77" type="number" min="0" step="0.000001"><span class="check payout-toggle"><input type="checkbox" id="rangeP77Enabled" checked> On</span></span></label>
+              <label>30/45 Payout<span class="payout-field"><input name="payout_30_45" id="rangeP3045" type="number" min="0" step="0.000001"><span class="check payout-toggle"><input type="checkbox" id="rangeP3045Enabled" checked> On</span></span></label>
+              <label class="wide-field"><small class="payout-toggle-hint">Uncheck "On" next to any payout to hide just that term from Agent requests and Manager number assignment — the rate stays saved so you can turn it back on later.</small></label>
+              <label class="wide-field">Numbers TXT / CSV<input name="numbersfile" id="rangeNumbersFile" type="file" accept=".txt,.csv"><small>Required for a new range. On edit, uploading a file appends new unique numbers.</small></label>
+              <label class="wide-field">Memo<textarea name="memo" id="rangeMemo" rows="3" maxlength="2000" placeholder="Internal range note"></textarea></label>
+            </div>
+            <div class="security-note">Global range rule: Admin creates/edits ranges and imports numbers. Every Manager sees the same available pool, but a Manager can assign numbers only to Agents under that Manager. Numbers already assigned under another Manager are not available to reassign.</div>
+            <div class="modal-actions inline-panel-actions"><button type="submit" class="primary-btn">Save Range</button></div>
+          </form>
+          <article class="panel">
+            <div class="filter-row"><input id="rangeSearch" placeholder="Range or prefix"><select id="rangeStatusFilter"><option value="">All status</option><option value="active">active</option><option value="inactive">inactive</option><option value="exhausted">exhausted</option></select><button id="rangeSearchBtn" class="soft-btn">Search</button></div>
+            <div class="filter-row"><select id="returnRangeSelect"><option value="">Select a range to return all its numbers…</option></select><button id="returnRangeBtn" class="soft-btn warn-btn">↩ Return All Numbers in Range</button><small class="range-return-hint">Sets every assigned number in the selected range back to available — removed from the Agent's/Manager's number list.</small></div>
+            <div class="table-wrap"><table class="range-table"><thead><tr><th>Range</th><th>Prefix</th><th>Numbers</th><th>Available</th><th>Test</th><th>Currency</th><th>1/1</th><th>7/1</th><th>7/7</th><th>30/45</th><th>Request</th><th>Req. Limit</th><th>Status</th><th>Actions</th></tr></thead><tbody id="rangesBody"><tr><td colspan="14" class="empty">Loading…</td></tr></tbody></table></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-numbers">
+        <div class="view-toolbar"><div><h2>All Numbers</h2><p>Global inventory imported by Admin. Available numbers are shared across Managers; assigned numbers stay inside the owning Manager → Agent → Client hierarchy.</p></div><span class="count-pill" id="numbersTotal">0 records</span></div>
+        <div class="panel"><div class="filter-row"><input id="numberSearch" placeholder="Number, range, manager or user"><select id="numberManager"><option value="">All managers</option></select><select id="numberStatus"><option value="">All status</option><option>available</option><option>assigned</option><option>reserved</option></select><button id="numberSearchBtn" class="soft-btn">Search</button></div><div class="table-wrap"><table><thead><tr><th>Number</th><th>Range</th><th>Prefix</th><th>Manager</th><th>Assigned To</th><th>Role</th><th>Pay Term</th><th>Payout</th><th>Status</th><th>Actions</th></tr></thead><tbody id="numbersBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-reports">
+        <div class="view-toolbar"><div><h2>SMS / OTP Stats</h2><p>Global CDR metadata. OTP values and SMS message bodies stay masked/unavailable.</p></div><div class="summary-mini"><span>SMS <b id="rSms">0</b></span><span>OTP Events <b id="rOtp">0</b></span><span>Profit <b id="rProfit">0</b></span></div></div>
+        <div class="panel"><div class="filter-row report-filter"><input id="reportSearch" placeholder="Number, CLI, range, user"><input id="reportFrom" type="datetime-local"><input id="reportTo" type="datetime-local"><select id="reportManager"><option value="">All managers</option></select><select id="reportAgent"><option value="">All agents</option></select><label class="check"><input id="reportOtpOnly" type="checkbox"> OTP only</label><button id="reportSearchBtn" class="soft-btn">Show</button></div><div class="security-note">Security: the panel records only whether a message looked like an OTP. It does not store or display the verification code or message text.</div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Manager</th><th>Agent</th><th>Client</th><th>Range</th><th>Number</th><th>CLI</th><th>SMS</th><th>OTP</th><th>Currency</th><th>Status</th></tr></thead><tbody id="reportsBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-payments">
+        <div class="view-toolbar"><div><h2>Payment Requests</h2><p>Review withdrawal requests from the entire hierarchy.</p></div><span class="count-pill" id="paymentsTotal">0 records</span></div>
+        <div class="panel"><div class="filter-row"><select id="paymentStatus"><option value="">All status</option><option>pending</option><option>approved</option><option>rejected</option><option>completed</option></select><button id="paymentSearchBtn" class="soft-btn">Filter</button></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>User</th><th>Role</th><th>Parent</th><th>Amount</th><th>Method</th><th>Status</th><th>Actions</th></tr></thead><tbody id="paymentsBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-testsms">
+        <div class="view-toolbar"><div><h2>Test SMS</h2><p>Manually send a fake incoming SMS to any number, exactly as if it arrived from a real carrier. Useful for checking that a number is routed to the right account.</p></div></div>
+        <article class="panel">
+          <form id="testSmsForm" class="form-grid form-grid-panel">
+            <label class="wide-field">Number<input name="number" id="testSmsNumber" required placeholder="e.g. +19995551234" autocomplete="off"></label>
+            <label>Sender / CLI<input name="source" id="testSmsSource" placeholder="ADMIN-TEST (default)" autocomplete="off"></label>
+            <label class="wide-field">Message<textarea name="message" id="testSmsMessage" rows="4" required placeholder="Your OTP is 123456"></textarea></label>
+            <div class="modal-actions inline-panel-actions wide-field"><button type="submit" class="primary-btn">Send Test SMS</button></div>
+          </form>
+          <div class="panel-head" style="margin-top:18px"><div><h2>Result</h2><p>Shows whether the number was found, which account it belongs to, and the payout it triggered.</p></div></div>
+          <pre id="testSmsOutput" class="security-note" style="white-space:pre-wrap;overflow:auto;min-height:100px">Not sent yet.</pre>
+        </article>
+      </section>
+
+
+
+      <section class="view" id="view-smpp-dashboard">
+        <div class="view-toolbar"><div><h2>SMPP Dashboard</h2><p>Server performance and inbound SMS overview.</p></div><button id="smppRefreshBtn" class="soft-btn">↻ Refresh</button></div>
+        <div class="stat-grid">
+          <article class="stat-card"><span class="stat-icon">◉</span><div><small>Jasmin Status</small><strong id="smppJasminStatus">Checking…</strong><em id="smppJasminMeta">Gateway process</em></div></article>
+          <article class="stat-card"><span class="stat-icon">▣</span><div><small>Active Config</small><strong id="smppActiveName">—</strong><em id="smppConfigStatus">—</em></div></article>
+          <article class="stat-card"><span class="stat-icon">✉</span><div><small>SMS / 24 Hours</small><strong id="smpp24h">0</strong><em>Inbound SMPP CDR</em></div></article>
+          <article class="stat-card"><span class="stat-icon">↯</span><div><small>SMS / 1 Hour</small><strong id="smpp1h">0</strong><em>Inbound SMPP CDR</em></div></article>
+        </div>
+        <div class="two-col">
+          <article class="panel">
+            <div class="panel-head"><div><h2>Server Configuration</h2><p>Admin-controlled inbound SMPP endpoint.</p></div></div>
+            <form id="smppForm" class="form-grid form-grid-panel">
+              <input type="hidden" name="id" id="smppId" value="0">
+              <label>Config Name<input name="config_name" id="smppConfigName" placeholder="primary"></label>
+              <label>Status<select name="status" id="smppStatus"><option value="active">Active</option><option value="inactive">Inactive</option><option value="maintenance">Maintenance</option></select></label>
+              <label>Bind Host<input name="inbound_host" id="smppHost" value="0.0.0.0"></label>
+              <label>Bind Port<input name="inbound_port" id="smppPort" type="number" min="1" max="65535" value="2775"></label>
+              <label>System ID<input name="inbound_system_id" id="smppSystemId" placeholder="Supplier system ID"></label>
+              <label>Password<input name="inbound_password" id="smppPassword" type="password" autocomplete="new-password" placeholder="Write-only credential"></label>
+              <div class="modal-actions inline-panel-actions wide-field"><button type="submit" class="primary-btn">Save SMPP Configuration</button></div>
+            </form>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h2>Gateway Connection</h2><p>Use these values when connecting Jasmin/SMPP infrastructure.</p></div></div>
+            <div class="security-note">
+              <b>Inbound endpoint:</b> <code id="smppEndpoint">—</code><br><br>
+              <b>Receive callback:</b> <code id="smppCallback">—</code><br><br>
+              <b>Important:</b> saving this panel changes the GLOBAL1TEL database configuration. It does not claim to start/stop Jasmin automatically.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-smpp-accounts">
+        <div class="view-toolbar"><div><h2>SMPP Accounts <span class="count-chip" id="smppAccountTotal">0 total</span></h2><p>Supplier/client credentials allowed to bind to the SMPP gateway.</p></div><button id="newSmppAccountBtn" class="primary-btn">+ New Account</button></div>
+        <div class="panel"><div class="table-wrap"><table><thead><tr><th>Username</th><th>Supplier</th><th>Bind</th><th>Max Connections</th><th>Allowed Ranges</th><th>Status</th><th>Last Connected</th><th>Actions</th></tr></thead><tbody id="smppAccountsBody"></tbody></table></div></div>
+        <div class="panel" style="margin-top:16px"><div class="panel-head"><div><h2>Account Editor</h2><p>Password is write-only and never returned.</p></div></div>
+          <form id="smppAccountForm" class="form-grid form-grid-panel">
+            <input type="hidden" name="id" value="0">
+            <label>Username<input name="username" required></label>
+            <label>Supplier Name<input name="supplier_name"></label>
+            <label>Supplier Contact<input name="supplier_contact"></label>
+            <label>Bind Type<select name="bind_type"><option value="TR">Transceiver (TR)</option><option value="TX">Transmitter (TX)</option><option value="RX">Receiver (RX)</option></select></label>
+            <label>Max Connections<input name="max_connections" type="number" min="1" max="1000" value="10"></label>
+            <label>Status<select name="status"><option value="active">Active</option><option value="suspended">Suspended</option><option value="disabled">Disabled</option></select></label>
+            <label class="wide-field">Allowed Ranges<textarea name="allowed_ranges" rows="2" placeholder="range1, range2 or *"></textarea></label>
+            <label>Password<input name="password_hash" type="password" autocomplete="new-password" placeholder="Required for new account; optional on edit"></label>
+            <div class="modal-actions inline-panel-actions wide-field"><button type="submit" class="primary-btn">Save SMPP Account</button><button type="button" id="clearSmppAccountBtn" class="soft-btn">Clear</button></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="view" id="view-smpp-sessions">
+        <div class="view-toolbar"><div><h2>SMPP Sessions</h2><p>Session telemetry reported by the gateway.</p></div><button id="smppSessionsRefreshBtn" class="soft-btn">↻ Refresh</button></div>
+        <div class="panel"><div class="table-wrap"><table><thead><tr><th>Username / System ID</th><th>IP</th><th>Bind</th><th>Messages</th><th>Last Connected</th><th>Status</th></tr></thead><tbody id="smppSessionsBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-connected-clients">
+        <div class="view-toolbar"><div><h2>Connected Clients</h2><p>Current SMPP clients known to the gateway telemetry.</p></div></div>
+        <div class="panel"><div class="table-wrap"><table><thead><tr><th>Account</th><th>Supplier</th><th>Bind</th><th>Last Connected</th><th>Status</th></tr></thead><tbody id="smppClientsBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-dlr-monitor">
+        <div class="view-toolbar"><div><h2>DLR Monitor</h2><p>Delivery receipt status from SMPP CDR.</p></div><button id="dlrRefreshBtn" class="soft-btn">↻ Refresh</button></div>
+        <div class="stat-grid">
+          <article class="stat-card"><span class="stat-icon">✓</span><div><small>Delivered</small><strong id="dlrDelivered">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon">◷</span><div><small>Pending</small><strong id="dlrPending">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon">×</span><div><small>Failed</small><strong id="dlrFailed">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon">%</span><div><small>DLR Rate</small><strong id="dlrRate">0%</strong></div></article>
+        </div>
+        <div class="panel"><div class="table-wrap"><table><thead><tr><th>Message ID</th><th>Source</th><th>Destination</th><th>Status</th><th>Submitted</th><th>Connector</th></tr></thead><tbody id="dlrBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-throughput-monitor">
+        <div class="view-toolbar"><div><h2>Throughput Monitor</h2><p>Inbound SMPP message rate based on CDR timestamps.</p></div><button id="throughputRefreshBtn" class="soft-btn">↻ Refresh</button></div>
+        <div class="stat-grid">
+          <article class="stat-card"><span class="stat-icon">↯</span><div><small>Current MPS</small><strong id="tpCurrent">0</strong><em>Last 60 seconds</em></div></article>
+          <article class="stat-card"><span class="stat-icon">▲</span><div><small>Peak MPS</small><strong id="tpPeak">0</strong><em>Last 24 hours</em></div></article>
+          <article class="stat-card"><span class="stat-icon">✉</span><div><small>Messages / 24h</small><strong id="tpTotal">0</strong></div></article>
+        </div>
+        <div class="panel"><div class="table-wrap"><table><thead><tr><th>Minute</th><th>Messages</th><th>MPS</th></tr></thead><tbody id="tpBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-smpp-security">
+        <div class="view-toolbar"><div><h2>SMPP Security Center</h2><p>Account access controls and recent gateway events.</p></div></div>
+        <div class="two-col">
+          <article class="panel"><div class="panel-head"><div><h2>Security Rules</h2><p>Credential and bind controls.</p></div></div>
+            <ul class="security-list">
+              <li>Passwords are stored as hashes and are never returned by the Admin API.</li>
+              <li>Disabled/suspended accounts cannot be used by a compliant gateway.</li>
+              <li>Maximum connections are enforced by the SMPP gateway layer.</li>
+              <li>Allowed ranges are stored per account for gateway-side routing enforcement.</li>
+            </ul>
+          </article>
+          <article class="panel"><div class="panel-head"><div><h2>Recent Security Events</h2></div></div><div class="table-wrap"><table><thead><tr><th>Time</th><th>Event</th><th>Details</th></tr></thead><tbody id="smppSecurityBody"></tbody></table></div></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-connection-logs">
+        <div class="view-toolbar"><div><h2>Connection Logs</h2><p>Recent SMPP gateway connection and CDR events.</p></div><button id="smppLogsRefreshBtn" class="soft-btn">↻ Refresh</button></div>
+        <div class="panel"><div class="table-wrap"><table><thead><tr><th>Time</th><th>Event</th><th>Account / System</th><th>IP</th><th>Status</th></tr></thead><tbody id="smppLogsBody"></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="view-http">
+        <div class="view-toolbar"><div><h2>HTTP Provider — Overview & Setup</h2><p>Configure an HTTP/SMS provider connection without using SMPP.</p></div><span class="soft-status">HTTP</span></div>
+        <div class="two-col">
+          <article class="panel">
+            <div class="panel-head"><div><h2>Provider Connection</h2><p>Use your provider's HTTP endpoint and credentials.</p></div><span class="count-pill">Admin Only</span></div>
+            <form id="httpProviderForm" class="form-grid form-grid-panel">
+              <label>Provider Name<input name="provider_name" placeholder="e.g. Twilio"></label>
+              <label>Status<select name="status"><option value="active">Active</option><option value="inactive">Inactive</option></select></label>
+              <label class="wide-field">HTTP API URL<input name="url" type="url" placeholder="https://provider.example.com/api/sms"></label>
+              <label>HTTP Method<select name="method"><option>POST</option><option>GET</option></select></label>
+              <label>API Key<input name="api_key" type="password" autocomplete="new-password" placeholder="Provider API key"></label>
+              <label>Sender ID<input name="sender_id" placeholder="GLOBAL1TEL"></label>
+              <label>Timeout (seconds)<input name="timeout" type="number" min="1" max="60" value="15"></label>
+              <label class="wide-field">Notes<textarea name="notes" rows="3" placeholder="Provider notes / field mapping"></textarea></label>
+              <div class="modal-actions inline-panel-actions wide-field"><button type="submit" class="primary-btn">Save HTTP Provider</button></div>
+            </form>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h2>HTTP Integration Guide</h2><p>Recommended request flow.</p></div></div>
+            <div class="security-note">
+              <b>Flow:</b> GLOBAL1TEL → HTTP Request → Provider → SMS Network.<br><br>
+              Configure the provider URL, method, authentication and sender ID. The saved API key is never rendered back into the browser.
+            </div>
+            <div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+              <tr><td>URL</td><td>Provider HTTP endpoint</td></tr><tr><td>Method</td><td>GET or POST</td></tr>
+              <tr><td>API Key</td><td>Provider authentication</td></tr><tr><td>Sender ID</td><td>Default sender</td></tr>
+            </tbody></table></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-api">
+        <div class="view-toolbar"><div><h2>API Tokens</h2><p>Create and manage credentials for external applications.</p></div><button id="generateApiTokenBtn" class="primary-btn">+ Generate Token</button></div>
+        <article class="panel">
+          <div class="panel-head"><div><h2>API Access</h2><p>Tokens are used by authorized external systems to call your Gateway API.</p></div><span class="count-pill">Admin Only</span></div>
+          <form id="apiConfigForm" class="form-grid form-grid-panel">
+            <label>API Status<select name="status"><option value="active">Active</option><option value="inactive">Inactive</option></select></label>
+            <label>API Version<input name="version" value="v1" placeholder="v1"></label>
+            <label>Base URL<input name="base_url" type="url" placeholder="https://your-domain.com/api"></label>
+            <label>Rate Limit / minute<input name="rate_limit" type="number" min="1" value="60"></label>
+            <label class="wide-field">Allowed Scopes<input name="scopes" placeholder="numbers,sms,users,stats"></label>
+            <div class="modal-actions inline-panel-actions wide-field"><button type="submit" class="primary-btn">Save API Settings</button></div>
+          </form>
+          <div class="panel-head" style="margin-top:18px"><div><h2>Generated Token</h2><p>Copy it now; the full secret is not stored in the page.</p></div></div>
+          <div class="security-note"><code id="apiTokenOutput">No new token generated.</code></div>
+        </article>
+      </section>
+
+      <section class="view" id="view-webhook">
+        <div class="view-toolbar"><div><h2>Webhook Config</h2><p>Send Gateway events to an external server automatically.</p></div><span class="soft-status">EVENT DELIVERY</span></div>
+        <div class="two-col">
+          <form id="webhookForm" class="panel setting-card">
+            <div class="panel-head"><div><h2>Standard Webhook</h2><p>Configure the callback endpoint.</p></div></div>
+            <div class="form-grid form-grid-panel">
+              <label class="wide-field">Webhook URL<input name="url" type="url" placeholder="https://your-server.com/webhook"></label>
+              <label>HTTP Method<select name="method"><option>POST</option><option>GET</option></select></label>
+              <label>Secret<input name="secret" type="password" autocomplete="new-password" placeholder="Webhook secret"></label>
+              <label>Timeout (seconds)<input name="timeout" type="number" min="1" max="60" value="10"></label>
+              <label>Retry Count<input name="retries" type="number" min="0" max="10" value="3"></label>
+              <label class="wide-field">Events<input name="events" placeholder="otp_received,number_allocated,user_created"></label>
+              <div class="modal-actions inline-panel-actions wide-field"><button type="submit" class="primary-btn">Save Webhook</button><button type="button" id="testWebhookBtn" class="soft-btn">Test Configuration</button></div>
+            </div>
+          </form>
+          <article class="panel">
+            <div class="panel-head"><div><h2>Webhook Events</h2><p>Events can be delivered automatically.</p></div></div>
+            <div class="table-wrap"><table><thead><tr><th>Event</th><th>Meaning</th></tr></thead><tbody>
+              <tr><td>otp_received</td><td>OTP/SMS event received</td></tr>
+              <tr><td>number_allocated</td><td>Number assigned to an account</td></tr>
+              <tr><td>user_created</td><td>New user created</td></tr>
+            </tbody></table></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-endpoint">
+        <div class="view-toolbar"><div><h2>API Playground</h2><p>Test your Gateway API configuration from the Admin Panel.</p></div></div>
+        <article class="panel">
+          <form id="apiPlaygroundForm" class="form-grid form-grid-panel">
+            <label>Method<select name="method"><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select></label>
+            <label class="wide-field">Endpoint Path<input name="path" value="/api/dashboard.php" placeholder="/api/..."></label>
+            <label class="wide-field">Request Body<textarea name="body" rows="6" placeholder='{"test":true}'></textarea></label>
+            <div class="modal-actions inline-panel-actions wide-field"><button type="submit" class="primary-btn">Run Test</button></div>
+          </form>
+          <div class="panel-head" style="margin-top:18px"><div><h2>Response</h2><p>Only requests to your own Gateway origin are executed.</p></div></div>
+          <pre id="apiPlaygroundOutput" class="security-note" style="white-space:pre-wrap;overflow:auto;min-height:120px">Ready.</pre>
+        </article>
+      </section>
+
+      <section class="view" id="view-agentnews">
+        <div class="view-toolbar"><div><h2>News for Agents</h2><p>Publish announcements that appear on Agent dashboards.</p></div><button id="newAgentNewsBtn" class="primary-btn">+ New News</button></div>
+        <div class="config-layout news-layout">
+          <form id="agentNewsForm" class="panel setting-card">
+            <div class="panel-head compact-head"><div><h2 id="agentNewsFormTitle">Create Agent News</h2><p>Target is fixed to Agent accounts.</p></div><button type="button" id="cancelAgentNewsEditBtn" class="soft-btn">Clear</button></div>
+            <input type="hidden" name="id" id="agentNewsId" value="0">
+            <div class="news-form-body">
+              <label>Headline<input name="title" id="agentNewsTitle" maxlength="255" required placeholder="Announcement title"></label>
+              <label>News / Update<textarea name="content" id="agentNewsContent" rows="9" maxlength="10000" required placeholder="Write the announcement for Agents..."></textarea></label>
+              <label>Status<select name="status" id="agentNewsStatus"><option value="published">Published</option><option value="draft">Draft</option><option value="archived">Archived</option></select></label>
+            </div>
+            <div class="modal-actions inline-panel-actions"><button type="submit" class="primary-btn">Save News</button></div>
+          </form>
+          <article class="panel">
+            <div class="filter-row"><input id="agentNewsSearch" placeholder="Search headline or news"><select id="agentNewsFilterStatus"><option value="">All status</option><option value="published">Published</option><option value="draft">Draft</option><option value="archived">Archived</option></select><button id="agentNewsSearchBtn" class="soft-btn">Search</button></div>
+            <div class="table-wrap"><table><thead><tr><th>Date</th><th>Headline</th><th>Preview</th><th>Author</th><th>Status</th><th>Actions</th></tr></thead><tbody id="agentNewsBody"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody></table></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="view-toolbar"><div><h2>System Settings</h2><p>Small global controls such as minimum withdrawal and maintenance mode.</p></div><button id="saveSettingsBtn" class="primary-btn">Save Settings</button></div>
+        <form id="settingsForm" class="settings-grid">
+          <article class="panel setting-card"><h3>Branding</h3><label>Site Name<input name="site_name" maxlength="255"></label><label>Support Note<textarea name="support_note" rows="4" maxlength="1000"></textarea></label></article>
+          <article class="panel setting-card"><h3>Minimum Withdrawal</h3><label>USD<input name="minimum_withdrawal_usd" type="number" min="0" step="0.01"></label><label>EUR<input name="minimum_withdrawal_eur" type="number" min="0" step="0.01"></label><label>GBP<input name="minimum_withdrawal_gbp" type="number" min="0" step="0.01"></label></article>
+          <article class="panel setting-card"><h3>System Controls</h3><label>Default Page Size<input name="default_page_size" type="number" min="10" max="500" step="5"></label><label class="toggle-row"><span><b>Payment Requests</b><small>Enable withdrawal request workflow</small></span><input name="payment_requests_enabled" type="checkbox"></label><label class="toggle-row"><span><b>Maintenance Mode</b><small>Administrative system flag</small></span><input name="maintenance_mode" type="checkbox"></label></article>
+        </form>
+      </section>
+
+      <section class="view" id="view-activity">
+        <div class="view-toolbar"><div><h2>Activity Log</h2><p>Latest account and system actions.</p></div><button id="refreshActivityBtn" class="soft-btn">Refresh</button></div>
+        <div class="panel"><div class="table-wrap"><table><thead><tr><th>Date</th><th>User</th><th>Role</th><th>Action</th><th>Description</th><th>IP</th></tr></thead><tbody id="activityBody"></tbody></table></div></div>
+      </section>
+    </section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="userModal" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><div><h2 id="modalTitle">Create User</h2><p id="modalHint">Create an account in the system hierarchy.</p></div><button class="icon-btn" id="closeModalBtn">×</button></div>
+    <form id="createUserForm">
+      <input type="hidden" name="role" id="createRole">
+      <div class="form-grid">
+        <label>Username *<input name="username" required minlength="3" maxlength="100" autocomplete="off"></label>
+        <label>Password *<input name="password" type="password" required minlength="8" autocomplete="new-password"></label>
+        <label>Email<input name="email" type="email" maxlength="255"></label>
+        <label>Skype ID<input name="skype_id" maxlength="100"></label>
+        <label>Contact No.<input name="phone" maxlength="50"></label>
+        <label>Name<input name="full_name" maxlength="255"></label>
+        <label>Company Name<input name="company" maxlength="255"></label>
+        <label>Country<select name="country" id="countrySelect"><option value="">Select Country</option></select></label>
+        <label class="wide-field">Address<textarea name="address" rows="3" maxlength="2000"></textarea></label>
+        <label id="parentWrap">Parent<select name="parent_id" id="parentSelect"></select></label>
+      </div>
+      <div class="modal-actions"><button type="button" class="soft-btn" id="cancelModalBtn">Cancel</button><button class="primary-btn" type="submit">Create Account</button></div>
+    </form>
+  </div>
+</div>
+
+<script src="../assets/js/admin-panel.js?v=20260809-maxreqfix1"></script>
+</body>
+</html>

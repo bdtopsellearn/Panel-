@@ -1,0 +1,2 @@
+-- GLOBAL1TEL integration settings use the existing system_settings table.
+-- No new table is required. Run the normal schema/migrations before using the Admin integration pages.

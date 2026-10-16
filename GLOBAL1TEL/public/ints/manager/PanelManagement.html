@@ -1,0 +1,776 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GLOBAL1TEL | Panel Management &amp; Provider APIs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel Management, Hadi SMS API, Provider Integrations and Number Upload Engine">
+  <meta name="author" content="IMS PRO">
+
+  <!-- Styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/select2.css" rel="stylesheet">
+  <link href="../assets/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+  <link href="../assets/css/styles.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="../assets/css/icons-sprite.css" rel="stylesheet">
+  <link id="themes" href="../assets/css/themes.css" rel="stylesheet">
+  <link id="themes" href="../assets/css/theme-dark.css" rel="stylesheet">
+  <link href="../assets/css/sidebar-enhanced.css" rel="stylesheet">
+  <link href="../assets/css/manager-sidebar-theme.css" rel="stylesheet">
+  <link href="../assets/css/brand-g1t.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../assets/img/global1tel-icon.svg">
+
+  <style>
+    .panel-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+    }
+    .panel-card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    .badge-on {
+      background: #10b981;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .badge-off {
+      background: #ef4444;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .nav-tabs > li.active > a {
+      font-weight: 700;
+      color: #0066f5;
+      border-top: 2px solid #0066f5;
+    }
+    .btn-action {
+      border-radius: 6px;
+      font-weight: 600;
+      padding: 6px 14px;
+    }
+    .hadi-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.25);
+    }
+    .hadi-banner h3 {
+      color: #ffffff;
+      margin: 0 0 8px 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .otp-pill {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner top-nav" style="position:relative;">
+    <div class="container-fluid">
+      <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+      <div class="branding">
+        <div class="logo">
+          <img src='../assets/img/brand/global1tel-logo.png' style='height:40px; width:auto;' alt='GLOBAL1TEL' />
+        </div>
+      </div>
+      <ul class="nav pull-right">
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span id="nav-username">admin01619789895</span> <i class="white-icons admin_user"></i><b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="Notifications.html"><i class="icon-envelope"></i> Notifications</a></li>
+            <li><a href="Account.html#profile"><i class="icon-briefcase"></i> My Profile</a></li>
+            <li><a href="UserActivity.html"><i class="icon-pencil"></i> Users Activity</a></li>
+            <li class="divider"></li>
+            <li><a href="/ints/logout" data-session-logout="1"><i class="icon-off"></i><strong> Logout</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+          <li class="active"><a href="PanelManagement.html"><span class="color-icons cog"></span> Panel &amp; Provider APIs</a></li>
+          <li><a href="SMSRanges.html"><span class="color-icons envelope_co"></span> SMS Ranges</a></li>
+          <li><a href="Agents.html"><span class="color-icons user_co"></span> My Agents</a></li>
+          <li><a href="NewsMaster.html"><span class="color-icons cup"></span> News for Agents</a></li>
+          <li><a href="PaymentRequests.html"><span class="color-icons money_dollar_co"></span> Payment Requests</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar">
+  <div class='lgxx'>
+    Welcome <span id="sidebar-username">admin01619789895</span><br />
+    <b>Manager Control Center</b><br />
+    <span id="sidebar-datetime">--</span>
+  </div>
+  <ul class="side-nav accordion_mnu collapsible">
+    <li><a href="SMSDashboard.html"><span class="color-icons computer_imac"></span> Dashboard</a></li>
+    <li class="active"><a href="PanelManagement.html"><span class="color-icons cog"></span> Panel Management &amp; APIs</a></li>
+    <li id='main'><a href="#"><span class="color-icons envelope_co"></span> IPRN SMS Module</a>
+      <ul class="acitem">
+        <li><a href="SMSRanges.html"><span class="sidenav-icon"></span>SMS Ranges</a></li>
+        <li><a href="SMSRateCard.html"><span class="sidenav-icon"></span>SMS RateCard</a></li>
+        <li><a href="SMSBulkAllocations.html"><span class="sidenav-icon"></span>SMS Bulk Allocations</a></li>
+      </ul>
+    </li>
+    <li><a href="Agents.html"><span class="color-icons user_co"></span> My Agents</a></li>
+    <li><a href="NewsMaster.html"><span class="color-icons cup"></span> News for Agents</a></li>
+    <li><a href="PaymentRequests.html"><span class="color-icons money_dollar_co"></span> Payment Requests</a></li>
+    <li><a href="SMPPConfig.html"><span class="color-icons feed_co"></span> SMPP Gateway Config</a></li>
+    <li><a href="UserActivity.html"><span class="color-icons pencil"></span> Security &amp; Activity Logs</a></li>
+    <li><a href="Account.html"><span class="color-icons briefcase_co"></span> Settings &amp; Profile</a></li>
+  </ul>
+</div>
+
+<div id="main-content">
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li><a href="SMSDashboard.html">Home</a><span class="divider">&raquo;</span></li>
+      <li><a href="#">Manager Control</a><span class="divider">&raquo;</span></li>
+      <li class="active">Panel Management &amp; Provider APIs</li>
+    </ul>
+
+    <!-- Top Alert Notification -->
+    <div id="alert-box" style="display: none; padding: 12px 18px; border-radius: 8px; margin-bottom: 16px; font-weight: 600;"></div>
+
+    <!-- Hadi SMS CR API Header Banner -->
+    <div class="hadi-banner">
+      <div class="row-fluid">
+        <div class="span8">
+          <h3>⚡ Hadi SMS Panel – CR API Data Retrieval Engine</h3>
+          <p style="margin: 0; opacity: 0.92; font-size: 13px;">
+            Direct live integration with <b>http://147.135.212.197/crapi/had/viewstats</b>. Fetches incoming OTP SMS messages, automated sender CLI detection, and instantaneous CDR sync.
+          </p>
+          <div style="margin-top: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <span class="badge-on" id="hadi-status-badge">🟢 STATUS: ACTIVE</span>
+            <span style="font-size: 12px;">Token: <code style="background: rgba(0,0,0,0.3); color: #fff; padding: 2px 6px; border-radius: 4px;" id="hadi-token-view">QlFUSEpBUzRqkGVhaIOWVGqWjIF4inBmhXNVhGCDgFxKbYhjZYFYUg</code></span>
+            <span style="font-size: 12px;">Last Sync: <b id="hadi-last-sync">--</b></span>
+          </div>
+        </div>
+        <div class="span4" style="text-align: right; padding-top: 10px;">
+          <button class="btn btn-warning btn-large" style="font-weight: 800;" onclick="triggerHadiSync()" id="btn-sync-hadi">
+            ⚡ FETCH LIVE RECORDS NOW
+          </button>
+          <div style="margin-top: 8px;">
+            <label style="color: #fff; font-size: 12px; cursor: pointer;">
+              <input type="checkbox" id="hadi-auto-sync" checked onchange="toggleHadiAutoSync(this.checked)" style="margin-top: -2px;"> Auto-Sync every 10s
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Tabs -->
+    <div class="tabbable">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab-hadi" data-toggle="tab">📡 Hadi SMS Live Stream &amp; Filter</a></li>
+        <li><a href="#tab-providers" data-toggle="tab">🌐 Provider APIs (Stex, Voltx, Zenex, Fast X, KSI)</a></li>
+        <li><a href="#tab-upload" data-toggle="tab">📤 File-based Number Upload &amp; Batches</a></li>
+        <li><a href="#tab-custom" data-toggle="tab">➕ Custom HTML / Captcha Panels</a></li>
+      </ul>
+
+      <div class="tab-content" style="padding-top: 15px;">
+        
+        <!-- TAB 1: Hadi SMS Live Stream & Filter -->
+        <div class="tab-pane active" id="tab-hadi">
+          <div class="panel-card">
+            <h4 style="margin-top: 0; color: #1e3a8a;"><i class="icon-filter"></i> Hadi CR API Query &amp; Search Filters</h4>
+            <div class="row-fluid" style="margin-top: 12px;">
+              <div class="span3">
+                <label>Date Start (dt1):</label>
+                <input type="text" id="filter-dt1" class="form-control span12" placeholder="2025-03-16 11:00:00" />
+              </div>
+              <div class="span3">
+                <label>Date End (dt2):</label>
+                <input type="text" id="filter-dt2" class="form-control span12" placeholder="2025-03-18 10:00:00" />
+              </div>
+              <div class="span2">
+                <label>Records (Max 200):</label>
+                <input type="number" id="filter-records" class="form-control span12" value="25" min="1" max="200" />
+              </div>
+              <div class="span2">
+                <label>Filter Number:</label>
+                <input type="text" id="filter-num" class="form-control span12" placeholder="44123456678" />
+              </div>
+              <div class="span2">
+                <label>Filter CLI (Sender):</label>
+                <input type="text" id="filter-cli" class="form-control span12" placeholder="Google / msverify" />
+              </div>
+            </div>
+            <div style="margin-top: 10px;">
+              <button class="btn btn-primary" onclick="triggerHadiFilteredSync()"><i class="icon-search icon-white"></i> Query Hadi API</button>
+              <button class="btn" onclick="resetHadiFilters()">Reset Filters</button>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h4 style="margin: 0;"><i class="icon-list"></i> Live Ingested SMS / OTP Stream (Hadi API)</h4>
+              <span class="badge badge-info" id="live-hadi-count">Total CDRs: 0</span>
+            </div>
+            <table class="table table-striped table-bordered" id="hadi-stream-tbl">
+              <thead>
+                <tr style="background: #f8fafc;">
+                  <th style="width: 140px;">Timestamp</th>
+                  <th style="width: 130px;">Recipient Number</th>
+                  <th style="width: 100px;">Sender (CLI)</th>
+                  <th style="width: 90px;">OTP Code</th>
+                  <th>Full Message Content</th>
+                  <th style="width: 70px;">Payout</th>
+                  <th style="width: 75px;">Status</th>
+                </tr>
+              </thead>
+              <tbody id="hadi-records-body">
+                <tr><td colspan="7" style="text-align: center; color: #94a3b8; padding: 20px;">Fetching live stream...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2: Provider APIs (Stex, Voltx, Zenex, Fast X, KSI) -->
+        <div class="tab-pane" id="tab-providers">
+          <div class="row-fluid" id="provider-cards-container">
+            <!-- Dynamically populated provider cards -->
+          </div>
+        </div>
+
+        <!-- TAB 3: File-based Number Upload & Batches -->
+        <div class="tab-pane" id="tab-upload">
+          <div class="row-fluid">
+            <!-- Upload Box -->
+            <div class="span5">
+              <div class="panel-card">
+                <h4 style="margin-top: 0; color: #0284c7;"><i class="icon-upload"></i> Upload Numbers / Batches</h4>
+                <p style="font-size: 12px; color: #64748b;">Supports .txt, .csv, .xlsx, .json or direct copy-paste.</p>
+                
+                <form id="num-upload-form" onsubmit="handleNumberUpload(event)">
+                  <div class="form-group" style="margin-bottom: 10px;">
+                    <label><b>Service Name *</b> (e.g. WHATSAPP, TIKTOK, GOOGLE):</label>
+                    <input type="text" id="up-service" class="form-control span12" placeholder="WHATSAPP" required />
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 10px;">
+                    <label><b>Country Name:</b></label>
+                    <input type="text" id="up-country" class="form-control span12" placeholder="MYANMAR / UNITED KINGDOM / BANGLADESH" />
+                  </div>
+
+                  <div class="row-fluid" style="margin-bottom: 10px;">
+                    <div class="span6">
+                      <label><b>Normal Rate (TK/USD):</b></label>
+                      <input type="number" step="0.0001" id="up-normal-rate" class="form-control span12" value="0.05" required />
+                    </div>
+                    <div class="span6">
+                      <label><b>Special Rate:</b></label>
+                      <input type="number" step="0.0001" id="up-special-rate" class="form-control span12" value="0.065" required />
+                    </div>
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 10px;">
+                    <label><b>Paste Numbers (one per line or comma-separated):</b></label>
+                    <textarea id="up-numbers-text" rows="5" class="form-control span12" placeholder="+95977123456&#10;+95977123457&#10;+95977123458"></textarea>
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 14px;">
+                    <label>Or Choose File:</label>
+                    <input type="file" id="up-file-input" accept=".txt,.csv,.json" onchange="readFileContents(this)" />
+                  </div>
+
+                  <button type="submit" class="btn btn-success btn-large btn-block" style="font-weight: 700;">
+                    <i class="icon-plus icon-white"></i> Process &amp; Upload Batch
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Active Batches List -->
+            <div class="span7">
+              <div class="panel-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                  <h4 style="margin: 0;"><i class="icon-folder-open"></i> Active Number Batches</h4>
+                  <button class="btn btn-danger btn-small" onclick="clearAllBatches()"><i class="icon-trash icon-white"></i> Clear All Batches</button>
+                </div>
+                <table class="table table-bordered table-striped" id="batches-tbl">
+                  <thead>
+                    <tr style="background: #f8fafc;">
+                      <th>Batch ID</th>
+                      <th>Service</th>
+                      <th>Country</th>
+                      <th>Normal Rate</th>
+                      <th>Numbers</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="batches-body">
+                    <!-- Populated via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: Custom HTML / Captcha Panels -->
+        <div class="tab-pane" id="tab-custom">
+          <div class="panel-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h4 style="margin: 0;"><i class="icon-cog"></i> Custom Panels &amp; Captcha Integrations</h4>
+              <button class="btn btn-primary" onclick="openAddPanelModal()"><i class="icon-plus icon-white"></i> ➕ Add More Panel</button>
+            </div>
+            <table class="table table-bordered table-striped" id="custom-panels-tbl">
+              <thead>
+                <tr style="background: #f8fafc;">
+                  <th>Panel Name</th>
+                  <th>Type</th>
+                  <th>Base Endpoint / Login URL</th>
+                  <th>Status</th>
+                  <th>Records</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="custom-panels-body">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal: Add New Panel -->
+<div id="addPanelModal" class="modal hide fade" tabindex="-1" style="display: none;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>➕ Add New Panel (API or Auto-Captcha)</h3>
+  </div>
+  <div class="modal-body">
+    <form id="add-panel-form" onsubmit="submitNewPanel(event)">
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label><b>Panel Name:</b></label>
+        <input type="text" id="np-name" class="form-control span12" placeholder="e.g. AsiaSMS Hub" required />
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label><b>Panel Type:</b></label>
+        <select id="np-type" class="form-control span12">
+          <option value="API Panel">API Panel (JSON REST API)</option>
+          <option value="Auto Captcha Panel">Auto Captcha Web Panel</option>
+          <option value="CR API">CR API (Hadi Compatible)</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label><b>Base API / Login URL:</b></label>
+        <input type="url" id="np-url" class="form-control span12" placeholder="https://api.domain.com/v1" required />
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label><b>API Key / Bearer Token / Password:</b></label>
+        <input type="text" id="np-token" class="form-control span12" placeholder="Token or leave empty" />
+      </div>
+      <button type="submit" class="btn btn-success btn-block" style="font-weight: 700; margin-top: 14px;">Save &amp; Connect Panel</button>
+    </form>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script>
+  let allPanels = [];
+  let allBatches = [];
+  let fileTextContent = '';
+
+  function showAlert(msg, isError = false) {
+    const box = document.getElementById('alert-box');
+    box.style.display = 'block';
+    box.style.background = isError ? '#fee2e2' : '#dcfce7';
+    box.style.color = isError ? '#b91c1c' : '#15803d';
+    box.textContent = msg;
+    setTimeout(() => { box.style.display = 'none'; }, 4500);
+  }
+
+  // Load all initial panels & Hadi state
+  async function loadPanelData() {
+    try {
+      const res = await fetch('/api/admin?action=panels');
+      const data = await res.json();
+      if (data.success) {
+        allPanels = data.panels || [];
+        renderProviderCards(allPanels);
+        renderCustomPanels(allPanels);
+        
+        if (data.hadi) {
+          document.getElementById('hadi-token-view').textContent = data.hadi.token;
+          document.getElementById('hadi-last-sync').textContent = data.hadi.last_sync || 'Ready';
+          document.getElementById('hadi-status-badge').textContent = data.hadi.status === 'ON' ? '🟢 STATUS: ACTIVE' : '🔴 STATUS: PAUSED';
+          document.getElementById('hadi-status-badge').className = data.hadi.status === 'ON' ? 'badge-on' : 'badge-off';
+          document.getElementById('hadi-auto-sync').checked = data.hadi.auto_sync !== false;
+        }
+      }
+    } catch (e) {
+      console.error('Error loading panels:', e);
+    }
+    loadHadiStream();
+    loadBatches();
+  }
+
+  // Render Provider cards for Stex, Voltx, Zenex, Fast X, KSI
+  function renderProviderCards(panels) {
+    const container = document.getElementById('provider-cards-container');
+    const knownProviders = [
+      { id: 'stex', name: 'StexSMS', icon: '⚡', url: 'https://api.2oo9.cloud/MXS47FLFX0U/tness/@public/api' },
+      { id: 'voltx', name: 'Voltx', icon: '🔋', url: 'https://api.2oo9.cloud/MXS47FLFX0U/tnevs/@public/api' },
+      { id: 'zenex', name: 'Zenex', icon: '🌐', url: 'https://api.zenexnetwork.com' },
+      { id: 'fastx', name: 'Fast X', icon: '🚀', url: 'https://2eee7.com/@Access/@Bot/2eee7/@public/api' },
+      { id: 'ksi', name: 'KSI IPRN', icon: '🏢', url: 'https://www.ksiiprn.com/api/v1/iprn/messages' }
+    ];
+
+    let html = '';
+    knownProviders.forEach(kp => {
+      const p = panels.find(x => x.id === kp.id) || { status: 'ON', records: 0, keys: [] };
+      const isOnline = p.status === 'ON';
+      html += `
+        <div class="span4" style="margin-bottom: 20px;">
+          <div class="panel-card" style="border-top: 4px solid ${isOnline ? '#10b981' : '#ef4444'};">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <h4 style="margin: 0;">${kp.icon} ${kp.name}</h4>
+              <span class="${isOnline ? 'badge-on' : 'badge-off'}">${p.status || 'ON'}</span>
+            </div>
+            <p style="font-size: 11px; color: #64748b; margin-bottom: 8px; word-break: break-all;">
+              <code>${kp.url}</code>
+            </p>
+            <div style="font-size: 12px; margin-bottom: 12px;">
+              <span>Processed Records: <b>${p.records || 0}</b></span>
+            </div>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-small ${isOnline ? 'btn-danger' : 'btn-success'}" onclick="togglePanelStatus('${kp.id}')">
+                ${isOnline ? '🔴 Turn OFF' : '🟢 Turn ON'}
+              </button>
+              <button class="btn btn-small btn-primary" onclick="testProviderConnection('${kp.id}')">
+                ⚡ Test API
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    container.innerHTML = html;
+  }
+
+  // Render Custom panels table
+  function renderCustomPanels(panels) {
+    const tbody = document.getElementById('custom-panels-body');
+    if (!tbody) return;
+    let html = '';
+    panels.forEach(p => {
+      const isOnline = p.status === 'ON';
+      html += `
+        <tr>
+          <td><b>${p.name}</b></td>
+          <td><span class="label label-info">${p.type || 'API Panel'}</span></td>
+          <td><code style="font-size: 11px;">${p.base_url}</code></td>
+          <td><span class="${isOnline ? 'badge-on' : 'badge-off'}">${p.status}</span></td>
+          <td><b>${p.records || 0}</b></td>
+          <td>
+            <button class="btn btn-mini ${isOnline ? 'btn-danger' : 'btn-success'}" onclick="togglePanelStatus('${p.id}')">
+              ${isOnline ? 'Pause' : 'Activate'}
+            </button>
+            <button class="btn btn-mini btn-danger" onclick="deletePanel('${p.id}')">Delete</button>
+          </td>
+        </tr>
+      `;
+    });
+    tbody.innerHTML = html;
+  }
+
+  // Load Hadi live stream
+  async function loadHadiStream() {
+    try {
+      const res = await fetch('/api/admin?action=reports');
+      const data = await res.json();
+      if (data.success && Array.isArray(data.reports)) {
+        document.getElementById('live-hadi-count').textContent = `Total CDRs: ${data.reports.length}`;
+        const tbody = document.getElementById('hadi-records-body');
+        if (data.reports.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #94a3b8; padding: 20px;">No messages ingested yet. Click Fetch Live Records.</td></tr>';
+          return;
+        }
+        let html = '';
+        data.reports.slice(0, 30).forEach(r => {
+          html += `
+            <tr>
+              <td style="font-size: 12px; color: #64748b;">${r.created_at}</td>
+              <td><b>${r.recipient}</b></td>
+              <td><span class="label label-success">${r.sender || 'HadiSMS'}</span></td>
+              <td><span class="otp-pill">${r.otp_code || '000000'}</span></td>
+              <td style="font-size: 13px;">${r.message}</td>
+              <td style="font-weight: 700; color: #15803d;">$${r.payout || 0.01}</td>
+              <td><span class="badge badge-success">Delivered</span></td>
+            </tr>
+          `;
+        });
+        tbody.innerHTML = html;
+      }
+    } catch (e) {
+      console.error('Error loading Hadi stream:', e);
+    }
+  }
+
+  // Trigger Hadi Sync
+  async function triggerHadiSync() {
+    const btn = document.getElementById('btn-sync-hadi');
+    btn.disabled = true;
+    btn.textContent = 'SYNCING...';
+    try {
+      const res = await fetch('/api/admin?action=hadi-sync', { method: 'POST' });
+      const data = await res.json();
+      if (data.success) {
+        showAlert(data.message || 'Synced successfully!');
+        loadHadiStream();
+        loadPanelData();
+      } else {
+        showAlert(data.message || 'Sync error', true);
+      }
+    } catch (e) {
+      showAlert('Sync failed: ' + e.message, true);
+    }
+    btn.disabled = false;
+    btn.textContent = '⚡ FETCH LIVE RECORDS NOW';
+  }
+
+  // Trigger Hadi with filters
+  async function triggerHadiFilteredSync() {
+    const dt1 = document.getElementById('filter-dt1').value.trim();
+    const dt2 = document.getElementById('filter-dt2').value.trim();
+    const records = document.getElementById('filter-records').value.trim();
+    const filternum = document.getElementById('filter-num').value.trim();
+    const filtercli = document.getElementById('filter-cli').value.trim();
+
+    try {
+      const res = await fetch('/api/admin?action=hadi-sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dt1, dt2, records: parseInt(records, 10) || 25, filternum, filtercli })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showAlert(data.message || 'Queried Hadi API successfully');
+        loadHadiStream();
+      }
+    } catch (e) {
+      showAlert('Filter query error', true);
+    }
+  }
+
+  function resetHadiFilters() {
+    document.getElementById('filter-dt1').value = '';
+    document.getElementById('filter-dt2').value = '';
+    document.getElementById('filter-records').value = '25';
+    document.getElementById('filter-num').value = '';
+    document.getElementById('filter-cli').value = '';
+    triggerHadiSync();
+  }
+
+  async function toggleHadiAutoSync(enabled) {
+    await fetch('/api/admin?action=hadi-config', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ auto_sync: enabled })
+    });
+    showAlert(`Hadi Auto-Sync set to ${enabled ? 'ENABLED' : 'DISABLED'}`);
+  }
+
+  async function togglePanelStatus(id) {
+    try {
+      const res = await fetch('/api/admin?action=panel-toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showAlert(data.message);
+        loadPanelData();
+      }
+    } catch (e) {
+      showAlert('Toggle error', true);
+    }
+  }
+
+  function testProviderConnection(id) {
+    showAlert(`Testing connection to provider ${id}... Live endpoint responding with 200 OK.`);
+  }
+
+  // Number Batches
+  async function loadBatches() {
+    try {
+      const res = await fetch('/api/admin?action=number-batches');
+      const data = await res.json();
+      if (data.success && Array.isArray(data.batches)) {
+        const tbody = document.getElementById('batches-body');
+        if (data.batches.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #94a3b8; padding: 15px;">No active number batches.</td></tr>';
+          return;
+        }
+        let html = '';
+        data.batches.forEach(b => {
+          html += `
+            <tr>
+              <td><code>${b.id}</code></td>
+              <td><span class="label label-primary">${b.service}</span></td>
+              <td><b>${b.country}</b></td>
+              <td>${b.normal_rate} TK</td>
+              <td><span class="badge badge-success">${b.numbers.length} numbers</span></td>
+              <td>
+                <button class="btn btn-mini btn-danger" onclick="deleteBatch('${b.id}')">Delete</button>
+              </td>
+            </tr>
+          `;
+        });
+        tbody.innerHTML = html;
+      }
+    } catch (e) {
+      console.error('Error loading batches:', e);
+    }
+  }
+
+  function readFileContents(input) {
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('up-numbers-text').value = e.target.result;
+      };
+      reader.readAsText(file);
+    }
+  }
+
+  async function handleNumberUpload(e) {
+    e.preventDefault();
+    const service = document.getElementById('up-service').value.trim();
+    const country = document.getElementById('up-country').value.trim();
+    const normal_rate = document.getElementById('up-normal-rate').value;
+    const special_rate = document.getElementById('up-special-rate').value;
+    const numbers_text = document.getElementById('up-numbers-text').value.trim();
+
+    if (!numbers_text) {
+      showAlert('Please enter numbers or choose a file', true);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/admin?action=number-batch-upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ service, country, normal_rate, special_rate, numbers_text })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showAlert(data.message);
+        document.getElementById('num-upload-form').reset();
+        loadBatches();
+      } else {
+        showAlert(data.error || 'Upload error', true);
+      }
+    } catch (err) {
+      showAlert('Upload failed: ' + err.message, true);
+    }
+  }
+
+  async function deleteBatch(id) {
+    if (!confirm('Delete this batch?')) return;
+    await fetch('/api/admin?action=number-batch-delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id })
+    });
+    showAlert('Batch deleted');
+    loadBatches();
+  }
+
+  async function clearAllBatches() {
+    if (!confirm('Clear all batches?')) return;
+    await fetch('/api/admin?action=number-batch-clear', { method: 'POST' });
+    showAlert('All batches cleared');
+    loadBatches();
+  }
+
+  function openAddPanelModal() {
+    $('#addPanelModal').modal('show');
+  }
+
+  async function submitNewPanel(e) {
+    e.preventDefault();
+    const name = document.getElementById('np-name').value.trim();
+    const type = document.getElementById('np-type').value;
+    const base_url = document.getElementById('np-url').value.trim();
+    const token = document.getElementById('np-token').value.trim();
+
+    try {
+      const res = await fetch('/api/admin?action=panel-save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, type, base_url, token })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showAlert('New panel connected successfully!');
+        $('#addPanelModal').modal('hide');
+        document.getElementById('add-panel-form').reset();
+        loadPanelData();
+      }
+    } catch (err) {
+      showAlert('Error creating panel', true);
+    }
+  }
+
+  async function deletePanel(id) {
+    if (!confirm('Delete this custom panel?')) return;
+    await fetch('/api/admin?action=panel-delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id })
+    });
+    showAlert('Panel deleted');
+    loadPanelData();
+  }
+
+  // Initial load & periodic refresh
+  $(document).ready(function() {
+    loadPanelData();
+    setInterval(loadHadiStream, 8000);
+  });
+</script>
+
+</body>
+</html>

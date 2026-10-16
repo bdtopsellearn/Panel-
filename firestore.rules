@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global fallback deny-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // System ping/health collection
+    match /system/{docId} {
+      allow read, write: if true;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Numbers collection
+    match /numbers/{numberId} {
+      allow read, write: if true;
+    }
+
+    // Ranges collection
+    match /ranges/{rangeId} {
+      allow read, write: if true;
+    }
+
+    // CDR logs
+    match /cdr/{cdrId} {
+      allow read, write: if true;
+    }
+
+    // Payments
+    match /payments/{paymentId} {
+      allow read, write: if true;
+    }
+
+    // News
+    match /news/{newsId} {
+      allow read, write: if true;
+    }
+
+    // SMPP & Settings
+    match /settings/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

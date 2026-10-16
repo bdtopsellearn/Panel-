@@ -1,0 +1,319 @@
+/* ============================================================
+   GLOBAL1TEL — Sidebar (reference-match dark theme)
+   Shared by Manager / Agent / Client panels. Loaded after
+   sidebar-enhanced.css on each page, so these rules win.
+   Only pages that include this file are affected.
+   ============================================================ */
+
+#sidebar {
+    width: 260px !important;
+    background: #262626 !important;
+    background-image: none !important;
+    border-right: 1px solid #1b1b1b !important;
+    box-shadow: none !important;
+}
+
+#sidebar .lgxx {
+    background: #202020 !important;
+    border-bottom: 1px solid #1b1b1b !important;
+}
+
+.navbar-inner {
+    padding-left: 270px !important;
+}
+
+#main-content {
+    margin-left: 260px !important;
+}
+
+.side-nav {
+    padding: 14px 0 !important;
+}
+
+/* ---- Top level items: Dashboard, IPRN SMS Module, SMS Test Panel,
+        My Agents, SMS CDR & Statistics, Agent Credit Notes, API ---- */
+.side-nav > li > a {
+    color: #eaeaea !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    padding: 14px 22px !important;
+    border-left: none !important;
+    background: transparent !important;
+}
+
+.side-nav > li > a:hover,
+.side-nav > li > a.active {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+    border-left: none !important;
+}
+
+.side-nav li a .color-icons {
+    opacity: 1 !important;
+    margin-right: 12px !important;
+}
+
+.side-nav li#main > a::after {
+    border-top-color: #8a8a8a !important;
+}
+
+/* ---- Submenu items: SMS Ranges, My SMS Numbers, SMS RateCard,
+        SMS Bulk Allocations, Detailed/Summary SMS Reports,
+        Agent SMS Stats, SMS Range Stats, SMS Number Stats ---- */
+.side-nav li ul {
+    background: transparent !important;
+    padding: 2px 0 12px !important;
+}
+
+.side-nav li ul li a {
+    color: #f2c94c !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    padding: 9px 22px 9px 48px !important;
+    border-left: none !important;
+    background: transparent !important;
+}
+
+.side-nav li ul li a:hover {
+    color: #ffe08a !important;
+    background: transparent !important;
+    border-left: none !important;
+}
+
+.side-nav li ul li .sidenav-icon {
+    left: 22px !important;
+}
+
+.side-nav li ul li .sidenav-icon .sidenav-link-color {
+    width: 7px !important;
+    height: 7px !important;
+    background: transparent !important;
+    border: 1.5px solid #f2c94c !important;
+    border-radius: 50% !important;
+}
+
+.side-nav li ul li a:hover .sidenav-icon .sidenav-link-color {
+    border-color: #ffe08a !important;
+    background: transparent !important;
+}
+
+/* Scrollbar to match dark background */
+#sidebar::-webkit-scrollbar-track {
+    background: #262626 !important;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: #444 !important;
+}
+
+@media (max-width: 992px) {
+    #sidebar {
+        width: 230px !important;
+    }
+    .navbar-inner {
+        padding-left: 240px !important;
+    }
+    #main-content {
+        margin-left: 230px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #sidebar:hover {
+        width: 260px !important;
+    }
+}
+
+/* ============================================================
+   Mobile hamburger menu (.nav-collapse .nav) — same reference
+   look (dark background, bold white section headers, gold
+   submenu links with hollow circle bullets) as the desktop
+   sidebar above. Applied on EVERY page that loads this file,
+   not just the Dashboard.
+   ============================================================ */
+@media screen and (max-width: 979px) {
+    .nav-collapse,
+    .nav-collapse.in,
+    .nav-collapse .nav,
+    .nav-collapse.in .nav {
+        background: #262626 !important;
+    }
+
+    .nav-collapse .nav > li > a,
+    .nav-collapse.in .nav > li > a {
+        color: #eaeaea !important;
+        font-weight: 600 !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        background: transparent !important;
+        border-left: none !important;
+    }
+
+    .nav-collapse .nav > li > a:hover,
+    .nav-collapse.in .nav > li > a:hover {
+        background: rgba(255, 255, 255, 0.06) !important;
+        color: #ffffff !important;
+    }
+
+    .nav-collapse .nav li a .color-icons {
+        opacity: 1 !important;
+        margin-right: 10px !important;
+    }
+
+    .nav-collapse .nav li#main > a::after {
+        border-top-color: #8a8a8a !important;
+    }
+
+    .nav-collapse .nav li ul.acitem,
+    .nav-collapse.in .nav li ul.acitem {
+        background: #262626 !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li a,
+    .nav-collapse.in .nav li ul.acitem li a {
+        color: #f2c94c !important;
+        font-weight: 400 !important;
+        text-transform: none !important;
+        background: transparent !important;
+        border-left: none !important;
+        padding-left: 42px !important;
+        position: relative;
+    }
+
+    .nav-collapse .nav li ul.acitem li a:hover,
+    .nav-collapse.in .nav li ul.acitem li a:hover {
+        color: #ffe08a !important;
+        background: transparent !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li .sidenav-icon {
+        left: 18px !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li .sidenav-icon .sidenav-link-color {
+        width: 7px !important;
+        height: 7px !important;
+        background: transparent !important;
+        border: 1.5px solid #f2c94c !important;
+        border-radius: 50% !important;
+    }
+
+    .nav-collapse .nav li ul.acitem li a:hover .sidenav-icon .sidenav-link-color {
+        border-color: #ffe08a !important;
+        background: transparent !important;
+    }
+}
+
+
+
+/* Menu toggle: visible on mobile, right side */
+@media (max-width: 979px) {
+  .g1t-menu-toggle {
+    display: block !important;
+  }
+  .g1t-menu-toggle a {
+    color: #f2c94c !important;
+  }
+}
+@media (min-width: 980px) {
+  .g1t-menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Menu toggle must float right inside pull-right, not left */
+.g1t-menu-toggle {
+  float: right !important;
+  clear: both !important;
+}
+
+/* ═══ Mobile sidebar: Seven1Tel style (left slide overlay) ═══ */
+@media (max-width: 979px) {
+  .nav-collapse {
+    position: fixed !important;
+    top: 0 !important;
+    left: -280px !important;
+    width: 270px !important;
+    height: 100vh !important;
+    background: #1a1d2e !important;
+    z-index: 99999 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    transition: left 0.3s ease !important;
+    padding: 15px 0 !important;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.5);
+    display: block !important;
+  }
+  .nav-collapse.in,
+  .nav-collapse.collapse.in {
+    left: 0 !important;
+    height: 100vh !important;
+  }
+  .nav-collapse .nav {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .nav-collapse .nav > li {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+  }
+  .nav-collapse .nav > li > a {
+    display: block !important;
+    padding: 12px 20px !important;
+    color: #cfd4e0 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+  }
+  .nav-collapse .nav > li > a:hover,
+  .nav-collapse .nav > li > a:focus {
+    background: rgba(242,201,76,0.1) !important;
+    color: #f2c94c !important;
+  }
+  .nav-collapse .nav > li > a .color-icons,
+  .nav-collapse .nav > li > a .black-icons {
+    margin-right: 10px;
+  }
+  /* Sub-menu items */
+  .nav-collapse .nav > li > ul,
+  .nav-collapse .nav .acitem {
+    background: rgba(0,0,0,0.2) !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .nav-collapse .nav > li > ul > li > a,
+  .nav-collapse .nav .acitem > li > a {
+    display: block !important;
+    padding: 10px 20px 10px 35px !important;
+    color: #4fc3f7 !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+  }
+  .nav-collapse .nav > li > ul > li > a:hover,
+  .nav-collapse .nav .acitem > li > a:hover {
+    color: #f2c94c !important;
+    background: rgba(242,201,76,0.08) !important;
+  }
+  /* Section headers */
+  .nav-collapse .nav > li#main > a {
+    color: #e0e0e0 !important;
+    font-weight: 600 !important;
+  }
+  /* Dark overlay behind sidebar */
+  .nav-collapse-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99998;
+  }
+  .nav-collapse.in ~ .nav-collapse-overlay,
+  .nav-collapse.collapse.in ~ .nav-collapse-overlay {
+    display: block;
+  }
+}

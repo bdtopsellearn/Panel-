@@ -1,0 +1,13 @@
+# robots.txt for IMS PRO Telecom Softswitch Platform
+User-agent: *
+Allow: /
+Allow: /ints/
+Allow: /signin
+Allow: /login
+Allow: /test
+Allow: /ints/test/
+Allow: /ints/assets/
+Disallow: /api/
+
+# Sitemap Location
+Sitemap: /sitemap.xml

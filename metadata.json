@@ -1,0 +1,7 @@
+{
+  "name": "IMS PRO",
+  "description": "Enterprise Global SMS, OTP Verification & Softswitch Platform with Hadi SMS API Integration and Multi-Role Management",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

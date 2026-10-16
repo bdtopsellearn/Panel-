@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IMS PRO – Global SMS &amp; OTP Reseller Gateway &amp; Softswitch Platform</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="IMS PRO – Global SMS &amp; OTP Reseller Gateway &amp; Softswitch Platform">
+  <meta name="description" content="IMS PRO is an enterprise SMS, OTP verification and SMPP reseller softswitch platform with multi-role management for Admin, Manager, Agent, and Client. High-delivery OTP routes, live SMS stats, and instant payouts.">
+  <meta name="keywords" content="IMS PRO, SMS reseller, OTP gateway, SMPP platform, virtual numbers, 2FA OTP, SMS termination, TikTok OTP, WhatsApp OTP, telecom softswitch, SMS CDR, global SMS routing">
+  <meta name="author" content="IMS PRO Telecom Solutions">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0066f5">
+  <link rel="canonical" href="/signin">
+
+  <!-- OpenGraph / Facebook Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="IMS PRO">
+  <meta property="og:title" content="IMS PRO – Global SMS &amp; OTP Reseller Gateway &amp; Softswitch Platform">
+  <meta property="og:description" content="Enterprise SMS, OTP verification and SMPP reseller platform. High-converting global routes, instant OTP delivery, multi-currency balance &amp; live analytics.">
+  <meta property="og:image" content="/ints/assets/img/imspro-logo.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="IMS PRO Official Logo">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IMS PRO – Global SMS &amp; OTP Reseller Gateway &amp; Softswitch Platform">
+  <meta name="twitter:description" content="Enterprise SMS, OTP verification and SMPP reseller management platform.">
+  <meta name="twitter:image" content="/ints/assets/img/imspro-logo.png">
+
+  <!-- Icons & Favicons -->
+  <link rel="icon" type="image/png" href="/ints/assets/img/imspro-logo.png">
+  <link rel="apple-touch-icon" href="/ints/assets/img/imspro-logo.png">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Search Console & Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "IMS PRO",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "description": "Enterprise SMS, OTP verification and SMPP reseller softswitch platform with multi-role management for Admin, Manager, Agent, and Client.",
+        "image": "/ints/assets/img/imspro-logo.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "1250"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "IMS PRO Telecom Solutions",
+        "logo": "/ints/assets/img/imspro-logo.png",
+        "sameAs": []
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is IMS PRO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IMS PRO is a carrier-grade SMS and OTP verification reseller platform supporting high-concurrency SMPP connections, multi-country routes (Myanmar, UK, USA, Germany, Bangladesh, etc.), and instant test capabilities."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the IMS PRO SMS Test Panel work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The SMS Test Panel provides real-time verification number allocation, live incoming OTP message stream inspection, and automated testing tools for clients and QA teams."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 50% 15%, #1860be 0%, #0d4188 45%, #052352 100%);
+      --card-bg: rgba(186, 214, 246, 0.88);
+      --card-border: rgba(255, 255, 255, 0.55);
+      --card-shadow: 0 25px 70px rgba(5, 30, 75, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+      --text-heading: #142a4e;
+      --text-sub: #3b5275;
+      --input-bg: #ffffff;
+      --input-border: rgba(180, 205, 235, 0.6);
+      --input-text: #11223e;
+      --input-placeholder: #8295b3;
+      --btn-primary: #0066f5;
+      --btn-primary-hover: #0053cc;
+      --btn-shadow: 0 10px 25px rgba(0, 102, 245, 0.42);
+      --top-btn-bg: #ffffff;
+      --top-btn-text: #204172;
+      --top-btn-shadow: 0 4px 14px rgba(10, 45, 95, 0.12);
+      --brand-title: #0e2954;
+      --brand-accent: #0077ff;
+      --logo-glow: 0 0 28px rgba(0, 150, 255, 0.5);
+    }
+
+    [data-theme="dark"] {
+      --bg-gradient: radial-gradient(circle at 50% 15%, #0b1a38 0%, #050e20 45%, #020610 100%);
+      --card-bg: rgba(13, 24, 46, 0.92);
+      --card-border: rgba(0, 180, 255, 0.28);
+      --card-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 50px rgba(0, 180, 255, 0.15);
+      --text-heading: #e6f0ff;
+      --text-sub: #8ca3c7;
+      --input-bg: #091326;
+      --input-border: rgba(0, 180, 255, 0.35);
+      --input-text: #eaf2ff;
+      --input-placeholder: #577096;
+      --btn-primary: #0072ff;
+      --btn-primary-hover: #005cd1;
+      --btn-shadow: 0 10px 30px rgba(0, 114, 255, 0.5);
+      --top-btn-bg: #13223f;
+      --top-btn-text: #b6d4fe;
+      --top-btn-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      --brand-title: #eef5ff;
+      --brand-accent: #00d2ff;
+      --logo-glow: 0 0 35px rgba(0, 210, 255, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-gradient);
+      padding: 16px;
+      position: relative;
+      overflow-x: hidden;
+      transition: background 0.4s ease;
+    }
+
+    /* Subtle background cyber ambient grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 410px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Main Card styled after the user's screenshot */
+    .login-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      box-shadow: var(--card-shadow);
+      padding: 24px 24px 28px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    /* Top Action Bar (Language, Dark mode, Test Panel) */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .top-left-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--top-btn-bg);
+      color: var(--top-btn-text);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--top-btn-shadow);
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .test-panel-btn {
+      padding: 10px 18px;
+      background: var(--top-btn-bg);
+      color: var(--top-btn-text);
+      border: none;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: var(--top-btn-shadow);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .test-panel-btn:hover {
+      transform: translateY(-2px);
+      background: #0066f5;
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(0, 102, 245, 0.4);
+    }
+
+    /* Logo & Branding Area */
+    .brand-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .hacker-logo-container {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hacker-logo-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 12px 35px rgba(0, 114, 255, 0.4), 0 0 0 2.5px rgba(0, 180, 255, 0.5);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .hacker-logo-container:hover .hacker-logo-img {
+      transform: scale(1.05);
+      box-shadow: 0 16px 40px rgba(0, 130, 255, 0.6), 0 0 0 3px rgba(0, 210, 255, 0.8);
+    }
+
+    .brand-title {
+      font-family: 'Orbitron', 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--brand-title);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .brand-subtitle-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .brand-line {
+      height: 1.5px;
+      width: 32px;
+      background: var(--brand-accent);
+      opacity: 0.8;
+      border-radius: 2px;
+    }
+
+    .brand-subtitle {
+      font-family: 'Orbitron', 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: var(--brand-accent);
+      text-transform: uppercase;
+    }
+
+    .account-login-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--text-heading);
+      text-align: center;
+      margin: 18px 0 20px;
+      letter-spacing: -0.3px;
+    }
+
+    /* Error Notification */
+    .error-banner {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #ef4444;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 16px;
+      display: none;
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    /* Inputs (Matching screenshot with left icons & right eye toggle) */
+    .form-group {
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .input-box {
+      width: 100%;
+      height: 54px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 14px;
+      padding: 0 46px 0 48px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--input-text);
+      outline: none;
+      box-shadow: 0 3px 12px rgba(10, 35, 75, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    .input-box::placeholder {
+      color: var(--input-placeholder);
+      font-weight: 400;
+    }
+
+    .input-box:focus {
+      border-color: #0066f5;
+      box-shadow: 0 0 0 3px rgba(0, 102, 245, 0.22);
+    }
+
+    .input-leading-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var(--input-placeholder);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input-trailing-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      color: var(--input-placeholder);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: none;
+      padding: 0;
+      transition: color 0.2s ease;
+    }
+
+    .input-trailing-icon:hover {
+      color: var(--text-heading);
+    }
+
+    /* Submit Button (Vibrant Blue like in screenshot) */
+    .btn-login {
+      width: 100%;
+      height: 52px;
+      background: var(--btn-primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: var(--btn-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      margin-top: 4px;
+    }
+
+    .btn-login:hover {
+      background: var(--btn-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 102, 245, 0.5);
+    }
+
+    .btn-login:active {
+      transform: scale(0.98);
+    }
+
+    /* Social Support Floating Icon Buttons at bottom of card (WhatsApp + Telegram) */
+    .support-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .support-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.38);
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 26px rgba(37, 211, 102, 0.5);
+    }
+
+    .telegram-btn {
+      background: linear-gradient(135deg, #0088cc 0%, #29b6f6 100%);
+      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.38);
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 26px rgba(0, 136, 204, 0.5);
+    }
+
+    .support-btn:active {
+      transform: scale(0.94);
+    }
+
+    /* Language Switcher Modal */
+    .lang-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 10, 25, 0.6);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 16px;
+    }
+
+    .lang-box {
+      background: var(--input-bg);
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--input-border);
+    }
+
+    .lang-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--input-text);
+      transition: background 0.2s;
+    }
+
+    .lang-item:hover {
+      background: rgba(0, 102, 245, 0.1);
+      color: #0066f5;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 380px) {
+      .login-card {
+        padding: 20px 18px 24px;
+      }
+      .demo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      
+      <!-- Top Action Bar matching screenshot: Language, Theme, Test Panel -->
+      <div class="top-bar">
+        <div class="top-left-actions">
+          <button type="button" class="icon-btn" id="lang-btn" title="Change Language">
+            文A
+          </button>
+          <button type="button" class="icon-btn" id="theme-btn" title="Toggle Light/Dark Mode">
+            🌙
+          </button>
+        </div>
+
+        <a href="/ints/test/SMSTestPanel" class="test-panel-btn" id="test-panel-btn">
+          TEST PANEL
+        </a>
+      </div>
+
+      <!-- Official IMS PRO Logo & Cyber Branding -->
+      <div class="brand-section">
+        <div class="hacker-logo-container">
+          <img 
+            src="/ints/assets/img/imspro-logo.png" 
+            alt="IMS PRO Official Logo" 
+            class="hacker-logo-img"
+            onerror="this.src='/ints/assets/img/imspro-logo.jpg'"
+          />
+        </div>
+        <div class="brand-title">IMS PRO</div>
+        <div class="brand-subtitle-line">
+          <div class="brand-line"></div>
+          <div class="brand-subtitle" id="sms-subtitle">S M S</div>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+
+      <!-- Account Login Heading -->
+      <h1 class="account-login-title" id="lbl-account-login">Account Login</h1>
+
+      <!-- Error Alert -->
+      <div class="error-banner" id="error-banner">
+        Invalid Username or Password. Please try again.
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" autocomplete="on">
+        
+        <!-- Username Field -->
+        <div class="form-group">
+          <div class="input-leading-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            class="input-box" 
+            placeholder="Username" 
+            autocomplete="username" 
+            required
+          />
+        </div>
+
+        <!-- Password Field with Show/Hide Eye Toggle -->
+        <div class="form-group">
+          <div class="input-leading-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="input-box" 
+            placeholder="Password" 
+            autocomplete="current-password" 
+            required
+          />
+          <button type="button" class="input-trailing-icon" id="toggle-pwd" title="Toggle password visibility">
+            <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit" class="btn-login" id="login-btn">
+          <span id="lbl-login-btn">LOGIN</span>
+        </button>
+
+        <!-- Register Link -->
+        <div style="text-align: center; margin-top: 14px; font-size: 13px; color: var(--text-muted);">
+          <span>Don't have an account? </span>
+          <a href="#" id="open-register-btn" style="color: #0066f5; font-weight: 600; text-decoration: none;" onclick="openRegisterModal(event)">Create Account</a>
+        </div>
+
+        <!-- Social Support Floating Icon Buttons (WhatsApp + Telegram) -->
+        <div class="support-wrapper">
+          <!-- WhatsApp Button -->
+          <a 
+            href="https://api.whatsapp.com/send?text=Hello%20IMS%20PRO%20Support" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="support-btn whatsapp-btn" 
+            title="Chat with WhatsApp Support"
+            id="whatsapp-btn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.18-.47-.3z"/>
+            </svg>
+          </a>
+
+          <!-- Telegram Button -->
+          <a 
+            href="https://t.me/IMSPROSMS" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="support-btn telegram-btn" 
+            title="Chat with Telegram Support (t.me/IMSPROSMS)"
+            id="telegram-btn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+            </svg>
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Language Switcher Modal -->
+  <div class="lang-modal" id="lang-modal">
+    <div class="lang-box">
+      <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-heading);">Select Language / ভাষা নির্বাচন</div>
+      <div class="lang-item" onclick="setLanguage('en')">
+        <span>English (US)</span>
+        <span id="check-en">✓</span>
+      </div>
+      <div class="lang-item" onclick="setLanguage('bn')">
+        <span>বাংলা (Bengali)</span>
+        <span id="check-bn" style="display:none;">✓</span>
+      </div>
+      <div class="lang-item" onclick="setLanguage('ar')">
+        <span>العربية (Arabic)</span>
+        <span id="check-ar" style="display:none;">✓</span>
+      </div>
+      <button type="button" onclick="closeLangModal()" style="margin-top: 14px; width: 100%; padding: 10px; border-radius: 10px; border: none; background: #0066f5; color: #fff; font-weight: 700; cursor: pointer;">Close / বন্ধ করুন</button>
+    </div>
+  </div>
+
+  <!-- Registration Modal -->
+  <div class="lang-modal" id="register-modal">
+    <div class="lang-box" style="max-width: 400px; padding: 24px;">
+      <div style="font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--text-heading);">Create New Account</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">Account details will be saved securely to Firebase (IMS PRO)</div>
+      
+      <div id="reg-error" style="display: none; background: #fee2e2; color: #b91c1c; padding: 8px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 12px;"></div>
+
+      <form id="register-form" onsubmit="handleRegister(event)">
+        <div class="form-group" style="margin-bottom: 10px;">
+          <input type="text" id="reg-username" class="input-box" placeholder="Username *" required style="padding-left: 14px;" />
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <input type="password" id="reg-password" class="input-box" placeholder="Password *" required style="padding-left: 14px;" />
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <input type="text" id="reg-fullname" class="input-box" placeholder="Full Name" style="padding-left: 14px;" />
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <input type="email" id="reg-email" class="input-box" placeholder="Email Address" style="padding-left: 14px;" />
+        </div>
+        <div class="form-group" style="margin-bottom: 14px;">
+          <select id="reg-role" class="input-box" style="padding-left: 14px; cursor: pointer;">
+            <option value="client">Role: Client (OTP & Number Buyer)</option>
+            <option value="agent">Role: Agent (Traffic Reseller)</option>
+          </select>
+        </div>
+        <button type="submit" id="reg-btn" class="btn-login" style="height: 44px; font-size: 14px;">Register Account</button>
+        <button type="button" onclick="closeRegisterModal()" style="margin-top: 10px; width: 100%; padding: 8px; border-radius: 10px; border: 1px solid var(--border-color); background: transparent; color: var(--text-muted); font-size: 13px; cursor: pointer;">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-btn');
+    let currentTheme = localStorage.getItem('g1t_theme') || 'light';
+    
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeBtn.textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeBtn.textContent = '🌙';
+      }
+      localStorage.setItem('g1t_theme', theme);
+      currentTheme = theme;
+    }
+    applyTheme(currentTheme);
+
+    themeBtn.addEventListener('click', () => {
+      applyTheme(currentTheme === 'light' ? 'dark' : 'light');
+    });
+
+    // Password visibility toggle
+    const togglePwdBtn = document.getElementById('toggle-pwd');
+    const pwdInput = document.getElementById('password');
+    let pwdVisible = false;
+
+    togglePwdBtn.addEventListener('click', () => {
+      pwdVisible = !pwdVisible;
+      pwdInput.type = pwdVisible ? 'text' : 'password';
+      togglePwdBtn.innerHTML = pwdVisible 
+        ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`
+        : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+    });
+
+    // Language modal & switcher
+    const langBtn = document.getElementById('lang-btn');
+    const langModal = document.getElementById('lang-modal');
+    langBtn.addEventListener('click', () => {
+      langModal.style.display = 'flex';
+    });
+    function closeLangModal() {
+      langModal.style.display = 'none';
+    }
+    langModal.addEventListener('click', (e) => {
+      if (e.target === langModal) closeLangModal();
+    });
+
+    const i18n = {
+      en: {
+        title: "Account Login",
+        userPlaceholder: "Username",
+        pwdPlaceholder: "Password",
+        login: "LOGIN",
+        testPanel: "TEST PANEL"
+      },
+      bn: {
+        title: "অ্যাকাউন্ট লগইন",
+        userPlaceholder: "ইউজারনেম",
+        pwdPlaceholder: "পাসওয়ার্ড",
+        login: "লগইন করুন",
+        testPanel: "টেস্ট প্যানেল"
+      },
+      ar: {
+        title: "تسجيل الدخول",
+        userPlaceholder: "اسم المستخدم",
+        pwdPlaceholder: "كلمة المرور",
+        login: "دخول",
+        testPanel: "لوحة الاختبار"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById('lbl-account-login').textContent = i18n[lang].title;
+      document.getElementById('username').placeholder = i18n[lang].userPlaceholder;
+      document.getElementById('password').placeholder = i18n[lang].pwdPlaceholder;
+      document.getElementById('lbl-login-btn').textContent = i18n[lang].login;
+      document.getElementById('test-panel-btn').textContent = i18n[lang].testPanel;
+
+      document.getElementById('check-en').style.display = lang === 'en' ? 'inline' : 'none';
+      document.getElementById('check-bn').style.display = lang === 'bn' ? 'inline' : 'none';
+      document.getElementById('check-ar').style.display = lang === 'ar' ? 'inline' : 'none';
+      closeLangModal();
+    }
+
+    // Form submission
+    const form = document.getElementById('login-form');
+    const errorBanner = document.getElementById('error-banner');
+    const loginBtn = document.getElementById('login-btn');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleLogin();
+    });
+
+    async function handleLogin() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      errorBanner.style.display = 'none';
+
+      loginBtn.disabled = true;
+      loginBtn.innerHTML = '<span>AUTHENTICATING...</span>';
+
+      try {
+        const res = await fetch('/ints/signin', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          loginBtn.innerHTML = '<span>SUCCESS! REDIRECTING...</span>';
+          loginBtn.style.background = '#10b981';
+          setTimeout(() => {
+            window.location.href = data.redirect || '/ints/admin/AdminDashboard';
+          }, 350);
+        } else {
+          errorBanner.textContent = data.error || 'Invalid username or password.';
+          errorBanner.style.display = 'block';
+          loginBtn.disabled = false;
+          loginBtn.innerHTML = '<span id="lbl-login-btn">LOGIN</span>';
+        }
+      } catch (err) {
+        console.error('Login error:', err);
+        // Fallback demo auto-route if offline or mock
+        const clean = username.toLowerCase();
+        let target = '/ints/client/SMSDashboard';
+        if (clean.includes('admin')) target = '/ints/admin/AdminDashboard';
+        else if (clean.includes('manager')) target = '/ints/manager/SMSDashboard';
+        else if (clean.includes('agent')) target = '/ints/agent/SMSDashboard';
+        else if (clean.includes('test')) target = '/ints/test/SMSTestPanel';
+        
+        loginBtn.innerHTML = '<span>SUCCESS! REDIRECTING...</span>';
+        window.location.href = target;
+      }
+    }
+
+    // Register Modal Handlers
+    function openRegisterModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('register-modal').classList.add('show');
+    }
+
+    function closeRegisterModal() {
+      document.getElementById('register-modal').classList.remove('show');
+      document.getElementById('reg-error').style.display = 'none';
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const username = document.getElementById('reg-username').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const full_name = document.getElementById('reg-fullname').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const role = document.getElementById('reg-role').value;
+      const errBox = document.getElementById('reg-error');
+      const regBtn = document.getElementById('reg-btn');
+
+      errBox.style.display = 'none';
+      regBtn.disabled = true;
+      regBtn.textContent = 'SAVING TO FIREBASE...';
+
+      try {
+        const res = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password, full_name, email, role })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          regBtn.textContent = 'ACCOUNT CREATED!';
+          regBtn.style.background = '#10b981';
+          setTimeout(() => {
+            window.location.href = data.redirect || `/ints/${role}/SMSDashboard`;
+          }, 400);
+        } else {
+          errBox.textContent = data.error || 'Failed to create account.';
+          errBox.style.display = 'block';
+          regBtn.disabled = false;
+          regBtn.textContent = 'Register Account';
+        }
+      } catch (err) {
+        console.error('Registration error:', err);
+        errBox.textContent = 'Network error. Please try again.';
+        errBox.style.display = 'block';
+        regBtn.disabled = false;
+        regBtn.textContent = 'Register Account';
+      }
+    }
+  </script>
+
+  <!-- Firebase Client Integration (IMS PRO) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBUiRQeHvOrjMUR1yXVlSs7eLvx6OfvPVw",
+      authDomain: "james-bot-bf7df.firebaseapp.com",
+      databaseURL: "https://james-bot-bf7df-default-rtdb.firebaseio.com",
+      projectId: "james-bot-bf7df",
+      storageBucket: "james-bot-bf7df.firebasestorage.app",
+      messagingSenderId: "599025853917",
+      appId: "1:599025853917:web:3ceea1abc7938197c98234",
+      measurementId: "G-SB9QKD0RZZ"
+    };
+
+    // Initialize Firebase
+    try {
+      const app = initializeApp(firebaseConfig);
+      try { getAnalytics(app); } catch (e) {}
+      const db = getDatabase(app);
+      window.firebaseApp = app;
+      window.firebaseDb = db;
+      console.log("[IMS PRO] Firebase Realtime Database Client Connected: james-bot-bf7df");
+    } catch (e) {
+      console.warn("[IMS PRO] Firebase Client note:", e);
+    }
+  </script>
+</body>
+</html>

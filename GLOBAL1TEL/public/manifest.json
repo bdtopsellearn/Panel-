@@ -1,0 +1,17 @@
+{
+  "name": "IMS PRO - SMS & OTP Gateway",
+  "short_name": "IMS PRO",
+  "description": "Enterprise SMS, OTP verification and SMPP reseller softswitch platform.",
+  "start_url": "/signin",
+  "display": "standalone",
+  "background_color": "#0d4188",
+  "theme_color": "#0066f5",
+  "icons": [
+    {
+      "src": "/ints/assets/img/imspro-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
